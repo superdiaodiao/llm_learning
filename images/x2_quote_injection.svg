@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 440" width="1360" height="880">
+<rect width="680" height="440" fill="#ffffff"/>
+<text x="20" y="26" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">攻击者（或一个正常的文件名）传入的 id</text>
+<rect x="20" y="38" width="300" height="38" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="34" y="62" font-family="Noto Sans CJK SC" font-size="13" fill="#dc2626" text-anchor="start" font-weight="600">x' OR '1'='1</text>
+<text x="20" y="110" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">代码用字符串拼接构造过滤条件</text>
+<rect x="20" y="122" width="636" height="42" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="34" y="148" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="start">where = "id = '"  +  id  +  "'"</text>
+<text x="20" y="198" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">拼出来的结果</text>
+<rect x="20" y="210" width="636" height="44" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="34" y="238" font-family="Noto Sans CJK SC" font-size="14" fill="#1f2937" text-anchor="start" font-weight="600">id = 'x'  OR  '1'='1'</text>
+<text x="300" y="238" font-family="Noto Sans CJK SC" font-size="11" fill="#dc2626" text-anchor="start" font-weight="600">← 引号提前闭合，后半段变成了逻辑</text>
+<text x="20" y="288" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">数据库这样理解它</text>
+<rect x="20" y="300" width="636" height="64" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="34" y="324" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">id 等于 'x'  ——  或者（OR）  ——  '1'='1'（永远为真）</text>
+<text x="34" y="350" font-family="Noto Sans CJK SC" font-size="11" fill="#dc2626" text-anchor="start" font-weight="600">整个条件恒为真 → delete 匹配所有行 → 删库。id 里的引号“越狱”成了逻辑。</text>
+<text x="20" y="396" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">修复：把 id 里的单引号双写（SQL 转义规则）</text>
+<rect x="20" y="406" width="636" height="26" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="34" y="424" font-family="Noto Sans CJK SC" font-size="11" fill="#16a34a" text-anchor="start" font-weight="600">id = 'x'' OR ''1''=''1'   ← 整体是一个字符串字面量，引号不再越狱</text>
+</svg>

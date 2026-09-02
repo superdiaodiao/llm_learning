@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 560" width="1360" height="1120">
+<rect width="680" height="560" fill="#ffffff"/>
+<text x="20" y="22" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">ReAct 一步：思考(内部) 与 行动(对外) 交替，中间横着一条“运行时边界”</text>
+<text x="20" y="46" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">问题："法国首都有多少人口?"</text>
+<rect x="20" y="58" width="300" height="40" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="34" y="76" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="start" font-weight="600">Thought（推理，留在模型内部）</text>
+<text x="34" y="92" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">"先查法国首都，再查它的人口"</text>
+<rect x="20" y="106" width="300" height="40" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="34" y="124" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="start" font-weight="600">Action（结构化工具调用）</text>
+<text x="34" y="140" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">search(query="capital of France")</text>
+<line x1="340" y1="50" x2="340" y2="300" stroke="#2563eb" stroke-width="1.4" stroke-dasharray="5,3"/>
+<text x="348" y="60" font-family="Noto Sans CJK SC" font-size="10" fill="#2563eb" text-anchor="start" font-weight="600">运行时边界：</text>
+<text x="348" y="74" font-family="Noto Sans CJK SC" font-size="10" fill="#2563eb" text-anchor="start" font-weight="600">模型不能执行，只能“请求”</text>
+<rect x="380" y="106" width="280" height="40" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.4" stroke-dasharray="5,3"/>
+<text x="394" y="124" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="start" font-weight="600">运行时执行工具（真去搜）</text>
+<text x="394" y="140" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">search(...) → "Paris"</text>
+<rect x="380" y="152" width="280" height="34" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="394" y="173" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">Observation: "Paris"  → 追加回上下文</text>
+<line x1="520" y1="146" x2="520" y2="152" stroke="#2563eb" stroke-width="1.6"/>
+<polygon points="520,152 524.0,144.0 516.0,144.0" fill="#2563eb"/>
+<path d="M380,169 C 250,169 170,150 170,148" fill="none" stroke="#2563eb" stroke-width="1.6"/>
+<polygon points="170,148 166.7,156.3 174.7,155.6" fill="#2563eb"/>
+<rect x="20" y="200" width="300" height="34" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="34" y="221" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">Thought: "有了 Paris，再查 Paris 人口"</text>
+<rect x="20" y="240" width="300" height="34" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="34" y="261" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">Action: search(query="population of Paris")</text>
+<rect x="380" y="220" width="280" height="34" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.4" stroke-dasharray="5,3"/>
+<text x="394" y="241" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">运行时 → "≈2.1M"  →  Observation 回填</text>
+<rect x="20" y="284" width="640" height="30" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="34" y="304" font-family="Noto Sans CJK SC" font-size="11" fill="#16a34a" text-anchor="start" font-weight="600">循环到“信息够了” → 输出最终答案："约 210 万"</text>
+<line x1="20" y1="332" x2="660" y2="332" stroke="#9ca3af" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="20" y="356" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">“工具调用”到底怎么发生的（四步）</text>
+<rect x="20" y="370" width="150" height="70" rx="6" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.4"/>
+<text x="95.0" y="392" font-family="Noto Sans CJK SC" font-size="11" fill="#1f2937" text-anchor="middle" font-weight="600">①给模型工具表</text>
+<text x="95.0" y="412" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">每个工具的名字、</text>
+<text x="95.0" y="428" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">参数 schema 进提示</text>
+<rect x="198" y="370" width="150" height="70" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.4"/>
+<text x="273.0" y="392" font-family="Noto Sans CJK SC" font-size="11" fill="#1f2937" text-anchor="middle" font-weight="600">②模型吐结构化调用</text>
+<text x="273.0" y="412" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">{"name":"search",</text>
+<text x="273.0" y="428" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle"> "args":{...}}</text>
+<rect x="376" y="370" width="150" height="70" rx="6" fill="#ffffff" stroke="#2563eb" stroke-width="1.4" stroke-dasharray="5,3"/>
+<text x="451.0" y="392" font-family="Noto Sans CJK SC" font-size="11" fill="#1f2937" text-anchor="middle" font-weight="600">③运行时解析+执行</text>
+<text x="451.0" y="412" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">真正调用那个函数</text>
+<text x="451.0" y="428" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">/ API / 数据库</text>
+<rect x="554" y="370" width="106" height="70" rx="6" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.4"/>
+<text x="607.0" y="392" font-family="Noto Sans CJK SC" font-size="11" fill="#1f2937" text-anchor="middle" font-weight="600">④结果回填</text>
+<text x="607.0" y="412" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">当作新消息</text>
+<text x="607.0" y="428" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">喂回模型</text>
+<line x1="170" y1="405" x2="196" y2="405" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="196,405 188.0,401.0 188.0,409.0" fill="#9ca3af"/>
+<line x1="348" y1="405" x2="374" y2="405" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="374,405 366.0,401.0 366.0,409.0" fill="#9ca3af"/>
+<line x1="526" y1="405" x2="552" y2="405" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="552,405 544.0,401.0 544.0,409.0" fill="#9ca3af"/>
+<rect x="20" y="460" width="640" height="86" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="34" y="484" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">要害</text>
+<text x="34" y="506" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">· 模型永远只做一件事：生成文字（包括“我想调 search”这句结构化文字）。真正动手的是运行时。</text>
+<text x="34" y="526" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">· ReAct = 把“思考”也显式写进循环，让模型边想边做、还能根据观察改主意。</text>
+</svg>

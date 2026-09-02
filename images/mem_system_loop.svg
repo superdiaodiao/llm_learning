@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 500" width="1360" height="1000">
+<rect width="680" height="500" fill="#ffffff"/>
+<rect x="20" y="40" width="140" height="46" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="90" y="60" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="middle">新消息</text>
+<text x="90" y="78" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">"帮我订机票"</text>
+<line x1="160" y1="63" x2="196" y2="63" stroke="#2563eb" stroke-width="1.6"/>
+<polygon points="196,63 188.0,59.0 188.0,67.0" fill="#2563eb"/>
+<text x="178" y="53" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="middle" font-weight="600">①读</text>
+<rect x="198" y="40" width="170" height="46" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="283" y="60" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="600">检索相关记忆</text>
+<text x="283" y="78" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">按语义找（就是 RAG）</text>
+<line x1="368" y1="63" x2="404" y2="63" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="404,63 396.0,59.0 396.0,67.0" fill="#9ca3af"/>
+<rect x="406" y="40" width="180" height="46" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="496" y="60" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="600">注入上下文 → LLM 生成</text>
+<text x="496" y="78" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">"（已知：TA 常坐靠窗）…"</text>
+<line x1="496" y1="86" x2="496" y2="120" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="496,120 500.0,112.0 492.0,112.0" fill="#9ca3af"/>
+<rect x="406" y="122" width="180" height="40" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="496" y="146" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="middle">回答用户</text>
+<line x1="406" y1="142" x2="300" y2="142" stroke="#2563eb" stroke-width="1.6"/>
+<polygon points="300,142 308.0,146.0 308.0,138.0" fill="#2563eb"/>
+<text x="353" y="134" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="middle" font-weight="600">②写</text>
+<rect x="120" y="122" width="180" height="40" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="210" y="140" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="600">抽取要点</text>
+<text x="210" y="156" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">"用户偏好靠窗座位"</text>
+<line x1="180" y1="162" x2="180" y2="196" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="180,196 184.0,188.0 176.0,188.0" fill="#9ca3af"/>
+<rect x="40" y="200" width="600" height="150" rx="10" fill="#ffffff" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="60" y="224" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">长期记忆库（外部持久存储）</text>
+<text x="60" y="244" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">写入不是无脑追加，而是带策略：</text>
+<rect x="60" y="256" width="120" height="34" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="120" y="277" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="middle" font-weight="600">新增 add</text>
+<rect x="196" y="256" width="120" height="34" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="256" y="277" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="middle" font-weight="600">更新 update</text>
+<rect x="332" y="256" width="120" height="34" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="392" y="277" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="middle" font-weight="600">删除/遗忘 delete</text>
+<text x="470" y="278" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">← 冲突时改而非重复</text>
+<text x="60" y="312" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">按类型组织：</text>
+<text x="60" y="332" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">情景记忆(过去发生的事) · 语义记忆(关于用户的事实) · 程序记忆(学会的做法)</text>
+<rect x="40" y="366" width="600" height="118" rx="10" fill="#ffffff" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="60" y="390" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">两层记忆，像 OS 的内存与硬盘</text>
+<text x="60" y="414" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">· 工作记忆 = 上下文窗口本身（这轮对话，快但小，会被挤掉）——像 RAM。</text>
+<text x="60" y="436" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">· 长期记忆 = 外部存储（跨会话持久，按需取回）——像硬盘。</text>
+<text x="60" y="460" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="start" font-weight="600">· MemGPT 的洞见：让模型像操作系统“换页”一样，自己决定把什么调进上下文、把什么写回外部。</text>
+<text x="60" y="478" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">（和 PagedAttention 那个分页思想是同一套智慧，换了一层）</text>
+</svg>

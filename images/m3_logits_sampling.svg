@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 540" width="1360" height="1080">
+<rect width="680" height="540" fill="#ffffff"/>
+<rect x="20" y="30" width="150" height="44" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="95" y="50" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="middle">最终向量</text>
+<text x="95" y="67" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">hidden state</text>
+<line x1="170" y1="52" x2="206" y2="52" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="206,52 198.0,48.0 198.0,56.0" fill="#9ca3af"/>
+<text x="188" y="42" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="middle" font-weight="600">lm_head</text>
+<rect x="208" y="30" width="240" height="44" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="328" y="49" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="600">logits（每个词一个分数）</text>
+<text x="328" y="67" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">长度 = 词表大小 ≈ 128000</text>
+<line x1="448" y1="52" x2="484" y2="52" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="484,52 476.0,48.0 476.0,56.0" fill="#9ca3af"/>
+<text x="466" y="42" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="middle" font-weight="600">softmax</text>
+<rect x="486" y="30" width="174" height="44" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="573" y="49" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="600">概率分布</text>
+<text x="573" y="67" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="middle">加起来 = 1</text>
+<text x="20" y="106" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">概率分布长这样（下一个词的候选）</text>
+<rect x="20" y="116" width="640" height="120" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<rect x="60" y="150" width="40" height="70" rx="2" fill="#2563eb" stroke="#2563eb" stroke-width="1.5"/>
+<text x="80" y="232" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="middle">mat .62</text>
+<rect x="150" y="176" width="40" height="44" rx="2" fill="#2563eb" stroke="#2563eb" stroke-width="1.5"/>
+<text x="170" y="232" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="middle">floor .20</text>
+<rect x="250" y="196" width="40" height="24" rx="2" fill="#2563eb" stroke="#2563eb" stroke-width="1.5"/>
+<text x="270" y="232" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="middle">rug .09</text>
+<rect x="345" y="206" width="40" height="14" rx="2" fill="#9ca3af" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="365" y="232" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="middle">sofa .04</text>
+<rect x="440" y="212" width="40" height="8" rx="2" fill="#9ca3af" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="460" y="232" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="middle">banana .002</text>
+<text x="545" y="180" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">"the cat sat on the ___"</text>
+<text x="20" y="270" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">三个采样旋钮：从这个分布里怎么挑一个词</text>
+<rect x="20" y="282" width="205" height="110" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="34" y="304" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="start" font-weight="600">temperature（温度）</text>
+<text x="34" y="324" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">调分布的“陡峭度”。</text>
+<text x="34" y="342" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">低=更尖，几乎总选 mat</text>
+<text x="34" y="360" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">（确定、保守）；高=更平，</text>
+<text x="34" y="378" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">更敢选冷门（多样、发散）。</text>
+<rect x="237" y="282" width="205" height="110" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="251" y="304" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="start" font-weight="600">top-k</text>
+<text x="251" y="324" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">只保留分数最高的 k 个，</text>
+<text x="251" y="342" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">其余全部丢弃。</text>
+<text x="251" y="360" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">k=3 → 只在 mat/floor/rug</text>
+<text x="251" y="378" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">之间挑，banana 没机会。</text>
+<rect x="454" y="282" width="205" height="110" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="468" y="304" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="start" font-weight="600">top-p（核采样）</text>
+<text x="468" y="324" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">从高到低累加概率，</text>
+<text x="468" y="342" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">凑够 p（如 0.9）就截断。</text>
+<text x="468" y="360" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">候选个数随把握度自动变：</text>
+<text x="468" y="378" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">有把握时少，含糊时多。</text>
+<text x="20" y="426" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">挑出一个词 → 拼回输入 → 再跑一遍整个模型 → 挑下一个（自回归）</text>
+<rect x="20" y="438" width="640" height="82" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="34" y="464" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">"the cat sat on the"  →  挑中 "mat"  →  "the cat sat on the mat"</text>
+<text x="34" y="486" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">→ 再喂回模型挑下一个词 …… 一次一个词，直到生成结束符。</text>
+<text x="34" y="508" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="start" font-weight="600">这就是“自回归生成”：模型每步只预测一个词，把自己的输出当作下一步的输入。</text>
+</svg>

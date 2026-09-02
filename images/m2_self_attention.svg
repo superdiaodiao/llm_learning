@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 520" width="1360" height="1040">
+<rect width="680" height="520" fill="#ffffff"/>
+<text x="20" y="24" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">① 三个输入词向量，各自投影出 Q / K / V（q_proj / k_proj / v_proj）</text>
+<rect x="20" y="36" width="120" height="70" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="80" y="56" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="middle" font-weight="600">the</text>
+<text x="30" y="76" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">Q_the K_the</text>
+<text x="30" y="92" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">V_the</text>
+<rect x="160" y="36" width="120" height="70" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="220" y="56" font-family="Noto Sans CJK SC" font-size="13" fill="#2563eb" text-anchor="middle" font-weight="600">cat  ← 主角</text>
+<text x="170" y="76" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">Q_cat K_cat</text>
+<text x="170" y="92" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">V_cat</text>
+<rect x="300" y="36" width="120" height="70" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="360" y="56" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="middle" font-weight="600">sat</text>
+<text x="310" y="76" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">Q_sat K_sat</text>
+<text x="310" y="92" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">V_sat</text>
+<text x="450" y="60" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="start">Q = 我在找什么</text>
+<text x="450" y="80" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="start">K = 我对外的标签</text>
+<text x="450" y="100" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="start">V = 我实际贡献的内容</text>
+<text x="20" y="146" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">② cat 的 Query 和每个词的 Key 做点积 → 相关度分数（Q · Kᵀ × scaling）</text>
+<line x1="220" y1="106" x2="220" y2="130" stroke="#2563eb" stroke-width="1.6"/>
+<polygon points="220,130 224.0,122.0 216.0,122.0" fill="#2563eb"/>
+<rect x="20" y="158" width="640" height="52" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="34" y="180" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="start" font-weight="600">score(cat→the)=1.2</text>
+<text x="230" y="180" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="start" font-weight="600">score(cat→cat)=4.0</text>
+<text x="440" y="180" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="start" font-weight="600">score(cat→sat)=2.5</text>
+<text x="34" y="200" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">点积越大 = 越相关。分数还没归一化，大小随意。</text>
+<text x="20" y="248" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">③ softmax 把分数变成“加起来=1”的权重（softmax(dim=-1)）</text>
+<line x1="340" y1="210" x2="340" y2="232" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="340,232 344.0,224.0 336.0,224.0" fill="#9ca3af"/>
+<rect x="20" y="260" width="640" height="46" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="34" y="288" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="start" font-weight="600">w(the)=0.08</text>
+<text x="230" y="288" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="start" font-weight="600">w(cat)=0.70</text>
+<text x="440" y="288" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="start" font-weight="600">w(sat)=0.22   （0.08+0.70+0.22 = 1）</text>
+<text x="20" y="344" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">④ 用权重对三个 Value 加权求和 → cat 的新表示（weights · V）</text>
+<line x1="340" y1="306" x2="340" y2="328" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="340,328 344.0,320.0 336.0,320.0" fill="#9ca3af"/>
+<rect x="20" y="356" width="640" height="56" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="34" y="382" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="start" font-weight="600">cat_new = 0.08·V_the + 0.70·V_cat + 0.22·V_sat</text>
+<text x="34" y="402" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">cat 主要还是自己，但吸收了一点 the 和不少 sat 的信息 → 现在它“知道自己坐着”。</text>
+<text x="20" y="450" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">⑤ 因果掩码：生成时每个词只能看它左边的词（+ attention_mask 把右边设成 −∞）</text>
+<rect x="20" y="462" width="640" height="46" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="34" y="484" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">softmax 前给“未来位置”的分数加上 −∞，softmax 后它们权重=0 → 模型无法偷看还没生成的词。</text>
+<text x="34" y="502" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">对应真实代码：attn_weights = attn_weights + attention_mask</text>
+</svg>

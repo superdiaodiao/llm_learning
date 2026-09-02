@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 470" width="1360" height="940">
+<rect width="680" height="470" fill="#ffffff"/>
+<text x="20" y="24" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">基元层：按“模型还需要什么额外能力”来分</text>
+<rect x="20" y="38" width="150" height="86" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="95" y="60" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="600">只需生成</text>
+<text x="95" y="82" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="middle">纯 prompt</text>
+<text x="95" y="100" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">翻译·摘要·写作·分类</text>
+<rect x="180" y="38" width="150" height="86" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="255" y="60" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="600">需要外部知识</text>
+<text x="255" y="82" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="600">RAG</text>
+<text x="255" y="100" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">文档问答·知识库</text>
+<text x="255" y="116" font-family="Noto Sans CJK SC" font-size="10" fill="#2563eb" text-anchor="middle" font-weight="600">★ 本文重点</text>
+<rect x="340" y="38" width="150" height="86" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="415" y="60" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="600">需要采取行动</text>
+<text x="415" y="82" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="600">Agent</text>
+<text x="415" y="100" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">工具·分步办事</text>
+<text x="415" y="116" font-family="Noto Sans CJK SC" font-size="10" fill="#2563eb" text-anchor="middle" font-weight="600">★ 本文重点</text>
+<rect x="500" y="38" width="160" height="86" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="580" y="60" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="600">需要固定格式</text>
+<text x="580" y="82" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="middle">结构化抽取</text>
+<text x="580" y="100" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">文本 → JSON</text>
+<rect x="20" y="134" width="300" height="52" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="170" y="156" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="600">需要专精某任务：微调任务模型</text>
+<text x="170" y="176" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">分类器·领域模型·打分模型</text>
+<rect x="340" y="134" width="320" height="52" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="500" y="156" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="600">需要处理图/音/视频：多模态应用</text>
+<text x="500" y="176" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">换个编码器，主线思路不变</text>
+<line x1="20" y1="206" x2="660" y2="206" stroke="#9ca3af" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="20" y="234" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">产品层：真实产品 = 基元的组合</text>
+<rect x="20" y="248" width="205" height="70" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="122" y="272" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="600">客服助手</text>
+<text x="122" y="294" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">RAG（查政策）</text>
+<text x="122" y="310" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">+ Agent（下单/退款）</text>
+<rect x="237" y="248" width="205" height="70" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="339" y="272" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="600">编程助手 Copilot</text>
+<text x="339" y="294" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">Agent（读文件/跑测试）</text>
+<text x="339" y="310" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">+ RAG（查代码库）</text>
+<rect x="455" y="248" width="205" height="70" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="557" y="272" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="600">研究/数据助手</text>
+<text x="557" y="294" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">Agent + RAG</text>
+<text x="557" y="310" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">+ 结构化抽取</text>
+<rect x="20" y="338" width="640" height="116" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="34" y="362" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">为什么挑 RAG 和 Agent 这两个讲</text>
+<text x="34" y="386" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">· 它们是“承重墙”：给模型补上两样它天生没有的东西——外部知识（RAG）、采取行动的能力（Agent）。</text>
+<text x="34" y="408" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">· 别的应用要么更简单（纯 prompt、结构化抽取，是它俩的子集），要么是它俩的组合（上面那排产品）。</text>
+<text x="34" y="432" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="start" font-weight="600">· 懂了这两个基元，你就能把任何一个复杂产品拆解成“基元 + 胶水”——这比逐个仓库学高效得多。</text>
+</svg>

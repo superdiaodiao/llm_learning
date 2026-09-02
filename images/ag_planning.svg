@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 540" width="1360" height="1080">
+<rect width="680" height="540" fill="#ffffff"/>
+<rect x="20" y="34" width="315" height="86" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="34" y="56" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">反应式（ReAct）</text>
+<text x="34" y="78" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">想一步 → 做一步 → 看 → 再想…</text>
+<text x="34" y="96" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">✓ 灵活自适应   ✗ 无全局视野，长任务易跑偏、</text>
+<text x="34" y="112" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">   重复劳动、每步都带全上下文很烧 token</text>
+<rect x="345" y="34" width="315" height="86" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.8"/>
+<text x="359" y="56" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">规划式（Plan-and-Execute）</text>
+<text x="359" y="78" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">先列出整体计划，再逐步执行，按结果改计划</text>
+<text x="359" y="96" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">✓ 有全局结构、更高效   ✗ 计划可能一开始就错</text>
+<text x="359" y="112" font-family="Noto Sans CJK SC" font-size="10.5" fill="#2563eb" text-anchor="start" font-weight="600">→ 所以需要“replan”：执行中根据现实修正</text>
+<text x="20" y="156" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">Plan-and-Execute 的图</text>
+<rect x="24" y="184" width="70" height="38" rx="19" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="59" y="207" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="middle">START</text>
+<line x1="94" y1="203" x2="120" y2="203" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="120,203 112.0,199.0 112.0,207.0" fill="#9ca3af"/>
+<rect x="122" y="178" width="130" height="50" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.8"/>
+<text x="187" y="199" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="600">Planner</text>
+<text x="187" y="216" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">列出步骤 1..N</text>
+<line x1="252" y1="203" x2="286" y2="203" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="286,203 278.0,199.0 278.0,207.0" fill="#9ca3af"/>
+<rect x="288" y="172" width="150" height="62" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.8"/>
+<text x="363" y="193" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="600">Executor</text>
+<text x="363" y="211" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">执行“当前步”</text>
+<text x="363" y="227" font-family="Noto Sans CJK SC" font-size="9.5" fill="#4b5563" text-anchor="middle">(本身可为 ReAct 小 agent)</text>
+<line x1="438" y1="203" x2="474" y2="203" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="474,203 466.0,199.0 466.0,207.0" fill="#9ca3af"/>
+<polygon points="540,168 600,203 540,238 480,203" fill="#ffffff" stroke="#2563eb" stroke-width="1.4" stroke-dasharray="5,3"/>
+<text x="540" y="200" font-family="Noto Sans CJK SC" font-size="10" fill="#2563eb" text-anchor="middle" font-weight="600">完成?</text>
+<text x="540" y="214" font-family="Noto Sans CJK SC" font-size="10" fill="#2563eb" text-anchor="middle" font-weight="600">计划还对?</text>
+<path d="M540,238 C540,270 300,272 300,238" fill="none" stroke="#2563eb" stroke-width="1.6"/>
+<polygon points="300,238 296.0,246.0 304.0,246.0" fill="#2563eb"/>
+<text x="360" y="264" font-family="Noto Sans CJK SC" font-size="10" fill="#2563eb" text-anchor="middle" font-weight="600">没完成/计划要改 → Replan（更新计划）→ 回到执行</text>
+<line x1="600" y1="203" x2="636" y2="203" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="636,203 628.0,199.0 628.0,207.0" fill="#9ca3af"/>
+<rect x="612" y="184" width="56" height="38" rx="19" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="640" y="207" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="middle">END</text>
+<rect x="20" y="292" width="640" height="52" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="34" y="314" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">State 里装着计划</text>
+<text x="34" y="334" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">State = { input, plan: [步骤1, 步骤2, ...], past_steps: [(步骤, 结果), ...] }</text>
+<text x="20" y="372" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">还有两种“更会想”的规划</text>
+<rect x="20" y="384" width="315" height="140" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="34" y="406" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="start" font-weight="600">反思（Reflection / Reflexion）</text>
+<text x="34" y="428" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">做完先自我批评一遍：哪里可能错了?</text>
+<text x="34" y="446" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">再据此修订。相当于“事后诸葛”式规划。</text>
+<text x="34" y="464" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">适合：写作、写代码、答案要打磨的场景。</text>
+<text x="34" y="500" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">生成 → 自评 → 修订 → （不满意就再来）</text>
+<rect x="345" y="384" width="315" height="140" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="359" y="406" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="start" font-weight="600">树搜索（Tree of Thoughts / LATS）</text>
+<text x="359" y="428" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">同时探多个分支、给每条打分、能回溯，</text>
+<text x="359" y="446" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">而不是一条道走到黑。</text>
+<text x="359" y="464" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">适合：难推理、有死胡同的问题（解谜、证明）。</text>
+<text x="359" y="500" font-family="Noto Sans CJK SC" font-size="10" fill="#2563eb" text-anchor="start" font-weight="600">最强但最贵——按任务难度选，别滥用。</text>
+</svg>

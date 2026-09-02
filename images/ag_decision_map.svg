@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 500" width="1360" height="1000">
+<rect width="680" height="500" fill="#ffffff"/>
+<rect x="200" y="16" width="280" height="50" rx="8" fill="#bfdbfe" stroke="#2563eb" stroke-width="2"/>
+<text x="340" y="36" font-family="Noto Sans CJK SC" font-size="12.5" fill="#1f2937" text-anchor="middle" font-weight="600">起点：一个 ReAct agent</text>
+<text x="340" y="54" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="middle">简单任务、几个工具 → 到此就够，别加东西</text>
+<text x="340" y="86" font-family="Noto Sans CJK SC" font-size="10.5" fill="#2563eb" text-anchor="middle" font-weight="600">▼ 遇到下面哪个问题，就加对应那一层</text>
+<line x1="340" y1="92" x2="340" y2="104" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="340,104 344.0,96.0 336.0,96.0" fill="#9ca3af"/>
+<rect x="20" y="106" width="310" height="62" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.4"/>
+<text x="34" y="126" font-family="Noto Sans CJK SC" font-size="11.5" fill="#1f2937" text-anchor="start" font-weight="600">需要控制 / 审批 / 暂停恢复 / 防死循环</text>
+<text x="34" y="144" font-family="Noto Sans CJK SC" font-size="10.5" fill="#2563eb" text-anchor="start" font-weight="600">→ 建成图 / 状态机</text>
+<text x="34" y="160" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">State 可存档，节点可插，条件边做终止</text>
+<rect x="350" y="106" width="310" height="62" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.4"/>
+<text x="364" y="126" font-family="Noto Sans CJK SC" font-size="11.5" fill="#1f2937" text-anchor="start" font-weight="600">任务长、步骤多、容易跑偏</text>
+<text x="364" y="144" font-family="Noto Sans CJK SC" font-size="10.5" fill="#2563eb" text-anchor="start" font-weight="600">→ 规划 + 重规划</text>
+<text x="364" y="160" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">强模型规划一次，便宜模型逐步执行</text>
+<rect x="20" y="180" width="310" height="62" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.4"/>
+<text x="34" y="200" font-family="Noto Sans CJK SC" font-size="11.5" fill="#1f2937" text-anchor="start" font-weight="600">输出要打磨（写作、代码）</text>
+<text x="34" y="218" font-family="Noto Sans CJK SC" font-size="10.5" fill="#2563eb" text-anchor="start" font-weight="600">→ 加反思 Reflexion</text>
+<text x="34" y="234" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">生成 → 自评 → 修订</text>
+<rect x="350" y="180" width="310" height="62" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.4"/>
+<text x="364" y="200" font-family="Noto Sans CJK SC" font-size="11.5" fill="#1f2937" text-anchor="start" font-weight="600">难推理、有死胡同（解谜、证明）</text>
+<text x="364" y="218" font-family="Noto Sans CJK SC" font-size="10.5" fill="#2563eb" text-anchor="start" font-weight="600">→ 树搜索 ToT / LATS</text>
+<text x="364" y="234" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">最强最贵，别用在简单查询上</text>
+<rect x="20" y="254" width="310" height="62" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.4"/>
+<text x="34" y="274" font-family="Noto Sans CJK SC" font-size="11.5" fill="#1f2937" text-anchor="start" font-weight="600">工具太多选不准 / 需要不同专长 / 上下文撑爆</text>
+<text x="34" y="292" font-family="Noto Sans CJK SC" font-size="10.5" fill="#2563eb" text-anchor="start" font-weight="600">→ 多 agent 主管拓扑</text>
+<text x="34" y="308" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">专精 + 上下文隔离，只回传摘要</text>
+<rect x="350" y="254" width="310" height="62" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.4"/>
+<text x="364" y="274" font-family="Noto Sans CJK SC" font-size="11.5" fill="#1f2937" text-anchor="start" font-weight="600">可靠性要求极高、预算够</text>
+<text x="364" y="292" font-family="Noto Sans CJK SC" font-size="10.5" fill="#2563eb" text-anchor="start" font-weight="600">→ 辩论 / 集成</text>
+<text x="364" y="308" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">多份独立解互评投票，冗余换稳</text>
+<text x="340" y="342" font-family="Noto Sans CJK SC" font-size="10.5" fill="#2563eb" text-anchor="middle" font-weight="600">贯穿所有层的两个接口</text>
+<rect x="20" y="354" width="310" height="60" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="34" y="374" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="start" font-weight="600">记忆</text>
+<text x="34" y="392" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">生成前检索相关记忆注入 State，</text>
+<text x="34" y="408" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">生成后抽取要点写回——跨会话不失忆</text>
+<rect x="350" y="354" width="310" height="60" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="364" y="374" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="start" font-weight="600">工具（四步）</text>
+<text x="364" y="392" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">schema 进提示 → 模型吐结构化调用 →</text>
+<text x="364" y="408" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">运行时执行 → 结果回填</text>
+<rect x="20" y="430" width="640" height="52" rx="8" fill="#bfdbfe" stroke="#2563eb" stroke-width="2"/>
+<text x="340" y="452" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="600">总原则：从最简单的开始，只在真的碰到对应问题时才加一层</text>
+<text x="340" y="470" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="middle">每加一层都在加成本、延迟和调试难度——机制要配得上任务难度</text>
+</svg>

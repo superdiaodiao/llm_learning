@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 440" width="1360" height="880">
+<rect width="680" height="440" fill="#ffffff"/>
+<text x="20" y="24" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">① 离线索引（建库，做一次）</text>
+<rect x="20" y="36" width="110" height="44" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="75" y="55" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="middle">文档</text>
+<text x="75" y="72" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">PDF / 网页…</text>
+<line x1="130" y1="58" x2="156" y2="58" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="156,58 148.0,54.0 148.0,62.0" fill="#9ca3af"/>
+<rect x="158" y="36" width="110" height="44" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="213" y="55" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="middle">切分成块</text>
+<text x="213" y="72" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">chunk</text>
+<line x1="268" y1="58" x2="294" y2="58" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="294,58 286.0,54.0 286.0,62.0" fill="#9ca3af"/>
+<rect x="296" y="36" width="120" height="44" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="356" y="55" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="600">embedding</text>
+<text x="356" y="72" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">每块 → 向量</text>
+<line x1="416" y1="58" x2="442" y2="58" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="442,58 434.0,54.0 434.0,62.0" fill="#9ca3af"/>
+<rect x="444" y="36" width="130" height="44" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="509" y="55" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="600">向量库</text>
+<text x="509" y="72" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">存起来备查</text>
+<line x1="20" y1="100" x2="660" y2="100" stroke="#9ca3af" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="20" y="128" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">② 在线问答（每次提问）</text>
+<rect x="20" y="140" width="120" height="44" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="80" y="159" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="middle">用户问题</text>
+<text x="80" y="176" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">"退货政策?"</text>
+<line x1="140" y1="162" x2="166" y2="162" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="166,162 158.0,158.0 158.0,166.0" fill="#9ca3af"/>
+<rect x="168" y="140" width="110" height="44" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="223" y="159" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="600">问题 → 向量</text>
+<text x="223" y="176" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">同一个 embedding</text>
+<line x1="278" y1="162" x2="304" y2="162" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="304,162 296.0,158.0 296.0,166.0" fill="#9ca3af"/>
+<rect x="306" y="140" width="150" height="44" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="381" y="158" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="600">向量库检索 top-k</text>
+<text x="381" y="176" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">找夹角最小的几块</text>
+<line x1="456" y1="162" x2="482" y2="162" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="482,162 474.0,158.0 474.0,166.0" fill="#9ca3af"/>
+<rect x="484" y="140" width="90" height="44" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="529" y="159" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="middle">重排</text>
+<text x="529" y="176" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">rerank（可选）</text>
+<line x1="300" y1="184" x2="300" y2="206" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="300,206 304.0,198.0 296.0,198.0" fill="#9ca3af"/>
+<rect x="150" y="208" width="300" height="52" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="300" y="230" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="600">拼进提示词：检索到的块 + 原问题</text>
+<text x="300" y="248" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">"根据以下资料回答：[块1][块2]… 问题：退货政策?"</text>
+<line x1="450" y1="234" x2="476" y2="234" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="476,234 468.0,230.0 468.0,238.0" fill="#9ca3af"/>
+<rect x="478" y="208" width="120" height="52" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="538" y="230" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="600">LLM 生成</text>
+<text x="538" y="248" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">基于资料回答</text>
+<rect x="20" y="290" width="640" height="130" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="34" y="314" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">为什么要 RAG？——给模型“外挂”一个可更新、可溯源的知识库</text>
+<text x="34" y="340" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">· 模型的权重是训练时冻结的，不知道你公司的内部文档、也不知道昨天的新闻。</text>
+<text x="34" y="362" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">· RAG 不改模型，只在提问时把相关资料“喂”进提示词 → 模型基于资料回答，可溯源、易更新。</text>
+<text x="34" y="384" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">· 核心就是第 1 课那个“语义相近 = 向量相近”：检索 = 在向量空间里找离问题最近的知识块。</text>
+<text x="34" y="406" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="start" font-weight="600">· 向量库只是检索器的一种实现；关键词/SQL/API/直接塞文档也都算 RAG。</text>
+</svg>

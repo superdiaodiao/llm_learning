@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 340" width="1360" height="680">
+<rect width="680" height="340" fill="#ffffff"/>
+<rect x="40" y="70" width="150" height="150" rx="6" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="115" y="145" font-family="Noto Sans CJK SC" font-size="16" fill="#1f2937" text-anchor="middle" font-weight="600">W</text>
+<text x="115" y="165" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="middle">原权重</text>
+<text x="115" y="240" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="600">冻结不动</text>
+<text x="115" y="258" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="middle">几十亿参数</text>
+<text x="215" y="152" font-family="Noto Sans CJK SC" font-size="22" fill="#1f2937" text-anchor="middle" font-weight="600">＋</text>
+<rect x="250" y="70" width="40" height="150" rx="4" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.8"/>
+<text x="270" y="150" font-family="Noto Sans CJK SC" font-size="13" fill="#2563eb" text-anchor="middle" font-weight="600">B</text>
+<text x="300" y="152" font-family="Noto Sans CJK SC" font-size="22" fill="#1f2937" text-anchor="middle" font-weight="600">×</text>
+<rect x="320" y="70" width="150" height="40" rx="4" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.8"/>
+<text x="395" y="95" font-family="Noto Sans CJK SC" font-size="13" fill="#2563eb" text-anchor="middle" font-weight="600">A</text>
+<text x="360" y="245" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="600">只训练 B 和 A（两个瘦矩阵）</text>
+<text x="360" y="264" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="middle">参数量常常不到原来的 1%</text>
+<text x="490" y="152" font-family="Noto Sans CJK SC" font-size="22" fill="#1f2937" text-anchor="middle" font-weight="600">＝</text>
+<rect x="520" y="70" width="140" height="150" rx="6" fill="#ffffff" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="590" y="140" font-family="Noto Sans CJK SC" font-size="14" fill="#1f2937" text-anchor="middle" font-weight="600">W + B×A</text>
+<text x="590" y="162" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="middle">等效新权重</text>
+<text x="40" y="300" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">关键直觉：微调需要的“改动量”其实很低秩——不需要动用整个大矩阵的表达力，</text>
+<text x="40" y="320" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">用两个瘦矩阵的乘积就能表达。于是显存和存储都省下几十倍，一张消费级显卡就能微调。</text>
+</svg>

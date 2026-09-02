@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 520" width="1360" height="1040">
+<rect width="680" height="520" fill="#ffffff"/>
+<text x="20" y="24" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">ReAct agent = 两个节点 + 一条条件边</text>
+<rect x="40" y="70" width="80" height="40" rx="20" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="80" y="94" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="middle">START</text>
+<line x1="120" y1="90" x2="166" y2="90" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="166,90 158.0,86.0 158.0,94.0" fill="#9ca3af"/>
+<rect x="168" y="64" width="130" height="52" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.8"/>
+<text x="233" y="86" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="600">agent 节点</text>
+<text x="233" y="104" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">调用 LLM</text>
+<line x1="298" y1="90" x2="344" y2="90" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="344,90 336.0,86.0 336.0,94.0" fill="#9ca3af"/>
+<polygon points="420,60 470,90 420,120 370,90" fill="#ffffff" stroke="#2563eb" stroke-width="1.4" stroke-dasharray="5,3"/>
+<text x="420" y="86" font-family="Noto Sans CJK SC" font-size="10" fill="#2563eb" text-anchor="middle" font-weight="600">有工具</text>
+<text x="420" y="100" font-family="Noto Sans CJK SC" font-size="10" fill="#2563eb" text-anchor="middle" font-weight="600">调用?</text>
+<line x1="470" y1="90" x2="556" y2="90" stroke="#2563eb" stroke-width="1.6"/>
+<polygon points="556,90 548.0,86.0 548.0,94.0" fill="#2563eb"/>
+<text x="513" y="82" font-family="Noto Sans CJK SC" font-size="10" fill="#2563eb" text-anchor="middle" font-weight="600">有 → tools</text>
+<rect x="558" y="64" width="104" height="52" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.8"/>
+<text x="610" y="86" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="600">tools 节点</text>
+<text x="610" y="104" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">执行工具</text>
+<path d="M610,116 C610,150 233,150 233,120" fill="none" stroke="#2563eb" stroke-width="1.6"/>
+<polygon points="233,120 229.0,128.0 237.0,128.0" fill="#2563eb"/>
+<text x="420" y="146" font-family="Noto Sans CJK SC" font-size="10" fill="#2563eb" text-anchor="middle" font-weight="600">执行完 → 回到 agent（这就是循环）</text>
+<line x1="420" y1="120" x2="420" y2="180" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="420,180 424.0,172.0 416.0,172.0" fill="#9ca3af"/>
+<text x="432" y="160" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">没有 → END</text>
+<rect x="380" y="182" width="80" height="38" rx="19" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="420" y="205" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="middle">END</text>
+<rect x="20" y="240" width="640" height="70" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="34" y="262" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">贯穿全程的 State（共享记忆，每个节点读它、改它）</text>
+<text x="34" y="284" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">State = { messages: [...], 中间结果, 计数器, ... }</text>
+<text x="34" y="300" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">agent 节点往 messages 追加 LLM 回复；tools 节点追加工具结果 → 就是那条不断增长的上下文</text>
+<text x="20" y="338" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">真实 API 就长这样（LangGraph）</text>
+<rect x="20" y="350" width="400" height="150" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="34" y="372" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">graph = StateGraph(State)</text>
+<text x="34" y="390" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">graph.add_node("agent", call_llm)</text>
+<text x="34" y="408" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">graph.add_node("tools", run_tools)</text>
+<text x="34" y="426" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">graph.add_edge(START, "agent")</text>
+<text x="34" y="444" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">graph.add_conditional_edges(</text>
+<text x="34" y="462" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">    "agent", has_tool_calls,</text>
+<text x="34" y="480" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">    {"tools": "tools", END: END})</text>
+<text x="34" y="498" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">graph.add_edge("tools", "agent")</text>
+<rect x="436" y="350" width="224" height="150" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="450" y="372" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">为什么值得升级成图</text>
+<text x="450" y="396" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">· 加人工审批? 插一个 node</text>
+<text x="450" y="413" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">  + 一条边，其它不动。</text>
+<text x="450" y="430" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">· State 可存档 → 暂停/恢复、</text>
+<text x="450" y="447" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">  人在环、回溯。</text>
+<text x="450" y="464" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">· 每次节点跳转都是一步，</text>
+<text x="450" y="481" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">  可观测、可限制循环次数。</text>
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" width="1360" height="840">
+<rect width="680" height="420" fill="#ffffff"/>
+<text x="20" y="24" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">❌ 没有缓存：每一步都把前面所有词的 K/V 重算一遍</text>
+<text x="40" y="52" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">第1步</text>
+<rect x="90" y="40" width="46" height="20" rx="3" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.2"/>
+<text x="113" y="54" font-family="Noto Sans CJK SC" font-size="10" fill="#1f2937" text-anchor="middle">the</text>
+<text x="40" y="80" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">第2步</text>
+<rect x="90" y="68" width="46" height="20" rx="3" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<text x="113" y="82" font-family="Noto Sans CJK SC" font-size="10" fill="#1f2937" text-anchor="middle">the</text>
+<rect x="140" y="68" width="46" height="20" rx="3" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.2"/>
+<text x="163" y="82" font-family="Noto Sans CJK SC" font-size="10" fill="#1f2937" text-anchor="middle">cat</text>
+<text x="40" y="108" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">第3步</text>
+<rect x="90" y="96" width="46" height="20" rx="3" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<text x="113" y="110" font-family="Noto Sans CJK SC" font-size="10" fill="#1f2937" text-anchor="middle">the</text>
+<rect x="140" y="96" width="46" height="20" rx="3" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<text x="163" y="110" font-family="Noto Sans CJK SC" font-size="10" fill="#1f2937" text-anchor="middle">cat</text>
+<rect x="190" y="96" width="46" height="20" rx="3" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.2"/>
+<text x="213" y="110" font-family="Noto Sans CJK SC" font-size="10" fill="#1f2937" text-anchor="middle">sat</text>
+<text x="40" y="136" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">第4步</text>
+<rect x="90" y="124" width="46" height="20" rx="3" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<text x="113" y="138" font-family="Noto Sans CJK SC" font-size="10" fill="#1f2937" text-anchor="middle">the</text>
+<rect x="140" y="124" width="46" height="20" rx="3" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<text x="163" y="138" font-family="Noto Sans CJK SC" font-size="10" fill="#1f2937" text-anchor="middle">cat</text>
+<rect x="190" y="124" width="46" height="20" rx="3" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<text x="213" y="138" font-family="Noto Sans CJK SC" font-size="10" fill="#1f2937" text-anchor="middle">sat</text>
+<rect x="240" y="124" width="46" height="20" rx="3" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.2"/>
+<text x="263" y="138" font-family="Noto Sans CJK SC" font-size="10" fill="#1f2937" text-anchor="middle">on</text>
+<rect x="360" y="60" width="20" height="20" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<text x="390" y="75" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">红色 = 重复计算（旧词 K/V 没变，却一算再算）</text>
+<rect x="360" y="92" width="20" height="20" rx="2" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.2"/>
+<text x="390" y="107" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">深色 = 真正新增的计算</text>
+<text x="360" y="135" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="start" font-weight="600">浪费随长度平方增长 → 长文本生成会越来越慢</text>
+<line x1="20" y1="168" x2="660" y2="168" stroke="#9ca3af" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="20" y="196" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">✅ KV cache：旧词的 Key/Value 存进缓存，每步只为新词计算</text>
+<rect x="90" y="220" width="250" height="24" rx="4" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.2"/>
+<text x="215" y="236" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">缓存里的 K/V：the · cat · sat（存过一次，直接复用）</text>
+<rect x="352" y="220" width="70" height="24" rx="4" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.4"/>
+<text x="387" y="236" font-family="Noto Sans CJK SC" font-size="10" fill="#1f2937" text-anchor="middle">on（新算）</text>
+<text x="90" y="272" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">每生成一个新词，只做一件事：</text>
+<text x="90" y="292" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">· 为新词算它的 Q、K、V</text>
+<text x="90" y="312" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">· 把新的 K、V 追加进缓存</text>
+<text x="90" y="332" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">· 新词的 Q 去和“缓存里所有 K”算注意力</text>
+<text x="90" y="356" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">真实代码：past_key_values.update(key_states, value_states, layer_idx)</text>
+<rect x="20" y="372" width="640" height="38" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="34" y="396" font-family="Noto Sans CJK SC" font-size="10.5" fill="#2563eb" text-anchor="start" font-weight="600">为什么叫 KV cache：缓存的是 Key 和 Value。Query 只对当前词有用，不缓存；K/V 要被后面每一步反复用到，所以存。</text>
+</svg>

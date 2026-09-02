@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" width="1360" height="840">
+<rect width="680" height="420" fill="#ffffff"/>
+<text x="20" y="26" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">基类合同：search() 必须返回“相似度”（越高越相似）</text>
+<rect x="20" y="38" width="636" height="54" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="34" y="58" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">cosine 距离 → score = max(0, 1 − d)        L2 距离 → score = 1 / (1 + d)        内积 → score = value</text>
+<text x="34" y="82" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="start" font-weight="600">supabase 实现却对所有度量都写死了 cosine 那个公式：score = max(0.0, 1.0 − value)</text>
+<text x="20" y="122" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">用户把 index_measure 配成 l2_distance 时会发生什么（A 最近 0.3，B 1.5，C 最远 2.0）</text>
+<rect x="20" y="134" width="310" height="120" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="34" y="156" font-family="Noto Sans CJK SC" font-size="12" fill="#dc2626" text-anchor="start" font-weight="600">现状：max(0, 1 − d)</text>
+<text x="34" y="178" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">A: 1 − 0.3 = 0.70</text>
+<text x="34" y="196" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">B: 1 − 1.5 = −0.5 → 夹成 0.0</text>
+<text x="34" y="214" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">C: 1 − 2.0 = −1.0 → 夹成 0.0</text>
+<text x="34" y="240" font-family="Noto Sans CJK SC" font-size="11" fill="#dc2626" text-anchor="start" font-weight="600">threshold 0.1 把 B、C 丢掉 → 只剩 A，排序信息全失</text>
+<rect x="346" y="134" width="310" height="120" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="360" y="156" font-family="Noto Sans CJK SC" font-size="12" fill="#16a34a" text-anchor="start" font-weight="600">正确：1 / (1 + d)</text>
+<text x="360" y="178" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">A: 1/(1+0.3) = 0.77</text>
+<text x="360" y="196" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">B: 1/(1+1.5) = 0.40</text>
+<text x="360" y="214" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">C: 1/(1+2.0) = 0.33</text>
+<text x="360" y="240" font-family="Noto Sans CJK SC" font-size="11" fill="#16a34a" text-anchor="start" font-weight="600">三条都在，按距离升序：A &gt; B &gt; C</text>
+<rect x="20" y="278" width="636" height="124" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="34" y="302" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="start" font-weight="600">为什么这个 bug 没人报过</text>
+<text x="34" y="326" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">· 默认配置是 cosine，碰巧是对的 → 大多数人永远踩不到，它是“潜伏型”。</text>
+<text x="34" y="346" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">· 同一类 bug 在 pgvector / milvus / chroma / baidu / langchain 上都被修过了——已报的全被抢光。</text>
+<text x="34" y="366" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">· 它藏在“非默认配置”这层，只有把每个向量库的 search() 对着合同逐个审计才会发现。</text>
+<text x="34" y="390" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="start" font-weight="600">修法有现成范式：照 oracledb 的“按度量分支转换”写一个小方法即可。</text>
+</svg>
