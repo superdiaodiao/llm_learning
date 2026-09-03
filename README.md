@@ -1,5 +1,7 @@
 # llm_learning · 从零看懂大模型
 
+> 中文 · [English](en/README.md)
+
 > 一条从底到顶的完整链路：文字怎么变成向量 → attention 怎么理解上下文 → 模型怎么生成 → 权重怎么训练出来 → 大模型怎么被高效服务 → RAG 与 Agent 怎么落地 → 记忆系统与 Agent 架构怎么设计。
 >
 > 每一篇都以顶尖开源项目的**真实源码**为课本（transformers、vLLM、LlamaIndex、mem0、LangGraph、peft/trl），配示意图，讲透原理而不是堆概念。面向有工程背景、想系统理解现代 AI 的读者。

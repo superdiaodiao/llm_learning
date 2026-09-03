@@ -1,5 +1,7 @@
 # 02 · Attention 与 Transformer：模型如何"理解"上下文
 
+> 中文 · [English](en/02-attention-and-transformer.md)
+
 > 系列《从零看懂大模型》第 2 篇。上一篇留下的悬念——两个相同的 `the` 查表后向量一样，怎么办——本篇给出答案。用的课本是 HuggingFace transformers 里真实的 `modeling_llama.py`。
 
 ## 先看一件值得惊讶的事

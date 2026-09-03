@@ -1,5 +1,7 @@
 # 03 · 生成：从 logits 到文字
 
+> 中文 · [English](en/03-generation-logits-to-text.md)
+
 > 系列《从零看懂大模型》第 3 篇。前两篇讲了文字如何变成向量、向量如何被 attention 反复加工。这一篇讲最后一环：模型怎么"吐出下一个词"，以及为什么需要 KV cache。
 
 ## 从向量到概率

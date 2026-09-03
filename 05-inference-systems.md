@@ -1,5 +1,7 @@
 # 05 · 推理系统：大模型怎么被高效服务
 
+> 中文 · [English](en/05-inference-systems.md)
+
 > 系列《从零看懂大模型》第 5 篇。第 3 篇留下的伏笔——KV cache 会吃掉大量显存——本篇给出工业界的解法。课本是推理引擎事实标准 vLLM 的三大杠杆：PagedAttention、continuous batching、量化。
 
 ## 一个"能跑"的模型离"能服务"还很远

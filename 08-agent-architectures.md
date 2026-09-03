@@ -1,5 +1,7 @@
 # 08 · Agent 架构深入：从 ReAct 到多 Agent
 
+> 中文 · [English](en/08-agent-architectures.md)
+
 > 系列《从零看懂大模型》第 8 篇，也是最后一篇。第 6 篇见过 agent 的基础循环，本篇把它拆到骨头里：ReAct 范式、工具调用机制、图/状态机模型、规划、多 agent，最后给出一张"什么时候用什么"的决策图。
 
 ## 第一层：ReAct 与工具调用的真相

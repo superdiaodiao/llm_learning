@@ -1,5 +1,7 @@
 # 09 · 实战篇：从看懂代码到给顶尖项目提 PR
 
+> 中文 · [English](en/09-contributing-in-practice.md)
+
 > 系列《从零看懂大模型》番外篇。前八篇讲原理，这一篇讲方法：怎么在 LlamaIndex、mem0 这种几万星的 AI 项目里，自己发现真 bug、提 issue、提 PR。两个完整案例，外加一套可复用的方法论和"bug 模式库"。
 
 ## 先说一个反直觉的结论
