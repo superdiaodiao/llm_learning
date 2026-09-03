@@ -1,0 +1,81 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>它能写代码，却数不清三个 r · 粘贴到公众号</title></head>
+<body style="margin:0;background:#eef0f4;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;">
+<div style="max-width:720px;margin:0 auto;padding:24px 16px 60px;">
+
+  <div style="background:#fff;border:1px solid #d6d9e0;border-radius:10px;padding:20px 22px;margin-bottom:20px;">
+    <div style="font-size:12px;letter-spacing:.1em;color:#8a9099;margin-bottom:12px;">粘贴到公众号编辑器</div>
+    <div style="font-size:14px;line-height:1.9;color:#3f3f46;">
+      <b>1.</b> 标题栏填：<span id="t" style="background:#f6f7f9;padding:2px 7px;border-radius:4px;">它能写代码，却数不清三个 r</span>
+      <button onclick="cp(document.getElementById('t'))" style="margin-left:6px;font-size:12px;padding:3px 9px;cursor:pointer;border:1px solid #b6bcc6;background:#fff;border-radius:5px;">复制标题</button><br>
+      <b>2.</b> 点下面的按钮复制正文，到编辑器里 Ctrl/Cmd+V<br>
+      <b>3.</b> 正文里三个虚线框是图片位，删掉框、用编辑器的"图片"按钮上传对应 PNG<br>
+      <b>4.</b> 微信会重写图片地址，所以图必须在编辑器里传，不能靠外链
+    </div>
+    <button onclick="cp(document.getElementById('a'))" style="margin-top:16px;font-size:14px;font-weight:600;padding:9px 18px;cursor:pointer;border:0;background:#be123c;color:#fff;border-radius:6px;">复制正文</button>
+    <span id="ok" style="margin-left:10px;font-size:13px;color:#15803d;"></span>
+  </div>
+
+  <div style="background:#fff;border:1px solid #d6d9e0;border-radius:10px;padding:28px 26px;">
+    <div id="a">
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">你可以现在就去试一件事。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">打开任何一个大模型，问它：单词 <strong style="font-weight:700;color:#1b1f27;">strawberry</strong> 里有几个字母 r？</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">正确答案是 3。这道题曾经是所有大模型的集体翻车现场——它们几乎清一色地回答 2。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">现在你去试，不少模型已经能答对了。但如果你让它把思考过程写出来，你会看到一件很奇怪的事：<strong style="font-weight:700;color:#1b1f27;">它得先把这个单词一个字母一个字母地拆开，摆成 s-t-r-a-w-b-e-r-r-y，然后才能开始数。</strong></p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">你数的时候需要拆吗？不需要。你一眼看过去，字母就在那儿。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">它得费劲绕这么一圈，是因为在它眼里，<strong style="font-weight:700;color:#1b1f27;">根本就没有"字母"这个东西</strong>。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">这一篇就讲清楚这件事：你打进去的那行字，进到模型里之后，到底变成了什么。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">它眼里的字，是一块一块的</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">先看结论。</p>
+<section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>wx1_seen_vs_seen.png</b><br>同一个单词，两种看法</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">你看见的是十个字母。而模型接收到的，是<strong style="font-weight:700;color:#1b1f27;">三个块</strong>：<code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#be123c;background:#f6f7f9;padding:1px 5px;border-radius:3px;">str</code>、<code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#be123c;background:#f6f7f9;padding:1px 5px;border-radius:3px;">aw</code>、<code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#be123c;background:#f6f7f9;padding:1px 5px;border-radius:3px;">berry</code>。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">（具体切成几块、从哪切，各家模型不完全一样。但"切成块"这件事是共同的。）</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">注意这三个块的边界：它们既不是字母，也不是完整的单词，而是卡在中间的<strong style="font-weight:700;color:#1b1f27;">碎片</strong>。三个 r 分散在两块不同的碎片内部——第一个在 <code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#be123c;background:#f6f7f9;padding:1px 5px;border-radius:3px;">str</code> 里，另外两个在 <code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#be123c;background:#f6f7f9;padding:1px 5px;border-radius:3px;">berry</code> 里。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">而模型拿到的是"<code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#be123c;background:#f6f7f9;padding:1px 5px;border-radius:3px;">berry</code> 这一整块"。就像你拿到一块印着 berry 的积木，积木上并没有把字母一个个标出来。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">要数出 r，它必须先反过来回忆"berry 这块积木是由哪些字母拼的"。这是一道额外的推理题，而不是一次观察。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">所以它不是笨。是<strong style="font-weight:700;color:#1b1f27;">它看到的东西和你看到的不一样</strong>。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">为什么要切得这么怪</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">一个很自然的疑问：干嘛要切成这种四不像的碎片？要么按字母切，要么按单词切，不都更整齐吗？</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">这两条路都试过，都不行。</p>
+<section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>wx1_three_ways.png</b><br>三种切法对比</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">按字母切。</strong> 词表小得可爱，26 个字母就搞定了。但一句话会被拆成好几十个碎片，序列长得吓人；而且单个字母几乎不携带意思——<code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#be123c;background:#f6f7f9;padding:1px 5px;border-radius:3px;">c</code> 本身什么也不是，模型得花很大力气才能把字母重新拼回意义。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">按整词切。</strong> 意思是保住了，但词表会爆炸：英文常用词就几十万，再加上人名、地名、专业术语、每天新造的词，根本列不完。更致命的是，<strong style="font-weight:700;color:#1b1f27;">只要遇到一个词表里没有的词，模型就彻底失明</strong>——它连表示这个词的办法都没有。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">按碎片切</strong>，也就是现在的做法：常见词整块保留，<code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#be123c;background:#f6f7f9;padding:1px 5px;border-radius:3px;">the</code> 就是 <code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#be123c;background:#f6f7f9;padding:1px 5px;border-radius:3px;">the</code>，不再拆；生僻词拆成几个常见碎片，<code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#be123c;background:#f6f7f9;padding:1px 5px;border-radius:3px;">tokenization</code> 拆成 <code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#be123c;background:#f6f7f9;padding:1px 5px;border-radius:3px;">token</code> + <code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#be123c;background:#f6f7f9;padding:1px 5px;border-radius:3px;">ization</code>。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">这样一来，词表被控制在几万到二十万这个量级，同时<strong style="font-weight:700;color:#1b1f27;">任何词都能被表示出来</strong>——再生僻的词，总能用更小的碎片拼出来。这是在"词表大小"和"表达能力"之间找到的平衡点。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">这些碎片有个专业名字，叫 <strong style="font-weight:700;color:#1b1f27;">token</strong>。你在新闻里看到的"上下文长度 100 万 token"、"API 按 token 计费"，说的就是这个东西。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">顺手解释了两件事</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">想通了"模型是按块读字的"，有几个日常现象就一下说得通了：</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">为什么 API 按 token 计费，而不是按字数。</strong> 因为 token 才是模型真正处理的单位。同一个意思的一句话，中文和英文切出来的块数并不一样，所以字数相同，费用可能差不少。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">为什么它偶尔会在生僻词、长数字上犯莫名其妙的错。</strong> 越生僻的东西被切得越碎，模型看到的是一堆陌生碎片的组合，而不是一个熟悉的整体。</p>
+<section style="margin:28px 0;padding:20px 20px 6px;background:#fff5f7;border:1px dashed #be123c;border-radius:8px;">
+<p style="margin:0 0 12px;font-size:16px;font-weight:700;color:#be123c;">自己试一下（30 秒）</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">这一步很值得做，因为它能把"碎片"从一个说法，变成你亲眼见过的东西。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">网上有现成的 tokenizer 工具（搜"tokenizer 在线"，OpenAI 官方那个最直观）。把下面这些贴进去，看看各自被切成几块：</p>
+<ul style="margin:0 0 14px;padding-left:22px;"><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;">你的名字，中文和拼音各试一次</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#be123c;background:#f6f7f9;padding:1px 5px;border-radius:3px;">strawberry</code></li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;">一个长数字，比如 <code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#be123c;background:#f6f7f9;padding:1px 5px;border-radius:3px;">20260903</code></li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;">一句你平时会问 AI 的话</li></ul>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">你会发现切法完全不像你的直觉。</p>
+</section>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">还差最关键的一步</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">到这儿我们知道，文字被切成了 token。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">但 token 还是文字，而模型是个只会做数学题的东西——它算不了 <code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#be123c;background:#f6f7f9;padding:1px 5px;border-radius:3px;">berry</code>。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">所以还要再走一步：<strong style="font-weight:700;color:#1b1f27;">每个 token 会被换成一串数字。</strong></p>
+<section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>wx1_to_numbers.png</b><br>每个碎片换成一串数字</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">这一步是整个大模型里最反直觉、也最漂亮的地方。因为换出来的那串数字不是随便编的号，它们之间藏着意思——</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#be123c;background:#f6f7f9;padding:1px 5px;border-radius:3px;">cat</code> 和 <code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#be123c;background:#f6f7f9;padding:1px 5px;border-radius:3px;">kitten</code> 拼写差得很远，换出来的数字却挨得很近。甚至可以拿它们做加减法：<strong style="font-weight:700;color:#1b1f27;">国王 - 男人 + 女人 ≈ 女王。</strong></p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">这不是任何人设计的规则。是模型自己学出来的。</p>
+<p style="margin:32px 0 0;padding-top:20px;border-top:1px dashed #be123c;font-size:16px;font-weight:700;color:#be123c;">下一篇讲这个。</p>
+    </div>
+  </div>
+</div>
+<script>
+function cp(el){
+  var r=document.createRange(); r.selectNodeContents(el);
+  var s=getSelection(); s.removeAllRanges(); s.addRange(r);
+  var ok=false; try{ ok=document.execCommand('copy'); }catch(e){}
+  s.removeAllRanges();
+  var n=document.getElementById('ok');
+  n.textContent = ok ? '已复制，去编辑器粘贴' : '复制失败，请手动选中';
+  setTimeout(function(){ n.textContent=''; }, 4000);
+}
+</script>
+</body></html>
