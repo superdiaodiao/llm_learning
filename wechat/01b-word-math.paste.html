@@ -1,0 +1,89 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>第2课｜国王 − 男人 + 女人 = ？ · 粘贴到公众号</title></head>
+<body style="margin:0;background:#eef0f4;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;">
+<div style="max-width:720px;margin:0 auto;padding:24px 16px 60px;">
+
+  <div style="background:#fff;border:1px solid #d6d9e0;border-radius:10px;padding:20px 22px;margin-bottom:20px;">
+    <div style="font-size:12px;letter-spacing:.1em;color:#8a9099;margin-bottom:12px;">粘贴到公众号编辑器</div>
+    <div style="font-size:14px;line-height:1.9;color:#3f3f46;">
+      <b>1.</b> 标题栏填：<span id="t" style="background:#f6f7f9;padding:2px 7px;border-radius:4px;">第2课｜国王 − 男人 + 女人 = ？</span>
+      <button onclick="cp(document.getElementById('t'))" style="margin-left:6px;font-size:12px;padding:3px 9px;cursor:pointer;border:1px solid #b6bcc6;background:#fff;border-radius:5px;">复制标题</button><br>
+      <b>2.</b> 点下面的按钮复制正文，到编辑器里 Ctrl/Cmd+V<br>
+      <b>3.</b> 正文里三个虚线框是图片位，删掉框、用编辑器的"图片"按钮上传对应 PNG<br>
+      <b>4.</b> 微信会重写图片地址，所以图必须在编辑器里传，不能靠外链
+    </div>
+    <button onclick="cp(document.getElementById('a'))" style="margin-top:16px;font-size:14px;font-weight:600;padding:9px 18px;cursor:pointer;border:0;background:#be123c;color:#fff;border-radius:6px;">复制正文</button>
+    <span id="ok" style="margin-left:10px;font-size:13px;color:#15803d;"></span>
+  </div>
+
+  <div style="background:#fff;border:1px solid #d6d9e0;border-radius:10px;padding:28px 26px;">
+    <div id="a">
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">你可以先猜一下答案。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">国王 − 男人 + 女人 = ？</strong></p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">答案是<strong style="font-weight:700;color:#1b1f27;">女王</strong>。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">这不是文字游戏，也不是有人把这条规则写进了程序。是模型自己算出来的——真的在做加减法，而加减的对象是"词"。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">上一课我们讲到，你打进去的字会被切成一块块的 token。但 token 还是文字，而模型只会算数——它算不了 <code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#be123c;background:#f6f7f9;padding:1px 5px;border-radius:3px;">berry</code>。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">这一课就讲那关键的一步：<strong style="font-weight:700;color:#1b1f27;">文字怎么变成数字，以及为什么这些数字里会藏着意思。</strong></p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">第一步：查一张表</h2>
+<section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>wx2_lookup.png</b><br>token 查表变成一串数字</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">模型内部有一张巨大的表。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">表有多少行？和词表一样多——十几万行。每一行是一个 token，后面跟着一长串数字。以 Llama 3 为例，每个 token 后面跟 <strong style="font-weight:700;color:#1b1f27;">4096 个数字</strong>。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">这一步简单到有点无聊：token 先变成一个编号，编号就是行号，按行号去表里取出那一行，拿到 4096 个数字。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">查表，仅此而已。</strong></p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">真正有意思的是下一个问题：这张表里的数字，是谁填进去的？</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">关键：这张表没有人写过</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">模型刚造出来的时候，表里全是随机数。每个词后面跟着一串毫无意义的乱码。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">然后开始训练。训练做的事只有一件：<strong style="font-weight:700;color:#1b1f27;">看大量文本，反复预测下一个词，猜错了就把数字往回调一点点。</strong></p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">调了亿万次之后，一件谁也没规定过的事发生了——</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">意思相近的词，数字也变得相近。</strong></p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">没有人告诉过模型"猫和小猫是近义词"。是它为了把"下一个词"猜得更准，自己发现把这两个词的数字放近一点更划算，因为它们出现的语境实在太像了。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">这是训练的副产品，不是设计出来的功能。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">于是"意思"变成了"位置"</h2>
+<section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>wx2_semantic_map.png</b><br>语义地图</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">把那 4096 个数字想象成坐标——一个词在一张巨大地图上的位置。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">（图上只画了两维。真实是 4096 维，画不出来，但道理一样。）</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">地图上，"国王、女王、王子"挤在一块儿，"猫、小猫、狗"挤在另一块儿，两块相隔很远。而在同一块里，"猫"和"小猫"又比"猫"和"狗"更近。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">意思，变成了距离。</strong></p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">这里有个反直觉的地方：<code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#be123c;background:#f6f7f9;padding:1px 5px;border-radius:3px;">cat</code> 和 <code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#be123c;background:#f6f7f9;padding:1px 5px;border-radius:3px;">kitten</code> 拼写差得很远，位置却很近。因为一个词的位置来自<strong style="font-weight:700;color:#1b1f27;">它出现在什么语境里</strong>，而不是它由哪些字母组成。模型间接看得见拼写（通过上一课那些碎片），但"意思"完全来自这张学出来的表。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">所以词能做加减法</h2>
+<section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>wx2_word_math.png</b><br>词向量的平行四边形</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">既然词是坐标，坐标就能加减。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">看图里那两条箭头：一条从"男人"指向"国王"，一条从"女人"指向"女王"。<strong style="font-weight:700;color:#1b1f27;">它们几乎一样长、一样的方向。</strong></p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">因为这两条箭头代表的是同一件事：加上"王室身份"。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">于是：国王 减去 男人（把王室里那份男性成分抵消掉），再加上 女人，落点就正好在女王附近。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">这条关系没有任何人写进去过。它是模型在"猜下一个词"的过程中，自己长出来的几何结构。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">说句实在的</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">这个例子来自 2013 年一个叫 word2vec 的研究，是"意思变成位置"这件事最有名的一次证明。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">你没法直接在对话框里验证它——那需要拿到模型内部的表自己算。而且现在大模型的 token 向量，不一定还能这么干净地做加减法。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">但<strong style="font-weight:700;color:#1b1f27;">"意思相近 = 位置相近"这条一直成立</strong>，而且你每天都在用它：搜索时的"语义搜索"、AI 助手在你的文档里找相关段落，靠的都是算两个坐标之间的距离。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">但还有个问题</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">到这儿看着挺完美：文字切成 token，token 查表变成坐标，坐标里藏着意思。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">可是 <code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#be123c;background:#f6f7f9;padding:1px 5px;border-radius:3px;">the cat sat on the mat</code> 里有两个 <code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#be123c;background:#f6f7f9;padding:1px 5px;border-radius:3px;">the</code>。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">它们查的是同一行，拿到的是<strong style="font-weight:700;color:#1b1f27;">完全相同</strong>的数字。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">这就带来两个麻烦：</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">位置丢了。</strong>"狗咬人"和"人咬狗"用的字一模一样，顺序不同意思天差地别。但查表只认词，不认它排在第几个。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">语境丢了。</strong>"河岸"的 bank 和"银行"的 bank，是同一个词、同一行数字。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">所以查表给出的，只是"词典义"——一个脱离上下文的原始坐标。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">把它变成"语境义"的，是下一课的主角。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">下一课讲这个。</p>
+<section style="margin:40px 0 0;padding:18px 20px 4px;background:#f6f7f9;border-radius:8px;">
+<p style="margin:0 0 10px;font-size:14px;font-weight:700;color:#6a7280;">关于这个系列</p>
+<p style="margin:0 0 14px;font-size:14px;line-height:1.85;color:#6a7280;">《从零看懂大模型》是一个系列：从文字怎么变成数字，一路讲到模型怎么生成、权重怎么训练出来、大模型怎么被高效服务，再到 RAG、Agent 和记忆系统。每一课都拿顶尖开源项目的真实源码当课本。</p>
+<p style="margin:0 0 14px;font-size:14px;line-height:1.85;color:#6a7280;">这是第 2 课。完整目录见「阅读原文」。</p>
+</section>
+    </div>
+  </div>
+</div>
+<script>
+function cp(el){
+  var r=document.createRange(); r.selectNodeContents(el);
+  var s=getSelection(); s.removeAllRanges(); s.addRange(r);
+  var ok=false; try{ ok=document.execCommand('copy'); }catch(e){}
+  s.removeAllRanges();
+  var n=document.getElementById('ok');
+  n.textContent = ok ? '已复制，去编辑器粘贴' : '复制失败，请手动选中';
+  setTimeout(function(){ n.textContent=''; }, 4000);
+}
+</script>
+</body></html>
