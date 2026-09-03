@@ -1,4 +1,4 @@
-# 09 · In Practice: From Reading Code to Landing PRs in Top Projects
+# 09 · In Practice: From Reading Code to Opening PRs in Top Projects
 
 > [中文版](../09-contributing-in-practice.md) · English
 

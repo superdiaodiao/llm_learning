@@ -18,7 +18,7 @@
 | 06 | [The Application Layer: RAG and Agents](06-rag-and-agents.md) | Application map, RAG pipeline, reranking, the agent loop |
 | 07 | [AI Memory Systems: Agents That Remember Across Sessions](07-ai-memory-systems.md) | Read/write loop, memory types, mem0 source and prompts |
 | 08 | [Agent Architectures in Depth: From ReAct to Multi-agent](08-agent-architectures.md) | ReAct, graphs/state machines, planning, multi-agent, decision map |
-| 09 | [In Practice: From Reading Code to Landing PRs in Top Projects](09-contributing-in-practice.md) | Pattern-hunting methodology + two real cases (LlamaIndex / mem0) |
+| 09 | [In Practice: From Reading Code to Opening PRs in Top Projects](09-contributing-in-practice.md) | Pattern-hunting methodology + two real cases (LlamaIndex / mem0) |
 
 ## The main line in one picture
 

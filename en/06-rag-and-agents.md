@@ -20,7 +20,7 @@ The model's weights are frozen at training time. It doesn't know your company's 
 
 The pipeline has two halves:
 
-- **Offline indexing** (build the store, done once): documents → split into chunks → each chunk embedded into a vector → stored in a vector database.
+- **Offline indexing** (build the store, done once): documents → split into chunks → each chunk embedded into a vector → stored in a vector store.
 - **Online question answering** (every question): question → embedded by the same model into a vector → find the few chunks with the smallest angle in the vector store → optionally rerank → assemble into the prompt → the LLM generates.
 
 The core is the "similar meaning = similar vectors" idea from Part 1: retrieval is finding the knowledge chunks nearest to the question in vector space.
