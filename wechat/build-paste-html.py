@@ -31,10 +31,17 @@ S = {
               'font-size:14px;color:#6a7280;line-height:1.7;',
     'kick':   'margin:32px 0 0;padding-top:20px;border-top:1px dashed #be123c;'
               'font-size:16px;font-weight:700;color:#be123c;',
+    'tail':   'margin:40px 0 0;padding:18px 20px 4px;background:#f6f7f9;'
+              'border-radius:8px;',
+    'tailh':  'margin:0 0 10px;font-size:14px;font-weight:700;color:#6a7280;',
+    'tailp':  'margin:0 0 14px;font-size:14px;line-height:1.85;color:#6a7280;',
 }
 
 # 这些小标题整段套高亮框（读者被要求动手的地方）
 BOXED = ('自己试一下',)
+
+# 这些整段走页脚样式，和正文视觉分开
+TAIL = ('关于这个系列',)
 
 
 def inline(t):
@@ -49,13 +56,13 @@ def convert(md):
     lines = md.split('\n')
     title, out = '', []
     i, n = 0, len(lines)
-    box_open = False
+    box_open = in_tail = False
 
     def close_box():
-        nonlocal box_open
+        nonlocal box_open, in_tail
         if box_open:
             out.append('</section>')
-            box_open = False
+            box_open = in_tail = False
 
     while i < n:
         ln = lines[i].rstrip()
@@ -80,6 +87,10 @@ def convert(md):
                 out.append('<section style="%s">' % S['box'])
                 out.append('<p style="%s">%s</p>' % (S['boxh'], inline(head)))
                 box_open = True
+            elif head.startswith(TAIL):
+                out.append('<section style="%s">' % S['tail'])
+                out.append('<p style="%s">%s</p>' % (S['tailh'], inline(head)))
+                box_open = in_tail = True
             else:
                 out.append('<h2 style="%s">%s</h2>' % (S['h2'], inline(head)))
             i += 1
@@ -101,8 +112,8 @@ def convert(md):
             continue
 
         # 普通段落；末段"下一篇讲这个。"当收尾
-        style = S['p']
-        if ln.startswith('下一篇'):
+        style = S['tailp'] if in_tail else S['p']
+        if ln.startswith('下一篇') and not in_tail:
             style = S['kick']
         out.append('<p style="%s">%s</p>' % (style, inline(ln)))
         i += 1
