@@ -12,7 +12,7 @@ p = ['<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 %d %d" width="%d" hei
 # 左侧一道竖切缝，呼应正文里的母题
 p.append('<line x1="46" y1="64" x2="46" y2="319" stroke="%s" stroke-width="3" stroke-dasharray="7 6"/>' % SEAM)
 
-p.append('<text x="76" y="92" font-family="%s" font-size="17" font-weight="600" letter-spacing="3.2" fill="%s">大模型系列 · 第一课</text>'
+p.append('<text x="76" y="92" font-family="%s" font-size="17" font-weight="600" letter-spacing="3.2" fill="%s">大模型系列 · 第 1 课</text>'
          % (MONO, SEAM))
 
 # 主标题两行，"三个 r" 单独上强调色
@@ -41,7 +41,7 @@ q = ['<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 %d %d" width="%d" hei
      'role="img" aria-label="方形封面：它能写代码，却数不清三个 r">' % (S, S, S*2, S*2),
      '<rect width="%d" height="%d" fill="#ffffff"/>' % (S, S),
      '<line x1="22" y1="44" x2="22" y2="340" stroke="%s" stroke-width="2.5" stroke-dasharray="6 5"/>' % SEAM,
-     '<text x="44" y="58" font-family="%s" font-size="13" font-weight="600" letter-spacing="2.4" fill="%s">大模型系列 · 第一课</text>' % (MONO, SEAM),
+     '<text x="44" y="58" font-family="%s" font-size="13" font-weight="600" letter-spacing="2.4" fill="%s">大模型系列 · 第 1 课</text>' % (MONO, SEAM),
      '<text x="44" y="142" font-family="%s" font-size="44" font-weight="700" fill="%s">它能写代码，</text>' % (CJK, INK),
      '<text x="44" y="198" font-family="%s" font-size="44" font-weight="700" fill="%s">却数不清</text>' % (CJK, INK),
      '<text x="44" y="260" font-family="%s" font-size="54" font-weight="700" fill="%s">三个 r</text>' % (CJK, SEAM)]
