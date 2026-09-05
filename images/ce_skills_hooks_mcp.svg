@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 600" width="1360" height="1200">
+<rect width="680" height="600" fill="#ffffff"/>
+<text x="20" y="22" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">① Skill：一份按需加载的操作手册（渐进披露）</text>
+<rect x="20" y="34" width="200" height="110" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="34" y="56" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="start" font-weight="600">平时模型只看到索引</text>
+<text x="34" y="78" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">pdf: 处理 PDF 文件</text>
+<text x="34" y="94" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">xlsx: 处理表格</text>
+<text x="34" y="110" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">deploy: 发布上线流程</text>
+<text x="34" y="132" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">每条只占一行 token</text>
+<line x1="220" y1="90" x2="258" y2="90" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="258,90 250.0,86.0 250.0,94.0" fill="#9ca3af"/>
+<text x="239" y="80" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="middle" font-weight="600">任务命中</text>
+<rect x="260" y="34" width="400" height="110" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="274" y="56" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="start" font-weight="600">才加载这一份完整的 SKILL.md</text>
+<text x="274" y="78" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">name / description（何时用）</text>
+<text x="274" y="94" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">步骤：1. 先… 2. 再… 3. 检查…</text>
+<text x="274" y="110" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">附带：脚本、模板、参考文档（可再按需读）</text>
+<text x="274" y="132" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">= 把“经验”做成文件：可版本管理、可分享、可复用</text>
+<text x="20" y="182" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">② Hooks：工具调用前后的拦截点（护栏和可观测都靠它）</text>
+<rect x="20" y="196" width="130" height="50" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="85" y="218" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="600">模型决定</text>
+<text x="85" y="236" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">调 run_shell(...)</text>
+<line x1="150" y1="221" x2="184" y2="221" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="184,221 176.0,217.0 176.0,225.0" fill="#9ca3af"/>
+<rect x="186" y="196" width="130" height="50" rx="8" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.8" stroke-dasharray="5,3"/>
+<text x="251" y="218" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="middle" font-weight="600">PreToolUse</text>
+<text x="251" y="236" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">校验/拦截/改写参数</text>
+<line x1="316" y1="221" x2="350" y2="221" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="350,221 342.0,217.0 342.0,225.0" fill="#9ca3af"/>
+<rect x="352" y="196" width="130" height="50" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="417" y="218" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="600">真正执行</text>
+<text x="417" y="236" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">运行时跑工具</text>
+<line x1="482" y1="221" x2="516" y2="221" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="516,221 508.0,217.0 508.0,225.0" fill="#9ca3af"/>
+<rect x="518" y="196" width="142" height="50" rx="8" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.8" stroke-dasharray="5,3"/>
+<text x="589" y="218" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="middle" font-weight="600">PostToolUse</text>
+<text x="589" y="236" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">压缩结果/脱敏/记日志</text>
+<text x="20" y="272" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">典型用法：拦截 rm -rf 这类危险命令、要求人工审批、脱敏、把几万行输出压成摘要再回填、给每次调用打点。</text>
+<text x="20" y="290" font-family="Noto Sans CJK SC" font-size="10.5" fill="#2563eb" text-anchor="start" font-weight="600">hooks 是确定性的代码，不靠模型“自觉”——这是 harness 比提示词可靠的根本原因。</text>
+<text x="20" y="326" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">③ MCP：工具的统一接入协议（“USB-C”）</text>
+<rect x="20" y="340" width="150" height="70" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="95" y="364" font-family="Noto Sans CJK SC" font-size="11" fill="#1f2937" text-anchor="middle" font-weight="600">Agent（MCP 客户端）</text>
+<text x="95" y="384" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">一种协议，接一切</text>
+<text x="95" y="400" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">列工具 → 调用 → 拿结果</text>
+<line x1="170" y1="360" x2="228" y2="352" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="228,352 219.5,349.1 220.6,357.1" fill="#9ca3af"/>
+<line x1="170" y1="375" x2="228" y2="375" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="228,375 220.0,371.0 220.0,379.0" fill="#9ca3af"/>
+<line x1="170" y1="390" x2="228" y2="398" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="228,398 220.6,392.9 219.5,400.9" fill="#9ca3af"/>
+<rect x="230" y="340" width="200" height="22" rx="5" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.2"/>
+<text x="240" y="355" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">GitHub 服务器: create_issue, search…</text>
+<rect x="230" y="366" width="200" height="22" rx="5" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.2"/>
+<text x="240" y="381" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">数据库服务器: query, list_tables</text>
+<rect x="230" y="392" width="200" height="22" rx="5" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.2"/>
+<text x="240" y="407" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">浏览器服务器: navigate, click, read</text>
+<rect x="450" y="340" width="210" height="74" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="464" y="362" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="start" font-weight="600">每个工具自带</text>
+<text x="464" y="380" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">name + description</text>
+<text x="464" y="394" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">+ 参数 JSON schema</text>
+<text x="464" y="408" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">= 08 篇工具调用第①步的来源</text>
+<rect x="20" y="430" width="640" height="150" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="34" y="454" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="start" font-weight="600">三者怎么配合（一次“给仓库提 issue”任务）</text>
+<text x="34" y="478" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">1. 索引里 “github-issue” skill 命中 → 加载手册：先查重、按模板写、标签怎么打。</text>
+<text x="34" y="498" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">2. 手册里要调 search_issues / create_issue → 这些工具来自 MCP 的 GitHub 服务器。</text>
+<text x="34" y="518" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">3. create_issue 是公开写操作 → PreToolUse hook 拦下来要求人工确认；PostToolUse 记录一条审计日志。</text>
+<text x="34" y="546" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="start" font-weight="600">Skills 给经验，MCP 给手，Hooks 给纪律。三者都在模型之外，都是确定性的工程。</text>
+<text x="34" y="566" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">这三样合起来，就是当前最火的那批 agent 项目在做的事。</text>
+</svg>

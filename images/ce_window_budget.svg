@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 560" width="1360" height="1120">
+<rect width="680" height="560" fill="#ffffff"/>
+<text x="20" y="24" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">一轮对话时，上下文窗口里都有什么（从上到下）</text>
+<rect x="20" y="36" width="300" height="470" rx="10" fill="#ffffff" stroke="#9ca3af" stroke-width="1.5"/>
+<rect x="34" y="48" width="272" height="54" rx="6" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="46" y="68" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="start" font-weight="600">系统提示 + 工具表 schema</text>
+<text x="46" y="86" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">稳定前缀：每轮几乎不变</text>
+<rect x="34" y="110" width="272" height="54" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="46" y="130" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="start" font-weight="600">Skills（按需加载的操作手册）</text>
+<text x="46" y="148" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">平时只有一行简介，命中任务才展开</text>
+<rect x="34" y="172" width="272" height="54" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="46" y="192" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="start" font-weight="600">检索来的记忆 / 文档</text>
+<text x="46" y="210" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">RAG + 记忆读侧（07）</text>
+<rect x="34" y="234" width="272" height="54" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="46" y="254" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="start" font-weight="600">对话历史</text>
+<text x="46" y="272" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">越聊越长，需要压缩/摘要</text>
+<rect x="34" y="296" width="272" height="110" rx="6" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.8"/>
+<text x="46" y="318" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="start" font-weight="600">工具返回结果</text>
+<text x="46" y="338" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="start" font-weight="600">最大的空间杀手</text>
+<text x="46" y="358" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">一次 grep 几千行、一份日志几万 token、</text>
+<text x="46" y="376" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">一个 JSON 响应大半是没用的字段——</text>
+<text x="46" y="394" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">不压缩，几轮就把窗口撑爆、把关键信息淹没</text>
+<rect x="34" y="414" width="272" height="40" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="46" y="438" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="start" font-weight="600">当前用户消息</text>
+<text x="34" y="480" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">窗口有限，注意力也有限：塞得越多，</text>
+<text x="34" y="496" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">每条信息分到的“注意力”越少。</text>
+<text x="340" y="24" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">五条组装原则</text>
+<rect x="340" y="36" width="320" height="86" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="354" y="58" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="start" font-weight="600">① 渐进披露</text>
+<text x="354" y="78" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">别把所有指令塞进系统提示。建索引，</text>
+<text x="354" y="96" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">用到哪个装哪个——skills 就是这个思想。</text>
+<text x="354" y="114" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">效果：上下文更短、指令间不互相干扰。</text>
+<rect x="340" y="130" width="320" height="86" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="354" y="152" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="start" font-weight="600">② 压缩与截断（重点治工具结果）</text>
+<text x="354" y="172" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">工具结果先摘要/裁剪再进窗口；原文留在</text>
+<text x="354" y="190" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">外面，给模型一个“需要时再取”的句柄。</text>
+<text x="354" y="208" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">对话过长时把早期历史压成摘要。</text>
+<rect x="340" y="224" width="320" height="86" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="354" y="246" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="start" font-weight="600">③ 位置与注意力</text>
+<text x="354" y="266" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">模型对开头和结尾最敏感，中间容易“丢”</text>
+<text x="354" y="284" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">（lost in the middle）。关键规则放开头，</text>
+<text x="354" y="302" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">当前任务放结尾，大块资料放中间。</text>
+<rect x="340" y="318" width="320" height="86" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="354" y="340" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="start" font-weight="600">④ 隔离</text>
+<text x="354" y="360" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">脏活派给子 agent，让它在自己的窗口里翻</text>
+<text x="354" y="378" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">原文，只把摘要带回来（08 多 agent）。</text>
+<text x="354" y="396" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">主上下文永远干净。</text>
+<rect x="340" y="412" width="320" height="86" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="354" y="434" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="start" font-weight="600">⑤ 缓存对齐（省钱的关键）</text>
+<text x="354" y="454" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">前缀稳定 = KV cache 可复用（03/05）。</text>
+<text x="354" y="472" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">会变的东西（时间戳、随机 id）放后面，</text>
+<text x="354" y="490" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">系统提示和工具表一字不动，缓存才命中。</text>
+<text x="20" y="534" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="start" font-weight="600">一句话：上下文是稀缺资源，组装它是一门工程——这就是“上下文工程”。</text>
+</svg>

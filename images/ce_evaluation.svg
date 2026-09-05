@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 540" width="1360" height="1080">
+<rect width="680" height="540" fill="#ffffff"/>
+<text x="20" y="22" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">评什么：三个层次，由细到粗</text>
+<rect x="20" y="34" width="200" height="96" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="120" y="56" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="600">① 单步</text>
+<text x="120" y="76" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="middle">这次工具选对了吗？</text>
+<text x="120" y="92" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="middle">参数填对了吗？</text>
+<text x="120" y="108" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="middle">输出格式合法吗？</text>
+<text x="120" y="124" font-family="Noto Sans CJK SC" font-size="10.5" fill="#2563eb" text-anchor="middle" font-weight="600">可精确判定，最便宜</text>
+<rect x="240" y="34" width="200" height="96" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="340" y="56" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="600">② 轨迹</text>
+<text x="340" y="76" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="middle">整条路走得合理吗？</text>
+<text x="340" y="92" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="middle">有没有绕圈、重复、</text>
+<text x="340" y="108" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="middle">调了不该调的工具？</text>
+<text x="340" y="124" font-family="Noto Sans CJK SC" font-size="10.5" fill="#2563eb" text-anchor="middle" font-weight="600">看图模型里的节点跳转</text>
+<rect x="460" y="34" width="200" height="96" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="560" y="56" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="600">③ 结果</text>
+<text x="560" y="76" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="middle">任务最终完成了吗？</text>
+<text x="560" y="92" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="middle">答案对不对、好不好？</text>
+<text x="560" y="108" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="middle">用户会满意吗？</text>
+<text x="560" y="124" font-family="Noto Sans CJK SC" font-size="10.5" fill="#2563eb" text-anchor="middle" font-weight="600">最重要，也最难判</text>
+<text x="20" y="166" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">怎么打分：三种方法，按“能不能精确判定”选</text>
+<rect x="20" y="178" width="200" height="130" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="34" y="200" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="start" font-weight="600">金标准 + 精确匹配</text>
+<text x="34" y="220" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">有唯一正确答案时用：</text>
+<text x="34" y="236" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">分类、抽取、算术、</text>
+<text x="34" y="252" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">工具名/参数、格式校验。</text>
+<text x="34" y="268" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start"></text>
+<text x="34" y="284" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">便宜、稳定、可自动化。</text>
+<text x="34" y="300" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">能用它就别用别的。</text>
+<rect x="240" y="178" width="200" height="130" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="254" y="200" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="start" font-weight="600">LLM 当评委（按评分表）</text>
+<text x="254" y="220" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">开放式回答用：给评委一份</text>
+<text x="254" y="236" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">明确的评分表（rubric），</text>
+<text x="254" y="252" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">逐条打分而不是凭感觉。</text>
+<text x="254" y="268" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start"></text>
+<text x="254" y="284" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">坑：评委有偏见（偏长、偏</text>
+<text x="254" y="300" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">自家风格），要人工抽检校准。</text>
+<rect x="460" y="178" width="200" height="130" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="474" y="200" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="start" font-weight="600">成对比较</text>
+<text x="474" y="220" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">A、B 两个版本谁更好？</text>
+<text x="474" y="236" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">比“打绝对分”稳得多——</text>
+<text x="474" y="252" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">人和模型都更擅长比较。</text>
+<text x="474" y="268" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start"></text>
+<text x="474" y="284" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">这正是 DPO 偏好数据的形式，</text>
+<text x="474" y="300" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">评估和对齐用的是同一种信号。</text>
+<text x="20" y="344" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">评估必须接进迭代循环，否则改提示词就是在赌</text>
+<rect x="20" y="356" width="140" height="50" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="90.0" y="378" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="600">改动</text>
+<text x="90.0" y="396" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">提示词 / skill / 工具</text>
+<rect x="194" y="356" width="160" height="50" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="274.0" y="378" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="600">跑回归评估集</text>
+<text x="274.0" y="396" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">几十到几百个固定用例</text>
+<rect x="388" y="356" width="130" height="50" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="453.0" y="378" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="600">对比分数</text>
+<text x="453.0" y="396" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">哪些用例变好/变坏</text>
+<rect x="552" y="356" width="108" height="50" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="606.0" y="378" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="600">合并或回滚</text>
+<text x="606.0" y="396" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">像单元测试</text>
+<line x1="160" y1="381" x2="192" y2="381" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="192,381 184.0,377.0 184.0,385.0" fill="#9ca3af"/>
+<line x1="354" y1="381" x2="386" y2="381" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="386,381 378.0,377.0 378.0,385.0" fill="#9ca3af"/>
+<line x1="518" y1="381" x2="550" y2="381" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="550,381 542.0,377.0 542.0,385.0" fill="#9ca3af"/>
+<rect x="20" y="424" width="640" height="104" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="34" y="448" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="start" font-weight="600">两条实操原则</text>
+<text x="34" y="470" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">· 评估集从真实失败里长出来：线上每出一个坏例子，就固化成一条用例。几十条真实用例胜过几千条合成数据。</text>
+<text x="34" y="490" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">· 可观测是评估的前提：每次节点跳转、每次工具调用都记下来（trace），坏结果才能追溯到是哪一步坏的。</text>
+<text x="34" y="516" font-family="Noto Sans CJK SC" font-size="10.5" fill="#2563eb" text-anchor="start" font-weight="600">没有评估就没有迭代——改了不测，等于在赌。这是做 AI 应用最少人认真做、却最拉开差距的一件事。</text>
+</svg>
