@@ -31,6 +31,13 @@ LESSONS = {
         'motif': ('strip', '0.21  −0.88  0.34  …', None),
         'caption': '每个词，都是一串数字',
     },
+    3: {
+        'slug':  'wx3',
+        'wide':  [('人咬狗和狗咬人，', INK, 58), ('|AI 怎么分得清|', SEAM, 58)],
+        'square': [('人咬狗', INK, 46), ('和狗咬人，', INK, 46), ('AI 怎么分得清', SEAM, 42)],
+        'motif': ('phrase', '同样三个字，意思相反', None),
+        'caption': '顺序，也是信息',
+    },
 }
 
 
@@ -60,11 +67,12 @@ def motif(kind, data, hi, x0, y, cw, step, tw):
                        % (x0 + i * step + cw / 2, y + cw / 2 + 6, MONO, cw * 0.46,
                           '600' if h else '400', SEAM if h else INK, c))
     else:
+        fam = CJK if kind == 'phrase' else MONO
         out.append('<rect x="%g" y="%g" width="%g" height="%g" rx="8" fill="%s" stroke="%s" '
                    'stroke-width="1.6"/>' % (x0, y, tw, cw, SEAM_SOFT, SEAM))
         out.append('<text x="%g" y="%g" text-anchor="middle" font-family="%s" font-size="%g" '
                    'font-weight="600" fill="%s">%s</text>'
-                   % (x0 + tw / 2, y + cw / 2 + 7, MONO, cw * 0.5, SEAM, data))
+                   % (x0 + tw / 2, y + cw / 2 + 7, fam, cw * 0.5, SEAM, data))
     return out
 
 

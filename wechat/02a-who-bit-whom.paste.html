@@ -1,0 +1,82 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>人咬狗和狗咬人，AI 怎么分得清 · 粘贴到公众号</title></head>
+<body style="margin:0;background:#eef0f4;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;">
+<div style="max-width:720px;margin:0 auto;padding:24px 16px 60px;">
+
+  <div style="background:#fff;border:1px solid #d6d9e0;border-radius:10px;padding:20px 22px;margin-bottom:20px;">
+    <div style="font-size:12px;letter-spacing:.1em;color:#8a9099;margin-bottom:12px;">粘贴到公众号编辑器</div>
+    <div style="font-size:14px;line-height:1.9;color:#3f3f46;">
+      <b>1.</b> 标题栏填：<span id="t" style="background:#f6f7f9;padding:2px 7px;border-radius:4px;">人咬狗和狗咬人，AI 怎么分得清</span>
+      <button onclick="cp(document.getElementById('t'))" style="margin-left:6px;font-size:12px;padding:3px 9px;cursor:pointer;border:1px solid #b6bcc6;background:#fff;border-radius:5px;">复制标题</button><br>
+      <b>2.</b> 点下面的按钮复制正文，到编辑器里 Ctrl/Cmd+V<br>
+      <b>3.</b> 正文里三个虚线框是图片位，删掉框、用编辑器的"图片"按钮上传对应 PNG<br>
+      <b>4.</b> 微信会重写图片地址，所以图必须在编辑器里传，不能靠外链
+    </div>
+    <button onclick="cp(document.getElementById('a'))" style="margin-top:16px;font-size:14px;font-weight:600;padding:9px 18px;cursor:pointer;border:0;background:#be123c;color:#fff;border-radius:6px;">复制正文</button>
+    <span id="ok" style="margin-left:10px;font-size:13px;color:#15803d;"></span>
+  </div>
+
+  <div style="background:#fff;border:1px solid #d6d9e0;border-radius:10px;padding:28px 26px;">
+    <div id="a">
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">「人咬狗」和「狗咬人」。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">同样三个字，顺序一换，意思完全反了。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">你一眼就分得出来。但对 AI 来说，这事没那么理所当然——<strong style="font-weight:700;color:#1b1f27;">上一课我们讲到，它把每个词查表变成一串数字，而查表只认这个词是什么，根本不管它排在第几个。</strong></p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">同一个「狗」字，无论在句首还是句尾，查出来的数字一模一样。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">还有个更麻烦的。「我去河边的 bank 散步」和「我去 bank 取钱」，这两个 bank 查的是同一行，拿到的数字也完全相同。可一个是河岸，一个是银行。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">位置丢了，语境也丢了。</strong> 这一课讲模型怎么把这两样补回来。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">第一步：给每个词带上位置</h2>
+<section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>wx3_position.png</b><br>同样的词，在不同位置上</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">这一步的思路很直白：既然查表只给了"这个词是什么"，那就再给它加上"它排在第几个"。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">具体做法是把词的坐标按位置<strong style="font-weight:700;color:#1b1f27;">转一个角度</strong>——第 1 个字转一点，第 3 个字转得多一些。转过之后，「狗」在第 1 位和在第 3 位，就是两串不同的数字了。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">（各家模型的做法不完全一样，但目的是一致的：让位置变成数字的一部分。）</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">于是「人咬狗」和「狗咬人」，还没开始理解，光是输入就已经不同了。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">位置问题，解决。</strong></p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">第二步：让每个词环顾四周</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">语境这件事要麻烦得多，而模型的解法也漂亮得多。</p>
+<section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>wx3_attention.png</b><br>同一个词，两种语境</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">每个词都做同一件事：<strong style="font-weight:700;color:#1b1f27;">把整句话扫一遍，判断"谁跟我有关系"，然后按相关程度，把那些词的信息揉进自己。</strong></p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">看图里的 bank。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">在「我去<strong style="font-weight:700;color:#1b1f27;">河边</strong>的 bank 散步」里，它扫一圈，发现「河边」跟自己关系最大——于是把「河边」的信息大量吸收进来。加工完的 bank，已经不是词典里那个中性的 bank 了，它带上了水、岸、散步的味道。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">在「我去 bank <strong style="font-weight:700;color:#1b1f27;">取钱</strong>」里，同样一个 bank，吸收的是「取钱」。出来的是另一串完全不同的数字。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">进去的时候一模一样，出来的时候天差地别。</strong></p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">这一步有个名字，叫 <strong style="font-weight:700;color:#1b1f27;">attention</strong>（注意力）——因为每个词做的事，本质上就是在决定"我该注意谁"。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">2017 年那篇提出它的论文，标题就叫《Attention Is All You Need》（注意力就是你需要的全部）。今天你用的每一个大模型，底座都是它。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">所以"理解"到底是什么</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">到这儿可以给一个挺实在的回答了。</p>
+<ul style="margin:0 0 14px;padding-left:22px;"><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">查表</strong>给的是<strong style="font-weight:700;color:#1b1f27;">词典义</strong>——这个词孤零零的意思。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">位置编码</strong>告诉模型它排在第几。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">attention</strong> 给的是<strong style="font-weight:700;color:#1b1f27;">语境义</strong>——这个词在这句话里的意思。</li></ul>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">模型没有"理解"这个动作。它做的是：让每个词吸收周围的词，直到它的数字足以代表"它在这句话里是什么意思"。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">听起来很机械，但<strong style="font-weight:700;color:#1b1f27;">这就是全部</strong>。你觉得它读懂了你的话，靠的就是这个。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">一层不够，要叠几十层</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">还有最后一件事。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">上面那个"环顾四周"的动作，模型不是只做一次，而是<strong style="font-weight:700;color:#1b1f27;">反复做几十次</strong>。</p>
+<section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>wx3_layers.png</b><br>一层层叠上去</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">关键在于每一层的输入都是上一层的半成品：</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">第 1 层里的 bank，看到的是原始的邻居词。而第 2 层里的 bank，看到的邻居<strong style="font-weight:700;color:#1b1f27;">已经被第 1 层揉过一遍</strong>了——它们各自也带上了自己的语境。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">越往上，每个词里浓缩的信息越丰富、越抽象。像一条流水线：浅层的工位认字、认词组，深层的工位在半成品上拼出语义和逻辑。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">Llama 3 的 80 亿参数版本叠了 32 层，更大的模型上百层。<strong style="font-weight:700;color:#1b1f27;">"深度学习"里的"深"，就是这个意思。</strong></p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">但它还没说出一个字</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">到这里，模型已经"读懂"了你那句话——每个词都带上了位置和语境。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">可它一个字都还没吐出来。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">从"读懂了"到"说出下一个词"，中间还差最后一步。而那一步里藏着一个你天天在调、却未必知道它在干嘛的东西——<strong style="font-weight:700;color:#1b1f27;">为什么同样的问题，AI 每次回答都不太一样。</strong></p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">下一课讲这个。</p>
+<section style="margin:40px 0 0;padding:18px 20px 4px;background:#f6f7f9;border-radius:8px;">
+<p style="margin:0 0 10px;font-size:14px;font-weight:700;color:#6a7280;">关于这个系列</p>
+<p style="margin:0 0 14px;font-size:14px;line-height:1.85;color:#6a7280;">《从零看懂大模型》是一个系列：从文字怎么变成数字，一路讲到模型怎么生成、权重怎么训练出来、大模型怎么被高效服务，再到 RAG、Agent 和记忆系统。每一课都拿顶尖开源项目的真实源码当课本。</p>
+<p style="margin:0 0 14px;font-size:14px;line-height:1.85;color:#6a7280;">完整目录见「阅读原文」。</p>
+</section>
+    </div>
+  </div>
+</div>
+<script>
+function cp(el){
+  var r=document.createRange(); r.selectNodeContents(el);
+  var s=getSelection(); s.removeAllRanges(); s.addRange(r);
+  var ok=false; try{ ok=document.execCommand('copy'); }catch(e){}
+  s.removeAllRanges();
+  var n=document.getElementById('ok');
+  n.textContent = ok ? '已复制，去编辑器粘贴' : '复制失败，请手动选中';
+  setTimeout(function(){ n.textContent=''; }, 4000);
+}
+</script>
+</body></html>
