@@ -13,7 +13,7 @@
 | 01 | [Token 与 Embedding：文字如何变成数字](01-tokens-and-embeddings.md) | 模型只处理向量；分词、查表、语义空间 |
 | 02 | [Attention 与 Transformer：模型如何理解上下文](02-attention-and-transformer.md) | Q/K/V、位置编码、多头、block 与堆叠 |
 | 03 | [生成：从 logits 到文字](03-generation-logits-to-text.md) | lm_head、采样三旋钮、自回归、KV cache |
-| 04 | [训练与微调：模型的权重从哪来](04-training-and-finetuning.md) | 梯度下降、预训练、LoRA、对齐 |
+| 04 | [训练与微调：模型的权重从哪来](04-training-and-finetuning.md) | 梯度下降、预训练、LoRA、对齐、推理 RL |
 | 05 | [推理系统：大模型怎么被高效服务](05-inference-systems.md) | PagedAttention、连续批处理、量化 |
 | 06 | [应用层：RAG 与 Agent](06-rag-and-agents.md) | 应用地图、RAG 流水线、重排、Agent 循环 |
 | 07 | [AI 记忆系统：让 Agent 跨会话不失忆](07-ai-memory-systems.md) | 读写循环、记忆分类、mem0 源码与提示词 |

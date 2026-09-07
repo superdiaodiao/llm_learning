@@ -34,7 +34,7 @@ result = base_layer(x) + lora_B(lora_A(dropout(x))) * scaling   # peft/tuners/lo
 - **scaling = lora_alpha / r**：`r` 是旁路的秩（改动量的表达力），`alpha` 控制幅度。经验值 r=8～64、alpha 取 2r。
 - **合并**：`get_delta_weight` 算出 `B @ A × scaling`，merge 时直接加进 `W`，推理零额外开销；不合并则能给同一个底座热插拔多个适配器。
 
-挂在哪：默认挂 attention 的 `q/k/v/o` 投影（第 2 篇的那些 `q_proj`），有时也挂 MLP。底座不动，显存里只需底座前向 + 旁路梯度，这就是省几十倍显存的来源。
+挂在哪：默认挂 attention 的 `q/k/v/o` 投影（第 2 篇的那些 `q_proj`），有时也挂 MLP。底座不动，省下的是几十亿参数的梯度和优化器状态——约几倍，不是几十倍（04 篇有数：LoRA 论文报的是 1.2TB → 350GB）。基座权重和激活值省不掉，要进消费级显卡还得叠 QLoRA，见下文避坑第 4 条。
 
 ### 能跑的最小代码
 

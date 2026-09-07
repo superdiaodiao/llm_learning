@@ -13,7 +13,7 @@
 | 01 | [Tokens and Embeddings: How Text Becomes Numbers](01-tokens-and-embeddings.md) | The model only handles vectors; tokenization, lookup, semantic space |
 | 02 | [Attention and the Transformer: How the Model Understands Context](02-attention-and-transformer.md) | Q/K/V, positional encoding, multi-head, blocks and stacking |
 | 03 | [Generation: From Logits to Text](03-generation-logits-to-text.md) | lm_head, the three sampling knobs, autoregression, KV cache |
-| 04 | [Training and Fine-tuning: Where the Weights Come From](04-training-and-finetuning.md) | Gradient descent, pre-training, LoRA, alignment |
+| 04 | [Training and Fine-tuning: Where the Weights Come From](04-training-and-finetuning.md) | Gradient descent, pre-training, LoRA, alignment, reasoning RL |
 | 05 | [Inference Systems: How LLMs Are Served Efficiently](05-inference-systems.md) | PagedAttention, continuous batching, quantization |
 | 06 | [The Application Layer: RAG and Agents](06-rag-and-agents.md) | Application map, RAG pipeline, reranking, the agent loop |
 | 07 | [AI Memory Systems: Agents That Remember Across Sessions](07-ai-memory-systems.md) | Read/write loop, memory types, mem0 source and prompts |

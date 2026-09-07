@@ -40,21 +40,36 @@ Pre-training plus fine-tuning teaches the model to "predict plausible text", but
 
 One mainstream method is **DPO**: feed the model pairs of examples (a better answer and a worse one) and directly optimize it to prefer the better one. That step is why the chat models you use day to day follow instructions and stay on the rails. The code textbook is the `trl` library.
 
+## Reasoning: teaching the model to think before it answers
+
+There is one more step after alignment, and it is the biggest change of the last two years.
+
+The model emits one token at a time and cannot go back. So how does it solve a problem that takes several steps? The answer is almost disarmingly plain: **it emits its thinking as tokens too**, generating a scratchpad first (break the problem down, try a calculation, check it) and only then the final answer. This is chain of thought. It works because every step is just one easy next-token prediction; a hard problem has been decomposed into a chain of easy ones. The cost is that thinking spends tokens, which is why reasoning modes are slower and pricier.
+
+The real question is how to make the model **think well**. Hand-written demonstrations (SFT) can only teach it to imitate; they cannot teach a solution it has never seen. o1 and DeepSeek-R1 took a different road: **reinforcement learning with verifiable rewards (RLVR)**. Give it a large set of problems with checkable answers (math, code), let it generate its own reasoning and answer, reward the correct ones and not the others, then use gradient descent to move toward "the kind of thinking that got it right". **Nobody tells it how to think, only whether it thought correctly.** The common algorithm is GRPO: sample a group of answers to the same problem and use their relative quality within the group as the signal, which does away with the separate value model of RLHF.
+
+What comes out is emergent. The R1 paper records the model spontaneously learning to go back and check, to change approach, to write "wait, let me look at this again"; nobody demonstrated any of that.
+
+This step is still the same move: compute the loss, run gradient descent, nudge the weights. Only the signal has changed, from "does this look like what a human wrote" to "is the answer right".
+
 ## The life of a model
 
-Stringing the four steps together:
+Stringing the five steps together:
 
-> Random weights →(pre-training: gradient descent over trillions of tokens)→ a base model that can predict language →(fine-tuning / LoRA: further training on a small dataset)→ specialized for a task →(alignment / DPO: tuned to human preferences)→ the chat assistant you use.
+> Random weights →(pre-training: gradient descent over trillions of tokens)→ a base model that can predict language →(fine-tuning / LoRA: further training on a small dataset)→ specialized for a task →(alignment / DPO: tuned to human preferences)→(reasoning RL: tuned on whether answers are right)→ the chat assistant you use.
 
-All four steps are the same move: **compute the loss, run gradient descent, nudge the weights.** What changes is only which data is used, which weights are tuned, and how the loss is defined.
+All five steps are the same move: **compute the loss, run gradient descent, nudge the weights.** What changes is only which data is used, which weights are tuned, and how the loss is defined.
 
 ## Key takeaways
 
 - Training = predict the next token → compute loss → gradient descent to nudge weights, repeated hundreds of millions of times.
 - Fine-tuning continues training on top of pre-training; LoRA freezes the original weights and trains two small low-rank matrices, saving the memory for gradients and optimizer state (a few times over; the base weights and activations cannot be saved, and reaching a consumer card takes base-weight quantization on top), while the checkpoint shrinks to tens of MB.
 - Alignment (e.g. DPO) uses human preference data to get better answers out of the model.
-- Pre-training, fine-tuning, and alignment are the same move under different configurations.
+- Reasoning models emit their thinking as tokens; reinforcement learning with verifiable rewards (RLVR / GRPO) teaches them to think well, by telling them only whether they got it right, never how to think.
+- Pre-training, fine-tuning, alignment, and reasoning RL are the same move under different configurations.
 
 ## Question to think about
 
 LoRA freezes the original weight W and trains only the small matrices B and A. Why does it lose almost no quality? And exactly which part of the training memory does it save, versus which part it cannot? (Hint: the phrase "low-rank delta"; and the difference between "gradients and optimizer state" and "activations".)
+
+Reasoning RL uses only "was the answer right" as its signal. Why does that teach better reasoning than hand-written demonstrations of thinking (SFT)? (Hint: what is the ceiling of SFT?)
