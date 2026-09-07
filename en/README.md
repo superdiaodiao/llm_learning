@@ -19,6 +19,8 @@
 | 07 | [AI Memory Systems: Agents That Remember Across Sessions](07-ai-memory-systems.md) | Read/write loop, memory types, mem0 source and prompts |
 | 08 | [Agent Architectures in Depth: From ReAct to Multi-agent](08-agent-architectures.md) | ReAct, graphs/state machines, planning, multi-agent, decision map |
 | 09 | [In Practice: From Reading Code to Opening PRs in Top Projects](09-contributing-in-practice.md) | Pattern-hunting methodology + two real cases (LlamaIndex / mem0) |
+| 10 | [Fine-tuning in Practice: LoRA and DPO](10-finetuning-lora-dpo.md) | SFT pipeline, LoRA as implemented in peft, DPO principle and trl code, pitfalls |
+| 11 | [Context Engineering and the Agent Harness](11-context-engineering-and-harness.md) | Five window-budget principles, Skills / Hooks / MCP, three-level evaluation and the iteration loop |
 
 ## The main line in one picture
 
@@ -33,7 +35,7 @@ Text ──tokenize/lookup──▶ Vectors ──attention × N layers──▶
 
 ## How to read
 
-- Read in order. 01–03 are the main line from input → processing → output, 04–05 cover where the model comes from and how it is served, 06 onward turns to the application layer, and 07/08 are two deep dives.
+- Read in order. 01–03 are the main line from input → processing → output, 04–05 cover where the model comes from and how it is served, 06 onward turns to the application layer, 07/08 are two deep dives, and 11 puts today's hottest terms, harness / skills / MCP / evaluation, back into one unified frame.
 - Every chapter ends with a **question to think about**; the answer is usually picked up in the next chapter.
 - 09 is a bonus chapter about method rather than theory: how to find bugs, file issues, and open PRs yourself in AI projects with tens of thousands of stars. All issue/PR numbers are public records.
 
@@ -46,16 +48,15 @@ Every figure in `images/` is provided as both `.svg` (vector) and `.png` (bitmap
 | Project | File / module | Chapters |
 |---|---|---|
 | transformers | `src/transformers/models/llama/modeling_llama.py` | 01–03 |
-| peft / trl | LoRA layer implementation, SFT / DPO trainers | 04 |
+| peft / trl | LoRA layer implementation, SFT / DPO trainers | 04, 10 |
 | vLLM | `BlockManager`, `Scheduler` | 05 |
 | LlamaIndex | retriever / query engine / node postprocessor | 06 |
 | mem0 | `mem0/memory/main.py`, `mem0/configs/prompts.py` | 07 |
 | LangGraph | `StateGraph` and conditional edges | 08 |
+| MCP / Agent Skills | The protocol and the `SKILL.md` spec | 11 |
 
 ## Planned
 
-- Fine-tuning in practice: runnable LoRA / DPO code and pitfalls (in progress)
-- Evaluation and context engineering
 - Multimodal and diffusion models
 
 ## License
