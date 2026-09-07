@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 560" width="1360" height="1120">
+<rect width="680" height="560" fill="#ffffff"/>
+<text x="20" y="22" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">SFT（监督微调）流水线</text>
+<rect x="20" y="34" width="150" height="56" rx="6" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="95.0" y="54" font-family="Noto Sans CJK SC" font-size="11.5" fill="#1f2937" text-anchor="middle" font-weight="600">① 数据</text>
+<text x="95.0" y="70" font-family="Noto Sans CJK SC" font-size="9.5" fill="#4b5563" text-anchor="middle">{"messages":[user, assistant]}</text>
+<text x="95.0" y="84" font-family="Noto Sans CJK SC" font-size="9.5" fill="#4b5563" text-anchor="middle">几百到几万条即可</text>
+<rect x="194" y="34" width="150" height="56" rx="6" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="269.0" y="54" font-family="Noto Sans CJK SC" font-size="11.5" fill="#1f2937" text-anchor="middle" font-weight="600">② 聊天模板 + 分词</text>
+<text x="269.0" y="70" font-family="Noto Sans CJK SC" font-size="9.5" fill="#4b5563" text-anchor="middle">apply_chat_template</text>
+<text x="269.0" y="84" font-family="Noto Sans CJK SC" font-size="9.5" fill="#4b5563" text-anchor="middle">套成模型认识的格式</text>
+<rect x="368" y="34" width="150" height="56" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="443.0" y="54" font-family="Noto Sans CJK SC" font-size="11.5" fill="#2563eb" text-anchor="middle" font-weight="600">③ 只在“回答”上算 loss</text>
+<text x="443.0" y="70" font-family="Noto Sans CJK SC" font-size="9.5" fill="#4b5563" text-anchor="middle">用户那段的 label 设 −100</text>
+<text x="443.0" y="84" font-family="Noto Sans CJK SC" font-size="9.5" fill="#4b5563" text-anchor="middle">别让模型学“复述问题”</text>
+<rect x="542" y="34" width="118" height="56" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="601.0" y="54" font-family="Noto Sans CJK SC" font-size="11.5" fill="#2563eb" text-anchor="middle" font-weight="600">④ 底座冻结 + 挂 LoRA</text>
+<text x="601.0" y="70" font-family="Noto Sans CJK SC" font-size="9.5" fill="#4b5563" text-anchor="middle">get_peft_model</text>
+<text x="601.0" y="84" font-family="Noto Sans CJK SC" font-size="9.5" fill="#4b5563" text-anchor="middle">只训旁路 A、B</text>
+<line x1="170" y1="62" x2="192" y2="62" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="192,62 184.0,58.0 184.0,66.0" fill="#9ca3af"/>
+<line x1="344" y1="62" x2="366" y2="62" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="366,62 358.0,58.0 358.0,66.0" fill="#9ca3af"/>
+<line x1="518" y1="62" x2="540" y2="62" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="540,62 532.0,58.0 532.0,66.0" fill="#9ca3af"/>
+<line x1="601" y1="90" x2="601" y2="112" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="601,112 605.0,104.0 597.0,104.0" fill="#9ca3af"/>
+<rect x="542" y="114" width="118" height="56" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="601" y="134" font-family="Noto Sans CJK SC" font-size="11.5" fill="#1f2937" text-anchor="middle" font-weight="600">⑤ 训练循环</text>
+<text x="601" y="150" font-family="Noto Sans CJK SC" font-size="9.5" fill="#4b5563" text-anchor="middle">SFTTrainer.train()</text>
+<text x="601" y="164" font-family="Noto Sans CJK SC" font-size="9.5" fill="#4b5563" text-anchor="middle">算 loss → 只更新 A、B</text>
+<line x1="542" y1="142" x2="520" y2="142" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="520,142 528.0,146.0 528.0,138.0" fill="#9ca3af"/>
+<rect x="368" y="114" width="150" height="56" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="443" y="134" font-family="Noto Sans CJK SC" font-size="11.5" fill="#1f2937" text-anchor="middle" font-weight="600">⑥ 保存适配器</text>
+<text x="443" y="150" font-family="Noto Sans CJK SC" font-size="9.5" fill="#4b5563" text-anchor="middle">adapter_model.safetensors</text>
+<text x="443" y="164" font-family="Noto Sans CJK SC" font-size="9.5" fill="#4b5563" text-anchor="middle">通常只有几十 MB</text>
+<line x1="368" y1="142" x2="346" y2="142" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="346,142 354.0,146.0 354.0,138.0" fill="#9ca3af"/>
+<rect x="194" y="114" width="150" height="56" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="269" y="134" font-family="Noto Sans CJK SC" font-size="11.5" fill="#1f2937" text-anchor="middle" font-weight="600">⑦ 推理：两种用法</text>
+<text x="269" y="150" font-family="Noto Sans CJK SC" font-size="9.5" fill="#4b5563" text-anchor="middle">merge_and_unload 合进底座</text>
+<text x="269" y="164" font-family="Noto Sans CJK SC" font-size="9.5" fill="#4b5563" text-anchor="middle">或按需热插拔多个适配器</text>
+<line x1="20" y1="196" x2="660" y2="196" stroke="#9ca3af" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="20" y="222" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">LoRA 在一个线性层里怎么接（peft 真实实现）</text>
+<rect x="20" y="236" width="90" height="40" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="65" y="261" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="600">输入 x</text>
+<line x1="110" y1="256" x2="150" y2="256" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="150,256 142.0,252.0 142.0,260.0" fill="#9ca3af"/>
+<rect x="152" y="232" width="150" height="48" rx="8" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="227" y="252" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="600">底座 W（冻结）</text>
+<text x="227" y="270" font-family="Noto Sans CJK SC" font-size="9.5" fill="#4b5563" text-anchor="middle">base_layer(x)</text>
+<path d="M110,256 C 120,330 140,330 150,330" fill="none" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="150,330 142.0,326.0 142.0,334.0" fill="#9ca3af"/>
+<rect x="152" y="308" width="60" height="44" rx="6" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.8"/>
+<text x="182" y="326" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="600">A</text>
+<text x="182" y="342" font-family="Noto Sans CJK SC" font-size="9.5" fill="#4b5563" text-anchor="middle">d→r</text>
+<line x1="212" y1="330" x2="236" y2="330" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="236,330 228.0,326.0 228.0,334.0" fill="#9ca3af"/>
+<rect x="238" y="308" width="60" height="44" rx="6" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.8"/>
+<text x="268" y="326" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="600">B</text>
+<text x="268" y="342" font-family="Noto Sans CJK SC" font-size="9.5" fill="#4b5563" text-anchor="middle">r→d</text>
+<text x="316" y="334" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="start" font-weight="600">× scaling (α/r)</text>
+<line x1="302" y1="256" x2="400" y2="256" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="400,256 392.0,252.0 392.0,260.0" fill="#9ca3af"/>
+<path d="M298,330 C 340,330 380,300 400,268" fill="none" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="400,268 391.8,271.6 397.9,276.7" fill="#9ca3af"/>
+<circle cx="412" cy="258" r="12" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+<text x="412" y="263" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="600">＋</text>
+<line x1="424" y1="258" x2="456" y2="258" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="456,258 448.0,254.0 448.0,262.0" fill="#9ca3af"/>
+<rect x="458" y="238" width="202" height="40" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="559" y="263" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="middle" font-weight="600">输出 = W·x + B·A·x × α/r</text>
+<rect x="20" y="372" width="640" height="170" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="34" y="396" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">代码里就这一行，加三个设计细节</text>
+<text x="34" y="418" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">result = base_layer(x) + lora_B(lora_A(dropout(x))) * scaling</text>
+<text x="34" y="444" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">· 初始化：A 随机（kaiming）、B 全零 → 一开始 B·A = 0，模型行为与底座完全一致，训练从“原样”平滑起步。</text>
+<text x="34" y="466" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">· scaling = lora_alpha / r：r 控制“改动量”的秩（表达力），alpha 控制幅度；常见 r=8~64、alpha=2r。</text>
+<text x="34" y="488" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">· 合并：merge 时把 B·A×scaling 直接加进 W（get_delta_weight），推理零额外开销；不合并则可多适配器热插拔。</text>
+<text x="34" y="518" font-family="Noto Sans CJK SC" font-size="10.5" fill="#2563eb" text-anchor="start" font-weight="600">· 挂在哪：默认挂 attention 的 q/k/v/o 投影。只训这些旁路，参数量常常 &lt; 1%；底座不动 → 显存省几十倍。</text>
+</svg>

@@ -19,6 +19,8 @@
 | 07 | [AI 记忆系统：让 Agent 跨会话不失忆](07-ai-memory-systems.md) | 读写循环、记忆分类、mem0 源码与提示词 |
 | 08 | [Agent 架构深入：从 ReAct 到多 Agent](08-agent-architectures.md) | ReAct、图/状态机、规划、多 agent、决策图 |
 | 09 | [实战篇：从看懂代码到给顶尖项目提 PR](09-contributing-in-practice.md) | 模式狩猎方法论 + LlamaIndex / mem0 两个真实案例 |
+| 10 | [微调实战：LoRA 与 DPO](10-finetuning-lora-dpo.md) | SFT 流水线、peft LoRA 真实实现、DPO 原理与 trl 代码、避坑 |
+| 11 | [上下文工程与 Agent Harness](11-context-engineering-and-harness.md) | 窗口预算五原则、Skills / Hooks / MCP、评估三层与迭代循环 |
 
 ## 主线一图
 
@@ -33,7 +35,7 @@
 
 ## 怎么读
 
-- 按序号读。01–03 是输入→加工→输出的主线，04–05 讲模型的来源与服务，06 起转向应用层，07/08 是两个深入方向。
+- 按序号读。01–03 是输入→加工→输出的主线，04–05 讲模型的来源与服务，06 起转向应用层，07/08 是两个深入方向，11 把当下最热的 harness / skills / MCP / 评估放回统一框架。
 - 每篇结尾有一道**思考题**，答案往往在下一篇被回收。
 - 09 是番外，讲方法不讲原理：怎么在几万星的 AI 项目里自己发现 bug、提 issue、提 PR——所有 issue/PR 编号都是公开记录。
 
@@ -46,16 +48,15 @@
 | 项目 | 文件 / 模块 | 对应篇目 |
 |---|---|---|
 | transformers | `src/transformers/models/llama/modeling_llama.py` | 01–03 |
-| peft / trl | LoRA 层实现、SFT / DPO 训练器 | 04 |
+| peft / trl | LoRA 层实现、SFT / DPO 训练器 | 04、10 |
 | vLLM | `BlockManager`、`Scheduler` | 05 |
 | LlamaIndex | retriever / query engine / node postprocessor | 06 |
 | mem0 | `mem0/memory/main.py`、`mem0/configs/prompts.py` | 07 |
 | LangGraph | `StateGraph` 与条件边 | 08 |
+| MCP / Agent Skills | 协议与 `SKILL.md` 规范 | 11 |
 
 ## 计划中
 
-- 微调实战：LoRA / DPO 的可运行代码与避坑（进行中）
-- 评估与上下文工程
 - 多模态与扩散模型
 
 ## 许可

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 540" width="1360" height="1080">
+<rect width="680" height="540" fill="#ffffff"/>
+<text x="20" y="22" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">经典 RLHF：三阶段，复杂、不稳、显存里要放 3～4 个模型</text>
+<rect x="20" y="34" width="150" height="56" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="95.0" y="56" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="600">① SFT</text>
+<text x="95.0" y="74" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">先学会“怎么说”</text>
+<rect x="194" y="34" width="180" height="56" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="284.0" y="56" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="600">② 训一个奖励模型</text>
+<text x="284.0" y="74" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">用偏好对学“打分”</text>
+<rect x="398" y="34" width="262" height="56" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="529.0" y="56" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="600">③ PPO 强化学习</text>
+<text x="529.0" y="74" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">策略 + 参考 + 奖励 + 价值模型一起转</text>
+<line x1="170" y1="62" x2="192" y2="62" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="192,62 184.0,58.0 184.0,66.0" fill="#9ca3af"/>
+<line x1="374" y1="62" x2="396" y2="62" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="396,62 388.0,58.0 388.0,66.0" fill="#9ca3af"/>
+<text x="20" y="126" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">DPO：一步到位，不训奖励模型、不跑强化学习</text>
+<rect x="20" y="138" width="200" height="56" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="120" y="160" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="600">偏好数据</text>
+<text x="120" y="178" font-family="Noto Sans CJK SC" font-size="9.5" fill="#4b5563" text-anchor="middle">(prompt, chosen, rejected)</text>
+<line x1="220" y1="166" x2="242" y2="166" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="242,166 234.0,162.0 234.0,170.0" fill="#9ca3af"/>
+<rect x="244" y="138" width="416" height="56" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="452" y="160" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="600">直接在策略模型上做一个“分类式”损失</text>
+<text x="452" y="178" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">奖励模型被数学上“折”进了策略本身：隐式奖励 = β · log(π / π_ref)</text>
+<line x1="20" y1="214" x2="660" y2="214" stroke="#9ca3af" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="20" y="240" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">DPO 损失的直觉</text>
+<rect x="20" y="252" width="640" height="60" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="34" y="276" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">loss = −log σ( β · [ log π(chosen)/π_ref(chosen) − log π(rejected)/π_ref(rejected) ] )</text>
+<text x="34" y="298" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">读法：让“chosen 相对参考模型的提升”比“rejected 相对参考模型的提升”大得越多越好。</text>
+<rect x="20" y="326" width="310" height="96" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="34" y="348" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="start" font-weight="600">推高 chosen</text>
+<text x="34" y="368" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">π(chosen) 相对 π_ref(chosen) 变大</text>
+<text x="34" y="386" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">→ 模型更爱说“更好的那种回答”</text>
+<text x="34" y="404" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">同时压低 rejected 的相对概率</text>
+<rect x="350" y="326" width="310" height="96" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="364" y="348" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="start" font-weight="600">β = 缰绳（KL 惩罚的强度）</text>
+<text x="364" y="368" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">β 小 → 允许离参考模型更远，学得猛但易跑偏</text>
+<text x="364" y="386" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">β 大 → 紧贴参考模型，稳但学不动</text>
+<text x="364" y="404" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">常见 0.1；参考模型通常就是 SFT 后的模型</text>
+<rect x="20" y="440" width="640" height="88" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="34" y="464" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="start" font-weight="600">为什么需要“参考模型”——它不是多余的</text>
+<text x="34" y="486" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">没有它，模型只要把 rejected 的概率压到 0 就能让 loss 很小，顺带把语言能力也压没了（模式崩塌）。</text>
+<text x="34" y="504" font-family="Noto Sans CJK SC" font-size="10.5" fill="#4b5563" text-anchor="start">参考模型把变化锚定为“相对提升”而非“绝对压制”。</text>
+<text x="34" y="522" font-family="Noto Sans CJK SC" font-size="10.5" fill="#2563eb" text-anchor="start" font-weight="600">用 LoRA 时参考模型几乎免费：把适配器关掉，底座本身就是 π_ref，不用再存一份模型。</text>
+</svg>
