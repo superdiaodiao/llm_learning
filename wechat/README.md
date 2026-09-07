@@ -28,6 +28,7 @@
 | `01a-why-it-cant-count-r.md` | 第 1 课 | 01 的前半段（分词） |
 | `01b-word-math.md` | 第 2 课 | 01 的后半段（embedding） |
 | `02a-who-bit-whom.md` | 第 3 课 | 02 的前半段（位置编码与 attention） |
+| `03a-why-answers-differ.md` | 第 4 课 | 03 的前半段（logits、采样），并收进「幻觉」 |
 
 ## 写法约定
 

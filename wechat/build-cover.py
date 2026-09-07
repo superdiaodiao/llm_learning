@@ -38,6 +38,13 @@ LESSONS = {
         'motif': ('phrase', '同样三个字，意思相反', None),
         'caption': '顺序，也是信息',
     },
+    4: {
+        'slug':  'wx4',
+        'wide':  [('AI 为什么', INK, 62), ('|每次回答都不一样|', SEAM, 56)],
+        'square': [('AI 为什么', INK, 44), ('每次回答', INK, 44), ('都不一样', SEAM, 50)],
+        'motif': ('phrase', '它在掷骰子', None),
+        'caption': '模型给概率，挑词靠抽签',
+    },
 }
 
 
