@@ -45,6 +45,13 @@ LESSONS = {
         'motif': ('phrase', '它在掷骰子', None),
         'caption': '模型给概率，挑词靠抽签',
     },
+    5: {
+        'slug':  'wx5',
+        'wide':  [('发给 AI 的长文档，', INK, 54), ('|它为什么总忘了前面|', SEAM, 50)],
+        'square': [('长文档', INK, 46), ('它为什么', INK, 46), ('总忘了前面', SEAM, 44)],
+        'motif': ('phrase', '不是忘了，是没看见', None),
+        'caption': '窗口之外，它一个字都看不到',
+    },
 }
 
 
