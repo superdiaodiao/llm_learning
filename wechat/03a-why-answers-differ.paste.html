@@ -1,0 +1,85 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>第4课｜AI 为什么每次回答都不一样 · 粘贴到公众号</title></head>
+<body style="margin:0;background:#eef0f4;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;">
+<div style="max-width:720px;margin:0 auto;padding:24px 16px 60px;">
+
+  <div style="background:#fff;border:1px solid #d6d9e0;border-radius:10px;padding:20px 22px;margin-bottom:20px;">
+    <div style="font-size:12px;letter-spacing:.1em;color:#8a9099;margin-bottom:12px;">粘贴到公众号编辑器</div>
+    <div style="font-size:14px;line-height:1.9;color:#3f3f46;">
+      <b>1.</b> 标题栏填：<span id="t" style="background:#f6f7f9;padding:2px 7px;border-radius:4px;">第4课｜AI 为什么每次回答都不一样</span>
+      <button onclick="cp(document.getElementById('t'))" style="margin-left:6px;font-size:12px;padding:3px 9px;cursor:pointer;border:1px solid #b6bcc6;background:#fff;border-radius:5px;">复制标题</button><br>
+      <b>2.</b> 点下面的按钮复制正文，到编辑器里 Ctrl/Cmd+V<br>
+      <b>3.</b> 正文里三个虚线框是图片位，删掉框、用编辑器的"图片"按钮上传对应 PNG<br>
+      <b>4.</b> 微信会重写图片地址，所以图必须在编辑器里传，不能靠外链
+    </div>
+    <button onclick="cp(document.getElementById('a'))" style="margin-top:16px;font-size:14px;font-weight:600;padding:9px 18px;cursor:pointer;border:0;background:#be123c;color:#fff;border-radius:6px;">复制正文</button>
+    <span id="ok" style="margin-left:10px;font-size:13px;color:#15803d;"></span>
+  </div>
+
+  <div style="background:#fff;border:1px solid #d6d9e0;border-radius:10px;padding:28px 26px;">
+    <div id="a">
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">你可能注意过一件事。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">同一个问题，问 AI 三次，它给你三个不太一样的回答。措辞不同，有时候结构不同，偶尔连结论都不同。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">它不是在"重新想"，也不是"记性差"。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">它在掷骰子。</strong></p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">上一课讲到，一句话进了模型之后，每个词都被反复加工，变成了一个"懂语境"的向量。这一课讲最后一步：<strong style="font-weight:700;color:#1b1f27;">从那个向量，到它吐出来的下一个字，中间发生了什么。</strong></p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">答案里藏着两件事：为什么每次不一样，以及——为什么它会一本正经地胡说八道。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">模型的输出不是一个词，是一张表</h2>
+<section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>wx4_logits.png</b><br>从向量到概率表</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">拿最后一层出来的那个向量，模型做一次投影：把它变成<strong style="font-weight:700;color:#1b1f27;">词表那么长的一串分数</strong>——十几万个数，每个词一个。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">然后把这串分数压成概率，加起来正好 100%。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">比如「The cat sat on the」后面该接什么，模型给出的可能是：mat 62%、floor 20%、chair 9%，其他加起来 9%。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">注意这里：<strong style="font-weight:700;color:#1b1f27;">模型到此为止。</strong> 它交出来的是一张概率表，不是一个词。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">哪个词被选中，是<strong style="font-weight:700;color:#1b1f27;">另一段程序</strong>决定的。这个分工很关键，后面会用到。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">挑词的旋钮</h2>
+<section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>wx4_temperature.png</b><br>同一张表，两种温度</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">那段程序怎么挑？最简单的办法是永远挑概率最高的——mat。但这样每次结果都一样，而且容易陷入重复。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">所以实际做法是<strong style="font-weight:700;color:#1b1f27;">按概率抽签</strong>：62% 的机会抽到 mat，20% 抽到 floor。这就是"每次不一样"的来源。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">抽签之前，还有个旋钮可以调，叫<strong style="font-weight:700;color:#1b1f27;">温度</strong>：</p>
+<ul style="margin:0 0 14px;padding-left:22px;"><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">温度调低</strong>，概率表变尖：高的更高，低的更低，几乎总是抽到第一名。回答稳定、保守，也容易车轱辘话。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">温度调高</strong>，概率表变平：冷门词也有了机会。回答更多样、更有"创意"，也更容易跑飞。</li></ul>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">另外两个旋钮（叫 top-k 和 top-p）做的是同一类事：把长尾里那些荒唐的候选直接剪掉，只在靠谱的几个里抽。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">一个修正</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">上一课结尾我说这个旋钮"你天天在调"。严格说不对：<strong style="font-weight:700;color:#1b1f27;">在聊天界面里你调不了它</strong>，是厂商替你设好了。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">但它每一次都在起作用。你每收到一个回答，背后都是一次抽签。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">所以它会一本正经地胡说八道</h2>
+<section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>wx4_no_idk.png</b><br>概率表里没有&quot;不知道&quot;</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">把上面的机制往前推一步，幻觉就出来了。三件事叠在一起：</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">第一，训练目标是"像"，不是"真"。</strong> 模型学的是"这段文字后面通常接什么"。它的世界里只有"像不像"，没有"对不对"。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">第二，概率表里没有一个叫"不知道"的出口。</strong> "我不知道"这几个字要出现在回答里，也得靠它们本身是概率最高的词。表里没有一个专门的按钮叫"停下，我没把握"。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">第三，采样不管把握大小，都得挑一个。</strong> 遇到它真正不知道的事——比如你邻居的名字——概率表会摊得很平，最高的可能才 8%。但抽签照抽。抽出来的那个名字，语法通顺、语气自信，<strong style="font-weight:700;color:#1b1f27;">错得毫无痕迹</strong>。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">流畅和真实来自同一套机制。<strong style="font-weight:700;color:#1b1f27;">它编瞎话的时候，用的是和说真话时一模一样的方法。</strong></p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">所以幻觉不是 bug。它是"预测下一个词"这件事的自然产物。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">（后来的训练确实教会了模型更常说"我不确定"，但那是学来的习惯，不是机制上的保险。这个后面讲训练的时候会说。）</p>
+<section style="margin:28px 0;padding:20px 20px 6px;background:#fff5f7;border:1px dashed #be123c;border-radius:8px;">
+<p style="margin:0 0 12px;font-size:16px;font-weight:700;color:#be123c;">自己试一下（1 分钟）</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">两个实验，都不需要任何工具：</p>
+<ul style="margin:0 0 14px;padding-left:22px;"><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">同一个问题，开三个新对话，各问一次。</strong> 对比三个回答。差异就是抽签的痕迹。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">问一个它不可能知道的事</strong>——你邻居叫什么、你上周二午饭吃了什么。看它是老实说不知道，还是流畅地编一个。</li></ul>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">第二个实验做完，你对"AI 说的话"会多一层警惕。而这层警惕是有根据的。</p>
+</section>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">但它一次只吐一个词</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">到这里，模型挑出了一个词。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">然后呢？把这个词拼回句子末尾，<strong style="font-weight:700;color:#1b1f27;">整个模型再跑一遍</strong>，再挑下一个。一次一个词，直到它决定停下。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">一句 200 字的回答，就是 200 次这样的循环。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">这个"一次一个"的机制，直接决定了另一件你一定遇到过的事——<strong style="font-weight:700;color:#1b1f27;">为什么发给它的长文档，它总是"忘了"前面</strong>。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">下一课讲这个。</p>
+<section style="margin:40px 0 0;padding:18px 20px 4px;background:#f6f7f9;border-radius:8px;">
+<p style="margin:0 0 10px;font-size:14px;font-weight:700;color:#6a7280;">关于这个系列</p>
+<p style="margin:0 0 14px;font-size:14px;line-height:1.85;color:#6a7280;">《从零看懂大模型》是一个系列：从文字怎么变成数字，一路讲到模型怎么生成、权重怎么训练出来、大模型怎么被高效服务，再到 RAG、Agent 和记忆系统。每一课都拿顶尖开源项目的真实源码当课本。</p>
+<p style="margin:0 0 14px;font-size:14px;line-height:1.85;color:#6a7280;">这是第 4 课。完整目录见「阅读原文」。</p>
+</section>
+    </div>
+  </div>
+</div>
+<script>
+function cp(el){
+  var r=document.createRange(); r.selectNodeContents(el);
+  var s=getSelection(); s.removeAllRanges(); s.addRange(r);
+  var ok=false; try{ ok=document.execCommand('copy'); }catch(e){}
+  s.removeAllRanges();
+  var n=document.getElementById('ok');
+  n.textContent = ok ? '已复制，去编辑器粘贴' : '复制失败，请手动选中';
+  setTimeout(function(){ n.textContent=''; }, 4000);
+}
+</script>
+</body></html>
