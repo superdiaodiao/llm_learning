@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 440" width="1520" height="880">
+<rect width="760" height="440" fill="#ffffff"/>
+<text x="30" y="36" font-family="Noto Sans CJK SC" font-size="14" fill="#2563eb" text-anchor="start" font-weight="600">CLIP：让「图」和「话」落到同一个语义空间</text>
+<text x="30" y="58" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">两个编码器各自出一个向量，只比较、不融合</text>
+<rect x="248" y="76" width="60" height="40" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.2"/>
+<text x="278.0" y="100" font-family="Noto Sans CJK SC" font-size="11" fill="#1f2937" text-anchor="middle">图 1</text>
+<rect x="324" y="76" width="60" height="40" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.2"/>
+<text x="354.0" y="100" font-family="Noto Sans CJK SC" font-size="11" fill="#1f2937" text-anchor="middle">图 2</text>
+<rect x="400" y="76" width="60" height="40" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.2"/>
+<text x="430.0" y="100" font-family="Noto Sans CJK SC" font-size="11" fill="#1f2937" text-anchor="middle">图 3</text>
+<rect x="476" y="76" width="60" height="40" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.2"/>
+<text x="506.0" y="100" font-family="Noto Sans CJK SC" font-size="11" fill="#1f2937" text-anchor="middle">图 4</text>
+<rect x="552" y="76" width="60" height="40" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.2"/>
+<text x="582.0" y="100" font-family="Noto Sans CJK SC" font-size="11" fill="#1f2937" text-anchor="middle">图 5</text>
+<text x="228" y="160" font-family="Noto Sans CJK SC" font-size="11" fill="#1f2937" text-anchor="end">一只狗在草地上</text>
+<text x="228" y="212" font-family="Noto Sans CJK SC" font-size="11" fill="#1f2937" text-anchor="end">日落的海滩</text>
+<text x="228" y="264" font-family="Noto Sans CJK SC" font-size="11" fill="#1f2937" text-anchor="end">切好的披萨</text>
+<text x="228" y="316" font-family="Noto Sans CJK SC" font-size="11" fill="#1f2937" text-anchor="end">雪山</text>
+<text x="228" y="368" font-family="Noto Sans CJK SC" font-size="11" fill="#1f2937" text-anchor="end">键盘特写</text>
+<rect x="243" y="133" width="70" height="46" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1.8"/>
+<text x="278.0" y="161.0" font-family="Noto Sans CJK SC" font-size="11" fill="#16a34a" text-anchor="middle" font-weight="600">拉近</text>
+<rect x="319" y="133" width="70" height="46" rx="4" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<text x="354.0" y="161.0" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">推远</text>
+<rect x="395" y="133" width="70" height="46" rx="4" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<text x="430.0" y="161.0" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">推远</text>
+<rect x="471" y="133" width="70" height="46" rx="4" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<text x="506.0" y="161.0" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">推远</text>
+<rect x="547" y="133" width="70" height="46" rx="4" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<text x="582.0" y="161.0" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">推远</text>
+<rect x="243" y="185" width="70" height="46" rx="4" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<text x="278.0" y="213.0" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">推远</text>
+<rect x="319" y="185" width="70" height="46" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1.8"/>
+<text x="354.0" y="213.0" font-family="Noto Sans CJK SC" font-size="11" fill="#16a34a" text-anchor="middle" font-weight="600">拉近</text>
+<rect x="395" y="185" width="70" height="46" rx="4" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<text x="430.0" y="213.0" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">推远</text>
+<rect x="471" y="185" width="70" height="46" rx="4" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<text x="506.0" y="213.0" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">推远</text>
+<rect x="547" y="185" width="70" height="46" rx="4" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<text x="582.0" y="213.0" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">推远</text>
+<rect x="243" y="237" width="70" height="46" rx="4" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<text x="278.0" y="265.0" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">推远</text>
+<rect x="319" y="237" width="70" height="46" rx="4" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<text x="354.0" y="265.0" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">推远</text>
+<rect x="395" y="237" width="70" height="46" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1.8"/>
+<text x="430.0" y="265.0" font-family="Noto Sans CJK SC" font-size="11" fill="#16a34a" text-anchor="middle" font-weight="600">拉近</text>
+<rect x="471" y="237" width="70" height="46" rx="4" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<text x="506.0" y="265.0" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">推远</text>
+<rect x="547" y="237" width="70" height="46" rx="4" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<text x="582.0" y="265.0" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">推远</text>
+<rect x="243" y="289" width="70" height="46" rx="4" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<text x="278.0" y="317.0" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">推远</text>
+<rect x="319" y="289" width="70" height="46" rx="4" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<text x="354.0" y="317.0" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">推远</text>
+<rect x="395" y="289" width="70" height="46" rx="4" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<text x="430.0" y="317.0" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">推远</text>
+<rect x="471" y="289" width="70" height="46" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1.8"/>
+<text x="506.0" y="317.0" font-family="Noto Sans CJK SC" font-size="11" fill="#16a34a" text-anchor="middle" font-weight="600">拉近</text>
+<rect x="547" y="289" width="70" height="46" rx="4" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<text x="582.0" y="317.0" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">推远</text>
+<rect x="243" y="341" width="70" height="46" rx="4" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<text x="278.0" y="369.0" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">推远</text>
+<rect x="319" y="341" width="70" height="46" rx="4" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<text x="354.0" y="369.0" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">推远</text>
+<rect x="395" y="341" width="70" height="46" rx="4" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<text x="430.0" y="369.0" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">推远</text>
+<rect x="471" y="341" width="70" height="46" rx="4" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<text x="506.0" y="369.0" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">推远</text>
+<rect x="547" y="341" width="70" height="46" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1.8"/>
+<text x="582.0" y="369.0" font-family="Noto Sans CJK SC" font-size="11" fill="#16a34a" text-anchor="middle" font-weight="600">拉近</text>
+<text x="390" y="412" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="middle">一个 batch 里 N 张图 × N 句话，对角线是真配对</text>
+<text x="390" y="430" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="middle">损失 = 按行做一次分类 + 按列做一次分类，取平均（clip_loss）</text>
+</svg>

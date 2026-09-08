@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 450" width="2000" height="900">
+<rect width="1000" height="450" fill="#ffffff"/>
+<text x="30" y="40" font-family="Noto Sans CJK SC" font-size="14" fill="#2563eb" text-anchor="start" font-weight="600">① 图片这条路：变成一串向量</text>
+<rect x="40" y="70" width="96" height="96" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<line x1="64" y1="70" x2="64" y2="166" stroke="#2563eb" stroke-width="1.0"/>
+<line x1="40" y1="94" x2="136" y2="94" stroke="#2563eb" stroke-width="1.0"/>
+<line x1="88" y1="70" x2="88" y2="166" stroke="#2563eb" stroke-width="1.0"/>
+<line x1="40" y1="118" x2="136" y2="118" stroke="#2563eb" stroke-width="1.0"/>
+<line x1="112" y1="70" x2="112" y2="166" stroke="#2563eb" stroke-width="1.0"/>
+<line x1="40" y1="142" x2="136" y2="142" stroke="#2563eb" stroke-width="1.0"/>
+<text x="88" y="186" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="middle">输入图片</text>
+<text x="88" y="202" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">切成 14×14 的小块</text>
+<line x1="146" y1="118" x2="188" y2="118" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="188,118 180.0,114.0 180.0,122.0" fill="#9ca3af"/>
+<rect x="192" y="70" width="132" height="96" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="258" y="100" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="middle" font-weight="600">视觉塔</text>
+<text x="258" y="120" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="middle">CLIP 的 ViT</text>
+<text x="258" y="138" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">自注意力 × N 层</text>
+<text x="258" y="156" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">（和第 2 篇同一套）</text>
+<line x1="330" y1="118" x2="372" y2="118" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="372,118 364.0,114.0 364.0,122.0" fill="#9ca3af"/>
+<rect x="376" y="70" width="84" height="96" rx="6" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+<line x1="376" y1="89.2" x2="460" y2="89.2" stroke="#9ca3af" stroke-width="0.8"/>
+<line x1="376" y1="108.4" x2="460" y2="108.4" stroke="#9ca3af" stroke-width="0.8"/>
+<line x1="376" y1="127.6" x2="460" y2="127.6" stroke="#9ca3af" stroke-width="0.8"/>
+<line x1="376" y1="146.8" x2="460" y2="146.8" stroke="#9ca3af" stroke-width="0.8"/>
+<text x="418" y="186" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="middle">576 个向量</text>
+<text x="418" y="202" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">每个 1024 维</text>
+<line x1="466" y1="118" x2="508" y2="118" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="508,118 500.0,114.0 500.0,122.0" fill="#9ca3af"/>
+<rect x="512" y="70" width="128" height="96" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="576" y="100" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="middle" font-weight="600">Projector</text>
+<text x="576" y="120" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="middle">两层 MLP</text>
+<text x="576" y="140" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="middle">1024 → 4096 维</text>
+<text x="576" y="158" font-family="Noto Sans CJK SC" font-size="10" fill="#16a34a" text-anchor="middle">唯一要新训的部件</text>
+<line x1="646" y1="118" x2="688" y2="118" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="688,118 680.0,114.0 680.0,122.0" fill="#9ca3af"/>
+<rect x="692" y="70" width="108" height="96" rx="6" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="746" y="108" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="600">576 个</text>
+<text x="746" y="128" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="600">「图像 token」</text>
+<text x="746" y="148" font-family="Noto Sans CJK SC" font-size="9" fill="#4b5563" text-anchor="middle">4096 维 = 文字向量同维</text>
+<line x1="746" y1="172" x2="746" y2="252" stroke="#2563eb" stroke-width="2.0"/>
+<polygon points="746,252 750.0,244.0 742.0,244.0" fill="#2563eb"/>
+<text x="756" y="216" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="start">整块塞进序列</text>
+<text x="30" y="248" font-family="Noto Sans CJK SC" font-size="14" fill="#2563eb" text-anchor="start" font-weight="600">② 文字这条路 + 合并</text>
+<rect x="40" y="266" width="52" height="42" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="66.0" y="292" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle">USER</text>
+<rect x="98" y="266" width="52" height="42" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="124.0" y="292" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle">:</text>
+<rect x="156" y="266" width="78" height="42" rx="8" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="195.0" y="292" font-family="Noto Sans CJK SC" font-size="11" fill="#1f2937" text-anchor="middle" font-weight="600">&lt;image&gt;</text>
+<rect x="240" y="266" width="78" height="42" rx="8" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="279.0" y="292" font-family="Noto Sans CJK SC" font-size="11" fill="#1f2937" text-anchor="middle" font-weight="600">&lt;image&gt;</text>
+<rect x="324" y="266" width="78" height="42" rx="8" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="363.0" y="292" font-family="Noto Sans CJK SC" font-size="11" fill="#1f2937" text-anchor="middle" font-weight="600">· · ·</text>
+<rect x="408" y="266" width="78" height="42" rx="8" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="447.0" y="292" font-family="Noto Sans CJK SC" font-size="11" fill="#1f2937" text-anchor="middle" font-weight="600">&lt;image&gt;</text>
+<rect x="492" y="266" width="52" height="42" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="518.0" y="292" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle">这</text>
+<rect x="550" y="266" width="52" height="42" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="576.0" y="292" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle">是</text>
+<rect x="608" y="266" width="52" height="42" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="634.0" y="292" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle">什</text>
+<rect x="666" y="266" width="52" height="42" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="692.0" y="292" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle">么</text>
+<rect x="724" y="266" width="52" height="42" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="750.0" y="292" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="middle">?</text>
+<text x="40" y="330" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">文字 token → 查 embedding 表（第 1 篇）</text>
+<text x="40" y="348" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="start">&lt;image&gt; 占位符的向量 → 被上面那 576 个图像向量整块覆盖：inputs_embeds.masked_scatter(mask, image_features)</text>
+<line x1="420" y1="362" x2="420" y2="392" stroke="#9ca3af" stroke-width="1.6"/>
+<polygon points="420,392 424.0,384.0 416.0,384.0" fill="#9ca3af"/>
+<rect x="40" y="396" width="760" height="44" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="420" y="423" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="middle" font-weight="600">之后就是普通的 Transformer —— 它根本不知道哪些向量来自图片</text>
+</svg>
