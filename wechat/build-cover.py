@@ -52,6 +52,13 @@ LESSONS = {
         'motif': ('phrase', '不是忘了，是没看见', None),
         'caption': '窗口之外，它一个字都看不到',
     },
+    6: {
+        'slug':  'wx6',
+        'wide':  [('没人教它，', INK, 60), ('|AI 是怎么学会说话的|', SEAM, 52)],
+        'square': [('没人教它，', INK, 46), ('AI 是怎么', INK, 44), ('学会说话的', SEAM, 46)],
+        'motif': ('phrase', '猜下一个词，猜错就改', None),
+        'caption': '几万亿次以后，它会了',
+    },
 }
 
 
