@@ -32,6 +32,12 @@
 | `03b-why-it-forgets.md` | 第 5 课 | 03 的后半段（自回归、KV cache），并收进「上下文窗口」 |
 | `04a-how-it-learned-to-talk.md` | 第 6 课 | 04 的前半段（权重、loss、梯度下降、预训练） |
 
+合集二「动手用大模型」的文件以 `h` 开头，各自编号，课表和风格约定见 `PLAN-hands-on.md`：
+
+| 文件 | 公众号 | 原理挂 |
+|---|---|---|
+| `h01-talking-to-ai.md` | 动手 · 第 1 篇 | 主线第 5 课 |
+
 ## 写法约定
 
 - **开头不放系列标记。** 信息流里读者只给两秒，钩子必须是第一句。系列身份由封面眉标承担。
@@ -66,8 +72,12 @@
 # 正文 → 可直接粘贴进公众号编辑器的行内样式 HTML
 python3 wechat/build-paste-html.py wechat/01a-why-it-cant-count-r.md
 
+# 合集二：蓝色主题，围栏代码块会变成可复制的模板框
+python3 wechat/build-paste-html.py --blue wechat/h01-talking-to-ai.md
+
 # 封面（2.35:1 首图 + 1:1 方图，两版分别构图，不能靠裁）
-python3 wechat/build-cover.py
+python3 wechat/build-cover.py 5      # 主线第 5 课
+python3 wechat/build-cover.py h1     # 合集二第 1 篇（蓝色、勾选框、指令片段）
 rsvg-convert -w 1800 -o images/wx1_cover.png        images/wx1_cover.svg
 rsvg-convert -w 1200 -o images/wx1_cover_square.png images/wx1_cover_square.svg
 

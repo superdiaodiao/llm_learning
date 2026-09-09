@@ -61,12 +61,24 @@ LESSONS = {
     },
 }
 
+# 合集二「动手用大模型」：同字体同骨架，强调色换蓝，左侧虚线换成勾选框，主图是等宽字体的指令片段。
+ACC, ACC_SOFT = '#2563eb', '#dbeafe'
+HANDS = {
+    1: {
+        'slug':  'hx1',
+        'wide':  [('跟 AI 说话，', INK, 58), ('|为什么不能像跟人说话|', ACC, 50)],
+        'square': [('跟 AI 说话，', INK, 44), ('为什么不能', INK, 44), ('像跟人说话', ACC, 46)],
+        'motif': ('cmd', '任务 · 限制 · 材料 · 再说一遍', None),
+        'caption': '它每轮从头读，读完就忘',
+    },
+}
 
-def line(x, y, s, fill, size):
+
+def line(x, y, s, fill, size, accent=SEAM):
     """竖线包住的片段上强调色：'却数不清 |三个 r|'。"""
     if '|' in s:
         a, mid, b = s.split('|')[0], s.split('|')[1], s.split('|')[2]
-        inner = '%s<tspan dx="%g" fill="%s">%s</tspan>%s' % (a, 7 if a else 0, SEAM, mid, b)
+        inner = '%s<tspan dx="%g" fill="%s">%s</tspan>%s' % (a, 7 if a else 0, accent, mid, b)
         fill = INK if a else fill
     else:
         inner = s
@@ -74,7 +86,7 @@ def line(x, y, s, fill, size):
             'fill="%s">%s</text>' % (x, y, CJK, size, fill, inner))
 
 
-def motif(kind, data, hi, x0, y, cw, step, tw):
+def motif(kind, data, hi, x0, y, cw, step, tw, accent=SEAM, soft=SEAM_SOFT):
     """底部视觉签名：字母方块，或一条数字带。"""
     out = []
     if kind == 'tiles':
@@ -90,28 +102,57 @@ def motif(kind, data, hi, x0, y, cw, step, tw):
     else:
         fam = CJK if kind == 'phrase' else MONO
         out.append('<rect x="%g" y="%g" width="%g" height="%g" rx="8" fill="%s" stroke="%s" '
-                   'stroke-width="1.6"/>' % (x0, y, tw, cw, SEAM_SOFT, SEAM))
-        out.append('<text x="%g" y="%g" text-anchor="middle" font-family="%s" font-size="%g" '
-                   'font-weight="600" fill="%s">%s</text>'
-                   % (x0 + tw / 2, y + cw / 2 + 7, fam, cw * 0.5, SEAM, data))
+                   'stroke-width="1.6"/>' % (x0, y, tw, cw, soft, accent))
+        if kind == 'cmd':   # 指令片段：左对齐、带提示符
+            out.append('<text x="%g" y="%g" font-family="%s" font-size="%g" font-weight="600" fill="%s">'
+                       '<tspan fill="%s">&gt;</tspan> %s</text>'
+                       % (x0 + 16, y + cw / 2 + 6, fam, cw * 0.42, INK, accent, data))
+        else:
+            out.append('<text x="%g" y="%g" text-anchor="middle" font-family="%s" font-size="%g" '
+                       'font-weight="600" fill="%s">%s</text>'
+                       % (x0 + tw / 2, y + cw / 2 + 7, fam, cw * 0.5, accent, data))
     return out
 
 
-def build(n):
-    L = LESSONS[n]
+def marks(x, y0, y1, w, accent, soft, dash):
+    """左侧标识：主线是一条红色虚线，合集二是一列蓝色勾选框。"""
+    if dash:
+        return ['<line x1="%g" y1="%g" x2="%g" y2="%g" stroke="%s" stroke-width="%g" stroke-dasharray="%s"/>'
+                % (x, y0, x, y1, accent, w, dash)]
+    out = []
+    n = 6
+    step = (y1 - y0) / n
+    for i in range(n):
+        yy = y0 + i * step
+        s = step * 0.42
+        checked = i < 3
+        out.append('<rect x="%g" y="%g" width="%g" height="%g" rx="3" fill="%s" stroke="%s" stroke-width="1.8"/>'
+                   % (x - s / 2, yy, s, s, soft if checked else '#ffffff', accent))
+        if checked:
+            out.append('<path d="M%g %g l%g %g l%g %g" stroke="%s" stroke-width="2.4" fill="none" '
+                       'stroke-linecap="round" stroke-linejoin="round"/>'
+                       % (x - s * 0.3, yy + s * 0.5, s * 0.22, s * 0.22, s * 0.4, -s * 0.44, accent))
+    return out
+
+
+def build(n, series='main'):
+    hands = series == 'hands'
+    L = (HANDS if hands else LESSONS)[n]
     kind, data, hi = L['motif']
+    accent, soft = (ACC, ACC_SOFT) if hands else (SEAM, SEAM_SOFT)
+    eyebrow = '动手用大模型' if hands else '从零看懂大模型 · 第 %d 课' % n
 
     # ---------- 2.35:1 首图 ----------
     W, H = 900, 383
     p = ['<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 %d %d" width="%d" height="%d" '
-         'role="img" aria-label="封面：从零看懂大模型 第 %d 课">' % (W, H, W * 2, H * 2, n),
-         '<rect width="%d" height="%d" fill="#ffffff"/>' % (W, H),
-         '<line x1="46" y1="64" x2="46" y2="319" stroke="%s" stroke-width="3" stroke-dasharray="7 6"/>' % SEAM,
-         '<text x="76" y="92" font-family="%s" font-size="17" font-weight="600" letter-spacing="3.2" '
-         'fill="%s">从零看懂大模型 · 第 %d 课</text>' % (MONO, SEAM, n)]
+         'role="img" aria-label="封面：%s">' % (W, H, W * 2, H * 2, eyebrow),
+         '<rect width="%d" height="%d" fill="#ffffff"/>' % (W, H)]
+    p += marks(46, 64, 319, 3, accent, soft, '' if hands else '7 6')
+    p.append('<text x="76" y="92" font-family="%s" font-size="17" font-weight="600" letter-spacing="3.2" '
+             'fill="%s">%s</text>' % (MONO, accent, eyebrow))
     y = 186
     for (s, fill, size) in L['wide']:
-        p.append(line(76, y, s, fill, size))
+        p.append(line(76, y, s, fill, size, accent))
         y += size + 14
     if kind == 'tiles':
         p += motif(kind, data, hi, 76, 296, 32, 36, 0)
@@ -119,28 +160,29 @@ def build(n):
         p.append('<text x="%g" y="319" font-family="%s" font-size="16" fill="%s">← %s</text>'
                  % (cx, CJK, MUTED, L['caption']))
     else:
-        p += motif(kind, data, hi, 76, 292, 40, 0, 300)
-        p.append('<text x="392" y="319" font-family="%s" font-size="16" fill="%s">← %s</text>'
-                 % (CJK, MUTED, L['caption']))
+        tw = 360 if kind == 'cmd' else 300
+        p += motif(kind, data, hi, 76, 292, 40, 0, tw, accent, soft)
+        p.append('<text x="%g" y="319" font-family="%s" font-size="16" fill="%s">← %s</text>'
+                 % (76 + tw + 16, CJK, MUTED, L['caption']))
     p.append('</svg>')
     io.open('images/%s_cover.svg' % L['slug'], 'w', encoding='utf-8').write(''.join(p))
 
     # ---------- 1:1 方图（单独构图） ----------
     S = 383
     q = ['<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 %d %d" width="%d" height="%d" '
-         'role="img" aria-label="方形封面：从零看懂大模型 第 %d 课">' % (S, S, S * 2, S * 2, n),
-         '<rect width="%d" height="%d" fill="#ffffff"/>' % (S, S),
-         '<line x1="22" y1="44" x2="22" y2="340" stroke="%s" stroke-width="2.5" stroke-dasharray="6 5"/>' % SEAM,
-         '<text x="44" y="58" font-family="%s" font-size="13" font-weight="600" letter-spacing="2.4" '
-         'fill="%s">从零看懂大模型 · 第 %d 课</text>' % (MONO, SEAM, n)]
+         'role="img" aria-label="方形封面：%s">' % (S, S, S * 2, S * 2, eyebrow),
+         '<rect width="%d" height="%d" fill="#ffffff"/>' % (S, S)]
+    q += marks(22, 44, 340, 2.5, accent, soft, '' if hands else '6 5')
+    q.append('<text x="44" y="58" font-family="%s" font-size="13" font-weight="600" letter-spacing="2.4" '
+             'fill="%s">%s</text>' % (MONO, accent, eyebrow))
     y = 142
     for (s, fill, size) in L['square']:
-        q.append(line(44, y, s, fill, size))
+        q.append(line(44, y, s, fill, size, accent))
         y += size + 14
     if kind == 'tiles':
         q += motif(kind, data, hi, 44, 288, 27, 30, 0)
     else:
-        q += motif(kind, data, hi, 44, 284, 34, 0, 295)
+        q += motif(kind, data, hi, 44, 284, 34, 0, 295, accent, soft)
     q.append('<text x="44" y="338" font-family="%s" font-size="14" fill="%s">%s</text>'
              % (CJK, MUTED, L['caption']))
     q.append('</svg>')
@@ -150,5 +192,11 @@ def build(n):
 
 
 if __name__ == '__main__':
-    for n in ([int(a) for a in sys.argv[1:]] or sorted(LESSONS)):
-        build(n)
+    # python3 wechat/build-cover.py 5        主线第 5 课
+    # python3 wechat/build-cover.py h1       合集二第 1 篇
+    args = sys.argv[1:] or [str(n) for n in sorted(LESSONS)] + ['h%d' % n for n in sorted(HANDS)]
+    for a in args:
+        if a.startswith('h'):
+            build(int(a[1:]), 'hands')
+        else:
+            build(int(a))

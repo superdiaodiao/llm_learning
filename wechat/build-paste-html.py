@@ -37,8 +37,17 @@ S = {
     'tailp':  'margin:0 0 14px;font-size:14px;line-height:1.85;color:#6a7280;',
 }
 
-# 这些小标题整段套高亮框（读者被要求动手的地方）
-BOXED = ('自己试一下',)
+# 这些小标题整段套高亮框（读者被要求动手的地方 / 可直接复制的模板）
+BOXED = ('自己试一下', '直接复制')
+
+# 合集二「动手用大模型」用蓝色强调：python3 wechat/build-paste-html.py --blue wechat/h01-xxx.md
+def set_theme(accent, soft):
+    for k in S:
+        S[k] = S[k].replace('#be123c', accent).replace('#fff5f7', soft)
+S['pre'] = ('margin:0 0 14px;padding:14px 16px;background:#ffffff;border:1px solid #b6bcc6;'
+            'border-radius:6px;font-family:Menlo,Consolas,monospace;font-size:13.5px;line-height:1.8;'
+            'color:#1b1f27;white-space:pre-wrap;word-break:break-all;')
+S['ol'] = 'margin:0 0 14px;padding-left:24px;'
 
 # 这些整段走页脚样式，和正文视觉分开
 TAIL = ('关于这个系列',)
@@ -103,6 +112,24 @@ def convert(md):
             i += 1
             continue
 
+        if ln.startswith('```'):                     # 围栏块 → 可复制的模板框
+            i += 1
+            buf = []
+            while i < n and not lines[i].startswith('```'):
+                buf.append(html.escape(lines[i].rstrip(), quote=False))
+                i += 1
+            i += 1
+            out.append('<section style="%s">%s</section>' % (S['pre'], '<br>'.join(buf)))
+            continue
+
+        if re.match(r'\d+\. ', ln):
+            items = []
+            while i < n and re.match(r'\d+\. ', lines[i].rstrip()):
+                items.append('<li style="%s">%s</li>' % (S['li'], inline(re.sub(r'^\d+\. ', '', lines[i].rstrip()))))
+                i += 1
+            out.append('<ol style="%s">%s</ol>' % (S['ol'], ''.join(items)))
+            continue
+
         if ln.startswith('- '):
             items = []
             while i < n and lines[i].rstrip().startswith('- '):
@@ -134,7 +161,7 @@ PAGE = '''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
       <b>1.</b> 标题栏填：<span id="t" style="background:#f6f7f9;padding:2px 7px;border-radius:4px;">%(title)s</span>
       <button onclick="cp(document.getElementById('t'))" style="margin-left:6px;font-size:12px;padding:3px 9px;cursor:pointer;border:1px solid #b6bcc6;background:#fff;border-radius:5px;">复制标题</button><br>
       <b>2.</b> 点下面的按钮复制正文，到编辑器里 Ctrl/Cmd+V<br>
-      <b>3.</b> 正文里三个虚线框是图片位，删掉框、用编辑器的"图片"按钮上传对应 PNG<br>
+      <b>3.</b> 正文里的虚线框是图片位，删掉框、用编辑器的"图片"按钮上传对应 PNG<br>
       <b>4.</b> 微信会重写图片地址，所以图必须在编辑器里传，不能靠外链
     </div>
     <button onclick="cp(document.getElementById('a'))" style="margin-top:16px;font-size:14px;font-weight:600;padding:9px 18px;cursor:pointer;border:0;background:#be123c;color:#fff;border-radius:6px;">复制正文</button>
@@ -162,7 +189,10 @@ function cp(el){
 '''
 
 if __name__ == '__main__':
-    src = sys.argv[1] if len(sys.argv) > 1 else 'wechat/01a-why-it-cant-count-r.md'
+    args = [x for x in sys.argv[1:] if not x.startswith('--')]
+    if '--blue' in sys.argv:
+        set_theme('#2563eb', '#eff6ff')
+    src = args[0] if args else 'wechat/01a-why-it-cant-count-r.md'
     with open(src, encoding='utf-8') as f:
         title, body = convert(f.read())
     dst = os.path.splitext(src)[0] + '.paste.html'
