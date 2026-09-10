@@ -31,6 +31,7 @@
 | `03a-why-answers-differ.md` | 第 4 课 | 03 的前半段（logits、采样），并收进「幻觉」 |
 | `03b-why-it-forgets.md` | 第 5 课 | 03 的后半段（自回归、KV cache），并收进「上下文窗口」 |
 | `04a-how-it-learned-to-talk.md` | 第 6 课 | 04 的前半段（权重、loss、梯度下降、预训练） |
+| `04b-from-completion-to-chat.md` | 第 7 课 | 04 的中段（指令微调、对齐） |
 
 合集二「动手用大模型」的文件以 `h` 开头，各自编号，课表和风格约定见 `PLAN-hands-on.md`：
 
