@@ -5,6 +5,7 @@
     python3 wechat/build-crosslink.py 7      # 主线第 7 课
     python3 wechat/build-crosslink.py h1     # 实操第 1 篇
     python3 wechat/build-crosslink.py 7 "它为什么会先夸你一句？"   # 自定义引子
+    python3 wechat/build-crosslink.py 8 "引子" "就在今天推送的第 3 条" math   # 第 3 个参数替换"→ 合集"那段（同一次推送时用），第 4 个参数是输出文件后缀
 
 粘贴后，选中课程标题那行，用编辑器"插入链接 → 公众号文章"链到对应文章。
 """
@@ -39,15 +40,18 @@ if __name__ == '__main__':
     lead, title = (HANDS if hands else MAIN)[n]
     if len(sys.argv) > 2:
         lead = sys.argv[2]
+    tail = ('　→ ' + sys.argv[3]) if len(sys.argv) > 3 else None
+    suffix = ('-' + sys.argv[4]) if len(sys.argv) > 4 else ''
     accent = '#2563eb' if hands else '#be123c'
     where = ('实操第 %d 篇' % n) if hands else ('第 %d 课' % n)
     series = '动手用大模型' if hands else '从零看懂大模型'
     block = ('<section style="%s">'
              '<p style="%s">%s</p>'
              '<p style="%s">%s讲过：<span style="%s">%s</span>'
-             '<span style="%s">　→ 合集「%s」</span></p>'
+             '<span style="%s">%s</span></p>'
              '</section>' % (BOX % accent, LEAD, html.escape(lead), LINE, where,
-                             LINK % accent, html.escape(title), TAG, series))
+                             LINK % accent, html.escape(title), TAG,
+                             html.escape(tail) if tail else '　→ 合集「%s」' % series))
     page = ('<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><title>接一课 · %s</title></head>'
             '<body style="margin:0;background:#eef0f4;font-family:-apple-system,BlinkMacSystemFont,\'PingFang SC\','
             '\'Microsoft YaHei\',sans-serif;"><div style="max-width:720px;margin:0 auto;padding:24px 16px;">'
@@ -61,7 +65,7 @@ if __name__ == '__main__':
             '</div><script>function cp(){var r=document.createRange();r.selectNodeContents(document.getElementById("a"));'
             'var s=window.getSelection();s.removeAllRanges();s.addRange(r);document.execCommand("copy");s.removeAllRanges();'
             'document.getElementById("ok").textContent="已复制";}</script></body></html>' % (where, accent, block))
-    dst = 'wechat/crosslink-%s.html' % key
+    dst = 'wechat/crosslink-%s%s.html' % (key, suffix)
     open(dst, 'w', encoding='utf-8').write(page)
     print(dst)
-    print('  %s\n  %s讲过：%s → 合集「%s」' % (lead, where, title, series))
+    print('  %s\n  %s讲过：%s %s' % (lead, where, title, tail or '→ 合集「%s」' % series))
