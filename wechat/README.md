@@ -34,12 +34,12 @@
 | `04b-from-completion-to-chat.md` | 第 7 课 | 04 的中段（指令微调、对齐） |
 | `04c-how-it-learned-to-think.md` | 第 8 课 | 04 的推理一节（思维链、RLVR、涌现） |
 
-合集二「动手用大模型」的文件以 `h` 开头，各自编号，课表和风格约定见 `PLAN-hands-on.md`：
+合集二「动手用大模型」的文件以 `h` 开头；编号只认 `PLAN-hands-on.md` 课表里的"发布"列，文件名里的数字只用于溯源：
 
 | 文件 | 公众号 | 原理挂 |
 |---|---|---|
-| `h01-talking-to-ai.md` | 动手 · 第 1 篇 | 主线第 5 课 |
-| `h05-write-it-in-a-file.md` | 动手 · 第 5 篇 | 主线第 5 课、仓库 12 |
+| `h01-talking-to-ai.md` | 动手 · 发布第 1 篇 | 主线第 5 课 |
+| `h05-write-it-in-a-file.md` | 动手 · 发布第 2 篇 | 主线第 5 课、仓库 12 |
 
 ## 写法约定
 
