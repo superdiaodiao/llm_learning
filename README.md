@@ -21,6 +21,7 @@
 | 09 | [实战篇：从看懂代码到给顶尖项目提 PR](09-contributing-in-practice.md) | 模式狩猎方法论 + LlamaIndex / mem0 两个真实案例 |
 | 10 | [微调实战：LoRA 与 DPO](10-finetuning-lora-dpo.md) | SFT 流水线、peft LoRA 真实实现、DPO 原理与 trl 代码、避坑 |
 | 11 | [上下文工程与 Agent Harness](11-context-engineering-and-harness.md) | 窗口预算五原则、Skills / Hooks / MCP、评估三层与迭代循环 |
+| 12 | [写给 Agent 看的文档](12-docs-for-agents.md) | 读者是模型；规则文件写什么不写什么、分三层；skill 的 description 与正文；触发测试 |
 
 ## 主线一图
 
@@ -35,7 +36,7 @@
 
 ## 怎么读
 
-- 按序号读。01–03 是输入→加工→输出的主线，04–05 讲模型的来源与服务，06 起转向应用层，07/08 是两个深入方向，11 把当下最热的 harness / skills / MCP / 评估放回统一框架。
+- 按序号读。01–03 是输入→加工→输出的主线，04–05 讲模型的来源与服务，06 起转向应用层，07/08 是两个深入方向，11 把当下最热的 harness / skills / MCP / 评估放回统一框架，12 讲规则文件和 skill 怎么写。
 - 每篇结尾有一道**思考题**，答案往往在下一篇被回收。
 - 09 是番外，讲方法不讲原理：怎么在几万星的 AI 项目里自己发现 bug、提 issue、提 PR——所有 issue/PR 编号都是公开记录。
 
@@ -53,11 +54,10 @@
 | LlamaIndex | retriever / query engine / node postprocessor | 06 |
 | mem0 | `mem0/memory/main.py`、`mem0/configs/prompts.py` | 07 |
 | LangGraph | `StateGraph` 与条件边 | 08 |
-| MCP / Agent Skills | 协议与 `SKILL.md` 规范 | 11 |
+| MCP / Agent Skills | 协议与 `SKILL.md` 规范 | 11、12 |
 
 ## 计划中
 
-- 12 · 写给 Agent 看的文档：规则文件（CLAUDE.md / AGENTS.md）与 skill 写法
 - 13 · 多模态与扩散模型：图片怎么进 LLM、扩散模型怎么生成图（图已备好）
 - 14 · 规模与架构：scaling law、数据、MoE
 
