@@ -87,8 +87,8 @@ HANDS = {
     },
     5: {
         'slug':  'hx5',
-        'wide':  [('每次都要跟 AI 重复的话，', INK, 46), ('|写进一个文件|', ACC, 60)],
-        'square': [('每次都要', INK, 44), ('跟 AI 重复的话，', INK, 38), ('写进一个文件', ACC, 46)],
+        'wide':  [('每次都要跟 Claude Code 重复的话，', INK, 42), ('|写进一个文件|', ACC, 60)],
+        'square': [('跟 Claude Code', INK, 38), ('重复过的话，', INK, 40), ('写进一个文件', ACC, 46)],
         'motif': ('cmd', '怎么跑 · 目录 · 约定 · 禁区', None),
         'caption': '每一轮，它都会先读这个',
     },
@@ -172,9 +172,10 @@ def build(n, series='main'):
     p.append('<text x="76" y="92" font-family="%s" font-size="17" font-weight="600" letter-spacing="3.2" '
              'fill="%s">%s</text>' % (MONO, accent, eyebrow))
     y = 186
-    for (s, fill, size) in L['wide']:
+    W_ = L['wide']
+    for i, (s, fill, size) in enumerate(W_):
         p.append(line(76, y, s, fill, size, accent))
-        y += size + 14
+        y += max(size, W_[i + 1][2] if i + 1 < len(W_) else 0) + 14   # 行距按相邻两行里大的那个算
     if kind == 'tiles':
         p += motif(kind, data, hi, 76, 296, 32, 36, 0)
         cx = 76 + 10 * 36 + 14
@@ -197,9 +198,10 @@ def build(n, series='main'):
     q.append('<text x="44" y="58" font-family="%s" font-size="13" font-weight="600" letter-spacing="2.4" '
              'fill="%s">%s</text>' % (MONO, accent, eyebrow))
     y = 142
-    for (s, fill, size) in L['square']:
+    Q_ = L['square']
+    for i, (s, fill, size) in enumerate(Q_):
         q.append(line(44, y, s, fill, size, accent))
-        y += size + 14
+        y += max(size, Q_[i + 1][2] if i + 1 < len(Q_) else 0) + 14
     if kind == 'tiles':
         q += motif(kind, data, hi, 44, 288, 27, 30, 0)
     else:

@@ -33,6 +33,6 @@
 | 篇 | 标题 | 讲什么 | 新闻里出现什么时挂 | 引子 |
 |---|---|---|---|---|
 | 1 | 跟 AI 说话，为什么不能像跟人说话 | 三条写法 + 模板 | 提示词技巧、"AI 听不懂人话" | 想让它听懂，该怎么说？ |
-| 2 | 每次都要跟 AI 重复的话，写进一个文件 | CLAUDE.md / AGENTS.md 规则文件 + 模板 | CLAUDE.md、AGENTS.md、Cursor rules、编程助手不听话、Claude Code / Codex 用法 | 每次都要重复的话，怎么让它记住？ |
+| 2 | 每次都要跟 Claude Code 重复的话，写进一个文件 | CLAUDE.md / AGENTS.md 规则文件 + 模板 | CLAUDE.md、AGENTS.md、Cursor rules、编程助手不听话、Claude Code / Codex 用法 | 每次都要重复的话，怎么让它记住？ |
 
 实操篇的出处行写"实操第 N 篇讲过：……→ 合集「动手用大模型」"。
