@@ -48,6 +48,9 @@ S['pre'] = ('margin:0 0 14px;padding:14px 16px;background:#ffffff;border:1px sol
             'border-radius:6px;font-family:Menlo,Consolas,monospace;font-size:13.5px;line-height:1.8;'
             'color:#1b1f27;white-space:pre-wrap;word-break:break-all;')
 S['ol'] = 'margin:0 0 14px;padding-left:24px;'
+S['table'] = 'margin:0 0 20px;border-collapse:collapse;width:100%;font-size:14px;line-height:1.7;color:#3f3f46;'
+S['th'] = 'padding:8px 10px;border:1px solid #d6d9e0;background:#f6f7f9;font-weight:700;color:#1b1f27;text-align:left;'
+S['td'] = 'padding:8px 10px;border:1px solid #d6d9e0;text-align:left;'
 
 # 这些整段走页脚样式，和正文视觉分开
 TAIL = ('关于这个系列',)
@@ -120,6 +123,20 @@ def convert(md):
                 i += 1
             i += 1
             out.append('<section style="%s">%s</section>' % (S['pre'], '<br>'.join(buf)))
+            continue
+
+        if ln.startswith('|'):                       # 表格：第一行表头，第二行分隔线
+            rows = []
+            while i < n and lines[i].rstrip().startswith('|'):
+                cells = [c.strip() for c in lines[i].rstrip().strip('|').split('|')]
+                if not all(re.fullmatch(r':?-+:?', c or '-') for c in cells):
+                    rows.append(cells)
+                i += 1
+            head, body = rows[0], rows[1:]
+            th = ''.join('<th style="%s">%s</th>' % (S['th'], inline(c)) for c in head)
+            trs = ''.join('<tr>%s</tr>' % ''.join('<td style="%s">%s</td>' % (S['td'], inline(c)) for c in r) for r in body)
+            out.append('<section style="overflow-x:auto;"><table style="%s"><thead><tr>%s</tr></thead><tbody>%s</tbody></table></section>'
+                       % (S['table'], th, trs))
             continue
 
         if re.match(r'\d+\. ', ln):
