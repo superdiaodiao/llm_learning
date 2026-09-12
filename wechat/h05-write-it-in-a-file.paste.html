@@ -1,0 +1,59 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>每次都要跟 AI 重复的话，写进一个文件 · 粘贴到公众号</title></head>
+<body style="margin:0;background:#eef0f4;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;">
+<div style="max-width:720px;margin:0 auto;padding:24px 16px 60px;">
+
+  <div style="background:#fff;border:1px solid #d6d9e0;border-radius:10px;padding:20px 22px;margin-bottom:20px;">
+    <div style="font-size:12px;letter-spacing:.1em;color:#8a9099;margin-bottom:12px;">粘贴到公众号编辑器</div>
+    <div style="font-size:14px;line-height:1.9;color:#3f3f46;">
+      <b>1.</b> 标题栏填：<span id="t" style="background:#f6f7f9;padding:2px 7px;border-radius:4px;">每次都要跟 AI 重复的话，写进一个文件</span>
+      <button onclick="cp(document.getElementById('t'))" style="margin-left:6px;font-size:12px;padding:3px 9px;cursor:pointer;border:1px solid #b6bcc6;background:#fff;border-radius:5px;">复制标题</button><br>
+      <b>2.</b> 点下面的按钮复制正文，到编辑器里 Ctrl/Cmd+V<br>
+      <b>3.</b> 正文里的虚线框是图片位，删掉框、用编辑器的"图片"按钮上传对应 PNG<br>
+      <b>4.</b> 微信会重写图片地址，所以图必须在编辑器里传，不能靠外链
+    </div>
+    <button onclick="cp(document.getElementById('a'))" style="margin-top:16px;font-size:14px;font-weight:600;padding:9px 18px;cursor:pointer;border:0;background:#be123c;color:#fff;border-radius:6px;">复制正文</button>
+    <span id="ok" style="margin-left:10px;font-size:13px;color:#15803d;"></span>
+  </div>
+
+  <div style="background:#fff;border:1px solid #d6d9e0;border-radius:10px;padding:28px 26px;">
+    <div id="a">
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">你有没有这种话，每开一个新对话都要说一遍：</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">"用中文回复。""这个项目用 uv，别用 pip。""测试命令是 <code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#2563eb;background:#f6f7f9;padding:1px 5px;border-radius:3px;">uv run pytest</code>。""<code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#2563eb;background:#f6f7f9;padding:1px 5px;border-radius:3px;">migrations/</code> 里的文件别动。"</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">忘了说，它就猜。猜错了，重来。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #2563eb;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">为什么它记不住</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">它每一轮只看窗口里的东西，新开的对话窗口是空的，上次说的什么都不在（主线第 5 课）。它不是不听话，是真的没看见。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">工具留了一个口子：<strong style="font-weight:700;color:#1b1f27;">一个固定的文件，每一轮开始时自动读进窗口。</strong>Claude Code 里叫 <code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#2563eb;background:#f6f7f9;padding:1px 5px;border-radius:3px;">CLAUDE.md</code>，Cursor 里叫 <code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#2563eb;background:#f6f7f9;padding:1px 5px;border-radius:3px;">.cursorrules</code>，通用的叫 <code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#2563eb;background:#f6f7f9;padding:1px 5px;border-radius:3px;">AGENTS.md</code>，都是同一样东西。写进去的话，你就再也不用说了。</p>
+<section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>hx5_rules.png</b><br>每次说 vs 写进文件</section>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #2563eb;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">三步</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">1. 在项目根目录建一个文件。</strong> 以 Claude Code 为例：新建 <code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#2563eb;background:#f6f7f9;padding:1px 5px;border-radius:3px;">CLAUDE.md</code>；或者在对话里输入 <code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#2563eb;background:#f6f7f9;padding:1px 5px;border-radius:3px;">/init</code>，它会看一遍项目自动生成一份初稿，你再删改。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">2. 只写四类东西。</strong> 怎么跑（确切的命令）、目录在哪（五到十行）、跟别处不一样的约定、禁区。判断标准一句话：<strong style="font-weight:700;color:#1b1f27;">它自己发现不了、又每次都需要的</strong>，才写。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">3. 个人偏好放个人文件。</strong> "用中文回复""别客套"这类是你的习惯，不是项目的规矩。Claude Code 里放 <code style="font-family:Menlo,Consolas,monospace;font-size:14px;color:#2563eb;background:#f6f7f9;padding:1px 5px;border-radius:3px;">~/.claude/CLAUDE.md</code>，只对你生效。项目文件是全组人共用的，别把自己的口味写进去。</p>
+<section style="margin:28px 0;padding:20px 20px 6px;background:#eff6ff;border:1px dashed #2563eb;border-radius:8px;">
+<p style="margin:0 0 12px;font-size:16px;font-weight:700;color:#2563eb;">直接复制</p>
+<section style="margin:0 0 14px;padding:14px 16px;background:#ffffff;border:1px solid #b6bcc6;border-radius:6px;font-family:Menlo,Consolas,monospace;font-size:13.5px;line-height:1.8;color:#1b1f27;white-space:pre-wrap;word-break:break-all;"># 项目规则<br><br>## 运行<br>- 安装：`uv sync`；测试：`uv run pytest -q`；起服务：`uv run uvicorn app.main:app`<br>- 提交前跑 `uv run ruff check .`，红了别提交<br><br>## 结构<br>- `app/` 业务代码，`app/api/` 路由，`app/core/` 领域逻辑<br>- `tests/` 与 `app/` 同构；`migrations/` 由工具生成，别手改<br><br>## 约定<br>- 包管理只用 uv，不用 pip<br>- 提交信息格式：`type(scope): 一句话`<br><br>## 禁区<br>- 不改 `migrations/` 里已有文件；不删 `tests/` 里的用例<br>- 涉及 `.env`、密钥、生产配置的改动先问人</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">把命令、目录、约定换成你项目的。删掉不适用的行，别留空板块。二十来行是正常长度，超过五十行要警惕。</p>
+</section>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #2563eb;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">常见坑</h2>
+<ul style="margin:0 0 14px;padding-left:22px;"><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">写成教科书。</strong> "Python 用四空格缩进""变量名要清晰"。这些它比你熟，写进去只占地方，还稀释了真正重要的那几行。只写和通用做法<strong style="font-weight:700;color:#1b1f27;">不一样</strong>的。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">越写越长。</strong> 每出一次问题加一条，半年后两百行，它对每一行的注意力都被摊薄了。每加一条问一句"这是每一轮都需要的吗"，不是就删。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">写会变的东西。</strong> 当前分支、版本号、正在做的功能。过时的规则比没有规则更糟，它会照着错的做。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">把"别删文件"当保险。</strong> 写在文件里它多半会照做，但"多半"不是"一定"，聊长了它可能忘。真正要保证的事，得用代码拦，后面 Hook 那篇讲。</li></ul>
+<section style="margin:40px 0 0;padding:18px 20px 4px;background:#f6f7f9;border-radius:8px;">
+<p style="margin:0 0 10px;font-size:14px;font-weight:700;color:#6a7280;">关于这个系列</p>
+<p style="margin:0 0 14px;font-size:14px;line-height:1.85;color:#6a7280;">《动手用大模型》每篇解决一个用 AI 时的具体的烦：讲一条跨工具的原理，配一个能直接抄的模板。这篇的原理见《从零看懂大模型》第 5 课「发给 AI 的长文档，它为什么总忘了前面」；写法的完整版在仓库第 12 篇。</p>
+<p style="margin:0 0 14px;font-size:14px;line-height:1.85;color:#6a7280;">模板就在上面那个框里，长按复制。同系列其他篇在合集「动手用大模型」。</p>
+</section>
+    </div>
+  </div>
+</div>
+<script>
+function cp(el){
+  var r=document.createRange(); r.selectNodeContents(el);
+  var s=getSelection(); s.removeAllRanges(); s.addRange(r);
+  var ok=false; try{ ok=document.execCommand('copy'); }catch(e){}
+  s.removeAllRanges();
+  var n=document.getElementById('ok');
+  n.textContent = ok ? '已复制，去编辑器粘贴' : '复制失败，请手动选中';
+  setTimeout(function(){ n.textContent=''; }, 4000);
+}
+</script>
+</body></html>
