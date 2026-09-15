@@ -25,6 +25,7 @@
 
 | 文件 | 公众号 | 仓库出处 |
 |---|---|---|
+| `00-index-first-ten.md` | 前 10 课目录导航文（置顶） | 无，汇总第 1–10 课 |
 | `01a-why-it-cant-count-r.md` | 第 1 课 | 01 的前半段（分词） |
 | `01b-word-math.md` | 第 2 课 | 01 的后半段（embedding） |
 | `02a-who-bit-whom.md` | 第 3 课 | 02 的前半段（位置编码与 attention） |

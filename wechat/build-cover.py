@@ -17,6 +17,13 @@ INK, MUTED, SEAM, SEAM_SOFT, SURFACE, LINE = \
 
 # 每课只需配这一段：标题怎么断行、底部用什么视觉签名。
 LESSONS = {
+    0: {   # 目录导航文（前 10 课）
+        'slug':  'wx0',
+        'wide':  [('从零看懂大模型', INK, 58), ('|前 10 课目录|', SEAM, 58)],
+        'square': [('从零看懂', INK, 46), ('大模型', INK, 46), ('前 10 课目录', SEAM, 46)],
+        'motif': ('phrase', '按顺序读，也可以从任何一课进', None),
+        'caption': '认字、理解、生成、训练原理、成本',
+    },
     1: {
         'slug':  'wx1',
         'wide':  [('它能写代码，', INK, 62), ('却数不清 |三个 r|', INK, 62)],
@@ -203,7 +210,7 @@ def build(n, series='main'):
     L = (HANDS if hands else LESSONS)[n]
     kind, data, hi = L['motif']
     accent, soft = (ACC, ACC_SOFT) if hands else (SEAM, SEAM_SOFT)
-    eyebrow = '动手用大模型' if hands else '从零看懂大模型 · 第 %d 课' % n
+    eyebrow = '动手用大模型' if hands else ('从零看懂大模型 · 目录' if n == 0 else '从零看懂大模型 · 第 %d 课' % n)
 
     # ---------- 2.35:1 首图 ----------
     W, H = 900, 383
