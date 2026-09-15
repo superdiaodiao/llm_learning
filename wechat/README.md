@@ -36,6 +36,7 @@
 | `04d-finetune-or-retrieve.md` | 第 9 课 | 04 后半段（微调、LoRA）+ 10 开头（微调能做什么），预告 RAG |
 | `05a-where-the-money-goes.md` | 第 10 课 | 05（连续批处理、PagedAttention、量化）+ 11 的 prompt caching |
 | `06a-look-it-up-first.md` | 第 11 课 | 06 的 RAG 部分（切块、向量检索、重排），并收进「为什么会答错」 |
+| `07a-how-it-remembers-you.md` | 第 12 课 | 07（读是检索、写是抽取、记什么由提示词定、增改删留账本） |
 
 合集二「动手用大模型」的文件以 `h` 开头；编号只认 `PLAN-hands-on.md` 课表里的"发布"列，文件名里的数字只用于溯源：
 
