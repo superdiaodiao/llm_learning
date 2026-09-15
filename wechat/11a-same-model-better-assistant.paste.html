@@ -1,0 +1,73 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>同一个 AI 模型，为什么有的助手更好用 · 粘贴到公众号</title></head>
+<body style="margin:0;background:#eef0f4;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;">
+<div style="max-width:720px;margin:0 auto;padding:24px 16px 60px;">
+
+  <div style="background:#fff;border:1px solid #d6d9e0;border-radius:10px;padding:20px 22px;margin-bottom:20px;">
+    <div style="font-size:12px;letter-spacing:.1em;color:#8a9099;margin-bottom:12px;">粘贴到公众号编辑器</div>
+    <div style="font-size:14px;line-height:1.9;color:#3f3f46;">
+      <b>1.</b> 标题栏填：<span id="t" style="background:#f6f7f9;padding:2px 7px;border-radius:4px;">同一个 AI 模型，为什么有的助手更好用</span>
+      <button onclick="cp(document.getElementById('t'))" style="margin-left:6px;font-size:12px;padding:3px 9px;cursor:pointer;border:1px solid #b6bcc6;background:#fff;border-radius:5px;">复制标题</button><br>
+      <b>2.</b> 点下面的按钮复制正文，到编辑器里 Ctrl/Cmd+V<br>
+      <b>3.</b> 正文里的虚线框是图片位，删掉框、用编辑器的"图片"按钮上传对应 PNG<br>
+      <b>4.</b> 微信会重写图片地址，所以图必须在编辑器里传，不能靠外链
+    </div>
+    <button onclick="cp(document.getElementById('a'))" style="margin-top:16px;font-size:14px;font-weight:600;padding:9px 18px;cursor:pointer;border:0;background:#be123c;color:#fff;border-radius:6px;">复制正文</button>
+    <span id="ok" style="margin-left:10px;font-size:13px;color:#15803d;"></span>
+  </div>
+
+  <div style="background:#fff;border:1px solid #d6d9e0;border-radius:10px;padding:28px 26px;">
+    <div id="a">
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">同一个模型，你在官网聊一次，在某个编程助手里用一次，再在另一个 App 里用一次，感觉像三个不同的 AI。有的一次做对，有的绕半天还改错文件。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">模型一模一样，差在哪？</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">差在<strong style="font-weight:700;color:#1b1f27;">外面那辆车</strong>。模型是发动机，前三课讲的查资料、记笔记、工具循环，都是车上的零件。这辆车整个叫 harness，翻译过来大概是"驾驭装置"。同一个发动机装进不同的车，开起来天差地别。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">这一课讲车上最要紧的四样。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">每一轮，窗口里放什么</h2>
+<section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>wx14_window.png</b><br>同一个窗口，装法不同</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">第 5 课说它每轮只看窗口。窗口里放什么，不是你决定的，是程序每一轮临时拼的：规则、工具表、捞出来的资料、笔记、聊天历史、工具返回的结果。七八个来源，抢一个有限的窗口。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">最大的敌人是工具返回的东西。你说的话几十个字，可它搜一次几千行，读一份日志几万字，其中大半没用。全塞进去，窗口几轮就撑爆；更糟的是<strong style="font-weight:700;color:#1b1f27;">把关键的淹了</strong>，第 5 课讲过，塞得越多每条分到的注意力越少。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">好的车先裁剪再放：大段结果压成几行摘要，原文留在外面，需要再取。聊久了，把早期历史压成一段摘要。位置也讲究：开头结尾记得牢，规则放开头，当前任务放结尾，大块资料放中间。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">差的车什么都往里倒。发动机一样，但它看到的是一堆垃圾里埋着一句话。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">该用代码保证的，别指望它自觉</h2>
+<section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>wx14_hooks.png</b><br>写在提示里，和设一道关卡</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">在规则里写"不要删文件"，它多半会听。但多半不是一定：它可能忘，可能被文档里一句话骗了，第 4 课讲过它本质在抽签。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">好的车不靠它自觉。工具执行的前后各设一道关卡，是代码，不是提示。执行前：查参数，拦危险命令，碰到删除、付款先停下来问你。执行后：把大段输出压缩、把密码脱敏、记一条日志。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">提示是嘱咐，关卡是门禁。</strong>嘱咐可能忘，门禁百分之百执行。你觉得某个助手"稳"，多半是它门禁多。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">经验做成文件，用到才装</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">怎么给仓库提问题、怎么发版本、怎么写周报，这类经验以前锁在一段长提示里，或者锁在某个人脑子里。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">现在做成一个文件夹：一句话说明"什么时候用"，正文是一步步怎么做，旁边放模板和脚本。这个文件夹叫 skill。平时只有那一句话进窗口，当索引；任务对上了，才把全文装进来。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">这跟工具的分工是：<strong style="font-weight:700;color:#1b1f27;">工具给手，skill 给手册。</strong>手册里可以写"这一步调哪个工具"。工具这边还有一个统一接口叫 MCP，一个工具做一次，各家助手都能接，装之前看清它要什么权限。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">改了不测，等于在赌</h2>
+<section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>wx14_eval.png</b><br>改完跑一遍，比较比打分靠谱</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">换了一段提示，加了一个工具，是变好了还是变坏了？感觉不靠谱，同一个问题它每次答的都不一样。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">做法跟软件测试一样：<strong style="font-weight:700;color:#1b1f27;">每次翻车的例子存下来</strong>，改完把这批全跑一遍，看哪些好了、哪些坏了。几十个真实的翻车例子，比几千条编出来的测试题管用。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">怎么判好坏？能精确判的，比如工具选没选对、格式对不对，就精确判。真正开放的回答，打分很飘，"A 和 B 哪个好"稳得多。第 7 课教它好坏用的偏好数据，就是这个形式：一个拿来训，一个拿来测。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">好的助手背后有一套这样的测试，每改一处跑一遍。没有的，每次更新都是在赌。</p>
+<section style="margin:28px 0;padding:20px 20px 6px;background:#fff5f7;border:1px dashed #be123c;border-radius:8px;">
+<p style="margin:0 0 12px;font-size:16px;font-weight:700;color:#be123c;">自己试一下（2 分钟）</p>
+<ul style="margin:0 0 14px;padding-left:22px;"><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;">同一个问题，同一个模型，在官网和在某个接了它的助手里各问一次。差别就是那辆车。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;">让编程助手删一个文件。它停下来问你，那是关卡；直接删了，这辆车没装刹车。</li></ul>
+</section>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">模型越大越聪明吗</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">到这里，从字怎么变成数字，到怎么搭成一个能干活的产品，整条线讲完了。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">还剩一个所有人都在问的问题：模型越大越聪明吗？参数、数据、算力三样怎么配？为什么小模型现在也够用了？下一课。</p>
+<section style="margin:40px 0 0;padding:18px 20px 4px;background:#f6f7f9;border-radius:8px;">
+<p style="margin:0 0 10px;font-size:14px;font-weight:700;color:#6a7280;">关于这个系列</p>
+<p style="margin:0 0 14px;font-size:14px;line-height:1.85;color:#6a7280;">《从零看懂大模型》是一个系列：从文字怎么变成数字，一路讲到模型怎么生成、权重怎么训练出来、大模型怎么被高效服务，再到 RAG、Agent 和记忆系统。每一课都拿顶尖开源项目的真实源码当课本。</p>
+<p style="margin:0 0 14px;font-size:14px;line-height:1.85;color:#6a7280;">这是第 14 课。完整目录见合集「从零看懂大模型」。</p>
+</section>
+    </div>
+  </div>
+</div>
+<script>
+function cp(el){
+  var r=document.createRange(); r.selectNodeContents(el);
+  var s=getSelection(); s.removeAllRanges(); s.addRange(r);
+  var ok=false; try{ ok=document.execCommand('copy'); }catch(e){}
+  s.removeAllRanges();
+  var n=document.getElementById('ok');
+  n.textContent = ok ? '已复制，去编辑器粘贴' : '复制失败，请手动选中';
+  setTimeout(function(){ n.textContent=''; }, 4000);
+}
+</script>
+</body></html>
