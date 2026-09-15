@@ -1,0 +1,72 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 怎么自己动手干活：Agent 是什么 · 粘贴到公众号</title></head>
+<body style="margin:0;background:#eef0f4;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;">
+<div style="max-width:720px;margin:0 auto;padding:24px 16px 60px;">
+
+  <div style="background:#fff;border:1px solid #d6d9e0;border-radius:10px;padding:20px 22px;margin-bottom:20px;">
+    <div style="font-size:12px;letter-spacing:.1em;color:#8a9099;margin-bottom:12px;">粘贴到公众号编辑器</div>
+    <div style="font-size:14px;line-height:1.9;color:#3f3f46;">
+      <b>1.</b> 标题栏填：<span id="t" style="background:#f6f7f9;padding:2px 7px;border-radius:4px;">AI 怎么自己动手干活：Agent 是什么</span>
+      <button onclick="cp(document.getElementById('t'))" style="margin-left:6px;font-size:12px;padding:3px 9px;cursor:pointer;border:1px solid #b6bcc6;background:#fff;border-radius:5px;">复制标题</button><br>
+      <b>2.</b> 点下面的按钮复制正文，到编辑器里 Ctrl/Cmd+V<br>
+      <b>3.</b> 正文里的虚线框是图片位，删掉框、用编辑器的"图片"按钮上传对应 PNG<br>
+      <b>4.</b> 微信会重写图片地址，所以图必须在编辑器里传，不能靠外链
+    </div>
+    <button onclick="cp(document.getElementById('a'))" style="margin-top:16px;font-size:14px;font-weight:600;padding:9px 18px;cursor:pointer;border:0;background:#be123c;color:#fff;border-radius:6px;">复制正文</button>
+    <span id="ok" style="margin-left:10px;font-size:13px;color:#15803d;"></span>
+  </div>
+
+  <div style="background:#fff;border:1px solid #d6d9e0;border-radius:10px;padding:28px 26px;">
+    <div id="a">
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">你说："查一下明天北京的天气，要下雨就把闹钟提前半小时。"它真的查了，也真的改了闹钟。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">第 4 课讲过，模型只会一个词一个词地吐字。它哪来的手？</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">它没有手。它只是把"要做什么"<strong style="font-weight:700;color:#1b1f27;">写成了一行字</strong>，外面有个程序读到这行字，替它动手。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">它的手，是一张工具表</h2>
+<section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>wx13_loop.png</b><br>想、写调用、程序执行、结果回填</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">先给模型一张表，列出它能用的工具，每个工具三样：名字、干什么、要填什么。比如"查天气：填城市""设闹钟：填时间"。这张表塞进窗口，跟你的话放在一起。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">模型读完，吐出一段格式固定的文字："调 查天气，城市 = 北京"。<strong style="font-weight:700;color:#1b1f27;">这只是文字</strong>，跟它平时吐的字没区别。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">窗口外面有一个程序在盯着。它看到这段格式，就真的去调天气接口，拿到"明天北京，中雨"，写回窗口。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">模型再读一遍窗口，看到中雨，接着吐："调 设闹钟，时间 = 6:30"。程序照做，把"已设"写回去。模型再读一遍，这次不写调用了，写了一句给你的话："明天有雨，闹钟提前到 6:30。"</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">一个循环，四步</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">整件事是一个循环：<strong style="font-weight:700;color:#1b1f27;">想，写调用，程序执行，结果回填，再想。</strong>什么时候停？它不再写调用、改成写给你的话，就停了。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">这里最该记住的一句：<strong style="font-weight:700;color:#1b1f27;">模型永远只生成文字。</strong>连"我要调工具"都是一行文字。它自己碰不到外面的世界，碰的是那个程序。一个能干活的 AI，就是模型加一个循环，加一张工具表，加一个替它执行的程序。这套东西叫 Agent。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">知道这个，几件事就说得通了：</p>
+<ul style="margin:0 0 14px;padding-left:22px;"><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">它说"已经帮你发了"，其实没发。</strong>多半是它写了一行调用，程序那边失败了，或者根本没有这个工具，它按第 4 课的方式编了一个。真发没发，看程序的记录，别信它的话。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">危险的事前可以拦一下。</strong>删文件、付钱这类工具，程序在执行前停下来问你一句。这是在循环里加一步，模型不知道也不需要知道。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">上两课讲的查资料、记笔记，也是工具。</strong>要不要查、查什么，现在是模型自己决定的。它在窗口里看到一张表，表里有一项叫"查资料"。</li></ul>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">走一步看一步，还是先列计划</h2>
+<section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>wx13_plan.png</b><br>边走边看，还是先列计划</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">上面那种是走一步看一步：每一步都看着最新结果决定下一步。简单的事够用，两三步就完了。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">事情一长，十几二十步，走一步看一步就容易跑偏、绕圈、重复劳动。做法是<strong style="font-weight:700;color:#1b1f27;">先列计划再动手</strong>：让模型先吐一份分步清单，然后一步一步执行，每做完一步回头看看，计划还成立吗，不成立就改。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">顺便有个省钱的门道：列计划最难，用最强的模型，只做一次；执行每一步任务很窄，用便宜的小模型。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">一个干，还是分几个</h2>
+<section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>wx13_team.png</b><br>一个干不过来，就拆</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">工具表一长，几十个工具，模型选工具就开始选错；窗口里塞满每一步的结果，第 5 课讲过，中间的东西它会看丢。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">这时候拆：一个当主管，只管派活和收结论；几个下属各管一摊，各自有自己的工具表和窗口。下属翻过的长篇资料、跑过的二十次测试，都留在它自己的窗口里，<strong style="font-weight:700;color:#1b1f27;">交给主管的只有一段结论。</strong></p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">拆的目的是隔离，不是"人多力量大"。拆了以后结论会丢细节，下属错了主管照单全收，还更慢更难查。所以一个能干好的，就别拆。</p>
+<section style="margin:28px 0;padding:20px 20px 6px;background:#fff5f7;border:1px dashed #be123c;border-radius:8px;">
+<p style="margin:0 0 12px;font-size:16px;font-weight:700;color:#be123c;">自己试一下（2 分钟）</p>
+<ul style="margin:0 0 14px;padding-left:22px;"><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;">找一个能"深度研究"或"联网"的助手，让它做一件两步的事，比如"查一下今天的汇率，算 500 美元是多少人民币"。看它的步骤展开：先写了一次查询，拿到结果，再算。那就是循环在跑。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;">问它："你现在有哪些工具？"它念出来的，就是那张表。</li></ul>
+</section>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">同一个模型，为什么有的助手更好用</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">到这里，一个模型怎么被用起来讲完了：查资料、记笔记、动手干活，全是围着模型搭的东西。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">问题来了：同一个模型，这套东西搭得好不好，差别有多大？为什么同一个模型接进两个产品，一个好用一个不好用？下一课。</p>
+<section style="margin:40px 0 0;padding:18px 20px 4px;background:#f6f7f9;border-radius:8px;">
+<p style="margin:0 0 10px;font-size:14px;font-weight:700;color:#6a7280;">关于这个系列</p>
+<p style="margin:0 0 14px;font-size:14px;line-height:1.85;color:#6a7280;">《从零看懂大模型》是一个系列：从文字怎么变成数字，一路讲到模型怎么生成、权重怎么训练出来、大模型怎么被高效服务，再到 RAG、Agent 和记忆系统。每一课都拿顶尖开源项目的真实源码当课本。</p>
+<p style="margin:0 0 14px;font-size:14px;line-height:1.85;color:#6a7280;">这是第 13 课。完整目录见合集「从零看懂大模型」。</p>
+</section>
+    </div>
+  </div>
+</div>
+<script>
+function cp(el){
+  var r=document.createRange(); r.selectNodeContents(el);
+  var s=getSelection(); s.removeAllRanges(); s.addRange(r);
+  var ok=false; try{ ok=document.execCommand('copy'); }catch(e){}
+  s.removeAllRanges();
+  var n=document.getElementById('ok');
+  n.textContent = ok ? '已复制，去编辑器粘贴' : '复制失败，请手动选中';
+  setTimeout(function(){ n.textContent=''; }, 4000);
+}
+</script>
+</body></html>
