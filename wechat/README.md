@@ -40,6 +40,7 @@
 | `07a-how-it-remembers-you.md` | 第 12 课 | 07（读是检索、写是抽取、记什么由提示词定、增改删留账本） |
 | `08a-how-it-gets-things-done.md` | 第 13 课 | 06 的 Agent 部分 + 08（工具调用四步、规划、多 agent） |
 | `11a-same-model-better-assistant.md` | 第 14 课 | 11（上下文组装、hooks、skills、MCP、评估） |
+| `13a-bigger-is-smarter.md` | 第 15 课 | 13（scaling law、Chinchilla、蒸馏、MoE、推理时算力），主线收尾 |
 
 合集二「动手用大模型」的文件以 `h` 开头；编号只认 `PLAN-hands-on.md` 课表里的"发布"列，文件名里的数字只用于溯源：
 

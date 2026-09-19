@@ -1,0 +1,76 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 模型越大越聪明吗 · 粘贴到公众号</title></head>
+<body style="margin:0;background:#eef0f4;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;">
+<div style="max-width:720px;margin:0 auto;padding:24px 16px 60px;">
+
+  <div style="background:#fff;border:1px solid #d6d9e0;border-radius:10px;padding:20px 22px;margin-bottom:20px;">
+    <div style="font-size:12px;letter-spacing:.1em;color:#8a9099;margin-bottom:12px;">粘贴到公众号编辑器</div>
+    <div style="font-size:14px;line-height:1.9;color:#3f3f46;">
+      <b>1.</b> 标题栏填：<span id="t" style="background:#f6f7f9;padding:2px 7px;border-radius:4px;">AI 模型越大越聪明吗</span>
+      <button onclick="cp(document.getElementById('t'))" style="margin-left:6px;font-size:12px;padding:3px 9px;cursor:pointer;border:1px solid #b6bcc6;background:#fff;border-radius:5px;">复制标题</button><br>
+      <b>2.</b> 点下面的按钮复制正文，到编辑器里 Ctrl/Cmd+V<br>
+      <b>3.</b> 正文里的虚线框是图片位，删掉框、用编辑器的"图片"按钮上传对应 PNG<br>
+      <b>4.</b> 微信会重写图片地址，所以图必须在编辑器里传，不能靠外链
+    </div>
+    <button onclick="cp(document.getElementById('a'))" style="margin-top:16px;font-size:14px;font-weight:600;padding:9px 18px;cursor:pointer;border:0;background:#be123c;color:#fff;border-radius:6px;">复制正文</button>
+    <span id="ok" style="margin-left:10px;font-size:13px;color:#15803d;"></span>
+  </div>
+
+  <div style="background:#fff;border:1px solid #d6d9e0;border-radius:10px;padding:28px 26px;">
+    <div id="a">
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">三年前，最好的模型有几千亿个参数。今天，一个能装进手机的小模型，很多事做得比它还好。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">那到底是越大越聪明，还是不是？</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">答案是：<strong style="font-weight:700;color:#1b1f27;">大有用，但"大"已经不是一个数字了。</strong>这一课把它拆成四件事。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">第一件：三样东西要一起长</h2>
+<section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>wx15_three.png</b><br>三样东西，短板决定上限</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">第 6 课讲过，模型是靠猜下一个词、猜错就改数字练出来的。研究者做过一件很朴素的事：把模型从小到大训一遍，把数据从少到多喂一遍，记下每种搭配最后猜得多差。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">画出来是三条直线：<strong style="font-weight:700;color:#1b1f27;">参数多十倍，猜得稳定地好一截；数据多十倍，也好一截；算力多十倍，还是好一截。</strong>跨了几百万倍都是直线，可以提前算出来。这叫 scaling law，规模定律。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">但有个前提：三样得一起长。参数堆上去、数据不够，线就弯了；数据够、模型太小，线也弯。<strong style="font-weight:700;color:#1b1f27;">上限由最短的那块板决定。</strong></p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">第二件：同样的钱，别都花在"大"上</h2>
+<section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>wx15_chinchilla.png</b><br>同样的钱：大而饿，还是小而饱</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">前几年大家读那三条线，读出的结论是"钱主要花在参数上"。于是模型做到两三千亿参数，喂的数据却停在三千亿个词左右，平均每个参数只分到一个词。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">2022 年有人重做了实验，结论反过来：<strong style="font-weight:700;color:#1b1f27;">参数和数据要等比例长，每个参数大约配二十个词。</strong>他们用同样的算力，训了一个只有七百亿参数、但喂了一万四千亿个词的模型，几乎每项都赢了自家两千八百亿参数的那个。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">参数少四分之三，反而更强，还便宜四倍。第 10 课说过，每吐一个词要把所有参数搬一遍，参数少搬得就少。<strong style="font-weight:700;color:#1b1f27;">这是"越大越聪明"第一次被公开推翻：不是不该大，是在固定的钱下，大过头就是浪费。</strong></p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">第三件：小模型为什么现在够用了</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">上面那条法则算的是训练的钱。可一个模型训一次，要被用几亿次。把用的钱也算进去，最划算的做法就变成：<strong style="font-weight:700;color:#1b1f27;">模型再小一点，数据再多得多。</strong></p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">于是这两年的小模型，吃的数据是那条法则的近百倍。一个八十亿参数的模型，按法则该喂一千六百亿个词，实际喂了十五万亿。多花的是训练的钱，换来每次回答都便宜。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">还有第二个来源：<strong style="font-weight:700;color:#1b1f27;">跟大模型学。</strong>第 6 课的训练是拿真实文本当老师，这一招是拿大模型当老师：让大模型先答一遍，小模型照着它的答案学。大模型的答案比网上的原文干净、一致，同样大小的小模型这么学出来，比只吃原文的强一截。你听到的"蒸馏"就是这个。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">合起来：<strong style="font-weight:700;color:#1b1f27;">今天一个八十亿参数的模型，吃了百倍的数据，其中一部分还是更强模型的答案。它赢三年前一个八百亿的，不奇怪。</strong></p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">第四件：大而不贵</h2>
+<section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>wx15_moe.png</b><br>每个词只叫两个专家</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">顶部的模型确实还在变大，但变大的方式换了。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">第 3 课讲过模型是一层一层的。每一层里最占地方的一块，可以拆成八个并排的小块，叫"专家"，前面加一个很小的分派员。每个词进来，分派员看一眼，只交给最合适的两个专家算，另外六个歇着。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">这样一来，模型的总参数是八个专家加起来的，很大；但<strong style="font-weight:700;color:#1b1f27;">每个词实际过的只有两个专家</strong>，算起来像一个小模型。有一个公开的模型总共四百七十亿参数，每个词只动用一百三十亿，能力接近同期七百亿参数的普通模型。更极端的，六千七百亿总参数，每个词只动用三百七十亿。这叫 MoE，混合专家。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">所以你看到"万亿参数"，先问一句：每个词实际用多少。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">有一个代价第 10 课能解释：省的是算，不是搬。八个专家都得在显卡内存里，因为下一个词可能选任何一个。它适合服务几百万人的公司，不适合你在一台电脑上跑。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">还有第四样：回答时多想一会儿</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">前面三样都是训练时花的。第 8 课的推理模型加了第四个能花算力的地方：<strong style="font-weight:700;color:#1b1f27;">回答时多想</strong>。同一个模型，多想十倍时间，在算数和代码上的准确率也按同样的规律往上走。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">于是一个小模型多想一会儿，有些题能追上一个大模型一步到位。训练时的大，和回答时的慢，可以互相换。</p>
+<section style="margin:28px 0;padding:20px 20px 6px;background:#fff5f7;border:1px dashed #be123c;border-radius:8px;">
+<p style="margin:0 0 12px;font-size:16px;font-weight:700;color:#be123c;">自己试一下（2 分钟）</p>
+<ul style="margin:0 0 14px;padding-left:22px;"><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;">找一个模型的介绍页，看它写的是"总参数"还是"激活参数"。两个数差好几倍的，就是 MoE。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;">同一道算术题，给一个小模型开着深度思考，给一个大模型关着，各答一次。看谁对。</li></ul>
+</section>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">十五课到此</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">从第 1 课它数不清三个 r，到这一课它为什么大而不贵，一个模型怎么认字、理解、生成、练出来、花多少钱、怎么用起来，讲完了。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">想知道这些原理怎么落到你每天用的工具上，另一个合集《动手用大模型》十五篇，每篇解决一个具体的烦。</p>
+<section style="margin:40px 0 0;padding:18px 20px 4px;background:#f6f7f9;border-radius:8px;">
+<p style="margin:0 0 10px;font-size:14px;font-weight:700;color:#6a7280;">关于这个系列</p>
+<p style="margin:0 0 14px;font-size:14px;line-height:1.85;color:#6a7280;">《从零看懂大模型》是一个系列：从文字怎么变成数字，一路讲到模型怎么生成、权重怎么训练出来、大模型怎么被高效服务，再到 RAG、Agent 和记忆系统。每一课都拿顶尖开源项目的真实源码当课本。</p>
+<p style="margin:0 0 14px;font-size:14px;line-height:1.85;color:#6a7280;">这是第 15 课，主线到此完结。完整目录见合集「从零看懂大模型」。</p>
+</section>
+    </div>
+  </div>
+</div>
+<script>
+function cp(el){
+  var r=document.createRange(); r.selectNodeContents(el);
+  var s=getSelection(); s.removeAllRanges(); s.addRange(r);
+  var ok=false; try{ ok=document.execCommand('copy'); }catch(e){}
+  s.removeAllRanges();
+  var n=document.getElementById('ok');
+  n.textContent = ok ? '已复制，去编辑器粘贴' : '复制失败，请手动选中';
+  setTimeout(function(){ n.textContent=''; }, 4000);
+}
+</script>
+</body></html>
