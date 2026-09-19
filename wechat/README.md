@@ -58,6 +58,8 @@
 | `h11-is-the-skill-any-good.md` | 动手 · 发布第 11 篇 | 主线第 4、14 课、仓库 11、12 |
 | `h12-mcp-what-and-which.md` | 动手 · 发布第 12 篇 | 主线第 13、14 课、仓库 08、11 |
 | `h13-hook-not-prompt.md` | 动手 · 发布第 13 篇 | 主线第 4、14 课、仓库 11 |
+| `h14-long-chat-gets-dumb.md` | 动手 · 发布第 14 篇 | 主线第 5、13、14 课、仓库 11 |
+| `h15-did-it-get-better.md` | 动手 · 发布第 15 篇 | 主线第 4、14 课、仓库 11 |
 
 ## 写法约定
 
