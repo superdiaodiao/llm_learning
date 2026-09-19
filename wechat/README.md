@@ -54,6 +54,8 @@
 | `h07-rules-memory-or-say-it.md` | 动手 · 发布第 7 篇 | 主线第 5、12 课、仓库 07 |
 | `h08-what-is-a-skill.md` | 动手 · 发布第 8 篇 | 主线第 5、14 课、仓库 11、12 |
 | `h09-first-skill-description.md` | 动手 · 发布第 9 篇 | 主线第 5 课、仓库 12 |
+| `h10-dont-let-it-guess.md` | 动手 · 发布第 10 篇 | 主线第 4、14 课、仓库 12 |
+| `h11-is-the-skill-any-good.md` | 动手 · 发布第 11 篇 | 主线第 4、14 课、仓库 11、12 |
 
 ## 写法约定
 

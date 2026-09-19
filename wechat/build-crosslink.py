@@ -38,6 +38,8 @@ HANDS = {
     7: ('想让它记住你，该放哪？', '让 AI 记住你：规则、记忆、每次说'),
     8: ('Skill 到底是什么？', 'AI 的 Skill 到底是什么：一个文件夹'),
     9: ('写好的 Skill 为什么没被用？', '给 AI 写第一个 Skill：简介决定会不会被用'),
+    10: ('该让它猜，还是让代码做？', '能确定的事，别让 AI 猜'),
+    11: ('改了怎么知道有没有变好？', '给 AI 写的 Skill，怎么知道好不好'),
 }
 
 BOX = ('margin:32px 0 0;padding:16px 18px;background:#f6f7f9;border-left:4px solid %s;'
