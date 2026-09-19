@@ -22,6 +22,7 @@
 | 10 | [Fine-tuning in Practice: LoRA and DPO](10-finetuning-lora-dpo.md) | SFT pipeline, LoRA as implemented in peft, DPO principle and trl code, pitfalls |
 | 11 | [Context Engineering and the Agent Harness](11-context-engineering-and-harness.md) | Five window-budget principles, Skills / Hooks / MCP, three-level evaluation and the iteration loop |
 | 12 | [Documents Written for Agents](12-docs-for-agents.md) | The reader is a model; what a rules file holds and omits, three layers; a skill's description vs body; trigger tests |
+| 13 | [Scale and Architecture: Scaling Laws, Data, and MoE](13-scaling-and-moe.md) | Power laws, Chinchilla and overtraining, distillation, the Mixtral MoE source and load balancing, inference-time compute |
 
 ## The main line in one picture
 
@@ -58,7 +59,7 @@ Every figure in `images/` is provided as both `.svg` (vector) and `.png` (bitmap
 
 ## Planned
 
-- Multimodal and diffusion models
+- 14 · Multimodal and diffusion models
 
 ## License
 
