@@ -1,0 +1,64 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>让 AI 记住你：规则、记忆、每次说 · 粘贴到公众号</title></head>
+<body style="margin:0;background:#eef0f4;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;">
+<div style="max-width:720px;margin:0 auto;padding:24px 16px 60px;">
+
+  <div style="background:#fff;border:1px solid #d6d9e0;border-radius:10px;padding:20px 22px;margin-bottom:20px;">
+    <div style="font-size:12px;letter-spacing:.1em;color:#8a9099;margin-bottom:12px;">粘贴到公众号编辑器</div>
+    <div style="font-size:14px;line-height:1.9;color:#3f3f46;">
+      <b>1.</b> 标题栏填：<span id="t" style="background:#f6f7f9;padding:2px 7px;border-radius:4px;">让 AI 记住你：规则、记忆、每次说</span>
+      <button onclick="cp(document.getElementById('t'))" style="margin-left:6px;font-size:12px;padding:3px 9px;cursor:pointer;border:1px solid #b6bcc6;background:#fff;border-radius:5px;">复制标题</button><br>
+      <b>2.</b> 点下面的按钮复制正文，到编辑器里 Ctrl/Cmd+V<br>
+      <b>3.</b> 正文里的虚线框是图片位，删掉框、用编辑器的"图片"按钮上传对应 PNG<br>
+      <b>4.</b> 微信会重写图片地址，所以图必须在编辑器里传，不能靠外链
+    </div>
+    <button onclick="cp(document.getElementById('a'))" style="margin-top:16px;font-size:14px;font-weight:600;padding:9px 18px;cursor:pointer;border:0;background:#be123c;color:#fff;border-radius:6px;">复制正文</button>
+    <span id="ok" style="margin-left:10px;font-size:13px;color:#15803d;"></span>
+  </div>
+
+  <div style="background:#fff;border:1px solid #d6d9e0;border-radius:10px;padding:28px 26px;">
+    <div id="a">
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">有些话你不知道该放哪。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">写进规则文件，过两周情况变了，它还照旧的做。开着"记忆"功能，它记了一堆你随口说的，该记的反而没记。每次说，烦。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">三个口子，各有各的用处。放错了口子，就是上面三种烦。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #2563eb;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">一句话原因</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">三个口子进窗口的<strong style="font-weight:700;color:#1b1f27;">时机不一样</strong>：</p>
+<ul style="margin:0 0 14px;padding-left:22px;"><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">规则</strong>：每一轮开头固定进，一字不差，不管这轮聊什么。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">记忆</strong>：它先从本子里捞跟这轮相关的几条，只进这几条（主线第 12 课）。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">每次说</strong>：只进这一轮。</li></ul>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">所以判断只看一件事：<strong style="font-weight:700;color:#1b1f27;">这句话多久变一次。</strong></p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #2563eb;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">三堆</h2>
+<section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>hx7_slots.png</b><br>稳定的进规则，会变的进记忆，一次性的每次说</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">几个月不变的，进规则。</strong>回复语言、你的职业、固定的输出格式、永远不碰的禁区。每一轮都需要、每一轮都一样，正好每轮固定进。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">会变、但下次还用得上的，进记忆。</strong>正在做的项目、最近的偏好、上次聊到哪。写进规则会过时，每次说又麻烦。让它记在本子上，下次相关的时候自己捞出来。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">只这一次的，每次说。</strong>这一轮的任务、这一份材料、今天特殊的要求。写进哪都是污染。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #2563eb;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">三步</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">1. 把你反复说的话列出来。</strong>打开最近十个对话，看开头你都说了什么。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">2. 按"多久变一次"分三堆。</strong>几个月不变、几周会变、只这一次。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">3. 各归各位。</strong>第一堆写进规则文件或设置里的"自定义指令"（第 2 篇）；第二堆明确告诉它"记住：……"，或者在设置里看记忆列表，手动加；第三堆写进当轮的消息里，用第 3 篇那四个部件。</p>
+<section style="margin:28px 0;padding:20px 20px 6px;background:#eff6ff;border:1px dashed #2563eb;border-radius:8px;">
+<p style="margin:0 0 12px;font-size:16px;font-weight:700;color:#2563eb;">直接复制</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">分堆的时候对照这张表：</p>
+<section style="margin:0 0 14px;padding:14px 16px;background:#ffffff;border:1px solid #b6bcc6;border-radius:6px;font-family:Menlo,Consolas,monospace;font-size:13.5px;line-height:1.8;color:#1b1f27;white-space:pre-wrap;word-break:break-all;">进规则（几个月不变）<br>  用中文回复 / 我是做市场的 / 先结论后理由 / 不要客套话<br>  项目：用 uv 不用 pip / 测试命令 / 别动 migrations/<br><br>进记忆（会变，下次还用）<br>  我现在在做 Q4 的活动方案<br>  最近在学 Rust，例子尽量用 Rust<br>  上次说周报用三段式，领导觉得可以<br><br>每次说（只这一次）<br>  今天这份要给客户看，正式一点<br>  【材料】……<br>  这次不超过 200 字</section>
+</section>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #2563eb;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">常见坑</h2>
+<ul style="margin:0 0 14px;padding-left:22px;"><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">记忆功能默认开着，什么都记。</strong>它会把"顺便说一句我不吃香菜"和"我们公司的核心指标是 X"记在一起。定期打开记忆列表，删掉不该记的。记错的一条，之后每次都会被捞出来，越用越像真的。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">会变的写进规则。</strong>"当前在做登录功能"三周后还在，它就一直以为你在做登录。会变的不进规则。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">指望它记住上轮说的。</strong>新对话窗口是空的（第 1 篇）。没进规则、没进记忆的，它就是不知道。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">记忆记错了去跟它吵。</strong>吵没用，那条还在本子上。去设置里删掉或改掉那条。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">三堆混着写在一条消息里。</strong>它分不清哪句是长期的哪句是临时的。分开放，各归各位。</li></ul>
+<section style="margin:40px 0 0;padding:18px 20px 4px;background:#f6f7f9;border-radius:8px;">
+<p style="margin:0 0 10px;font-size:14px;font-weight:700;color:#6a7280;">关于这个系列</p>
+<p style="margin:0 0 14px;font-size:14px;line-height:1.85;color:#6a7280;">《动手用大模型》每篇解决一个用 AI 时的具体的烦：讲一条跨工具的原理，配一个能直接抄的模板。这篇的原理见《从零看懂大模型》第 5 课「发给 AI 的长文档，它为什么总忘了前面」和第 12 课「AI 怎么记住上次聊的」。</p>
+<p style="margin:0 0 14px;font-size:14px;line-height:1.85;color:#6a7280;">模板就在上面那个框里，长按复制。同系列其他篇在合集「动手用大模型」。</p>
+</section>
+    </div>
+  </div>
+</div>
+<script>
+function cp(el){
+  var r=document.createRange(); r.selectNodeContents(el);
+  var s=getSelection(); s.removeAllRanges(); s.addRange(r);
+  var ok=false; try{ ok=document.execCommand('copy'); }catch(e){}
+  s.removeAllRanges();
+  var n=document.getElementById('ok');
+  n.textContent = ok ? '已复制，去编辑器粘贴' : '复制失败，请手动选中';
+  setTimeout(function(){ n.textContent=''; }, 4000);
+}
+</script>
+</body></html>

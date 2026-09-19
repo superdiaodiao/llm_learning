@@ -50,6 +50,8 @@
 | `h02-four-parts.md` | 动手 · 发布第 3 篇 | 主线第 3、5 课 |
 | `h03-thinking-switch.md` | 动手 · 发布第 4 篇 | 主线第 8 课 |
 | `h04-three-ways-to-stop-making-up.md` | 动手 · 发布第 5 篇 | 主线第 4 课 |
+| `h06-rules-too-long.md` | 动手 · 发布第 6 篇 | 主线第 5 课、仓库 12 |
+| `h07-rules-memory-or-say-it.md` | 动手 · 发布第 7 篇 | 主线第 5、12 课、仓库 07 |
 
 ## 写法约定
 
