@@ -1,0 +1,64 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>给 AI 写第一个 Skill：简介决定会不会被用 · 粘贴到公众号</title></head>
+<body style="margin:0;background:#eef0f4;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;">
+<div style="max-width:720px;margin:0 auto;padding:24px 16px 60px;">
+
+  <div style="background:#fff;border:1px solid #d6d9e0;border-radius:10px;padding:20px 22px;margin-bottom:20px;">
+    <div style="font-size:12px;letter-spacing:.1em;color:#8a9099;margin-bottom:12px;">粘贴到公众号编辑器</div>
+    <div style="font-size:14px;line-height:1.9;color:#3f3f46;">
+      <b>1.</b> 标题栏填：<span id="t" style="background:#f6f7f9;padding:2px 7px;border-radius:4px;">给 AI 写第一个 Skill：简介决定会不会被用</span>
+      <button onclick="cp(document.getElementById('t'))" style="margin-left:6px;font-size:12px;padding:3px 9px;cursor:pointer;border:1px solid #b6bcc6;background:#fff;border-radius:5px;">复制标题</button><br>
+      <b>2.</b> 点下面的按钮复制正文，到编辑器里 Ctrl/Cmd+V<br>
+      <b>3.</b> 正文里的虚线框是图片位，删掉框、用编辑器的"图片"按钮上传对应 PNG<br>
+      <b>4.</b> 微信会重写图片地址，所以图必须在编辑器里传，不能靠外链
+    </div>
+    <button onclick="cp(document.getElementById('a'))" style="margin-top:16px;font-size:14px;font-weight:600;padding:9px 18px;cursor:pointer;border:0;background:#be123c;color:#fff;border-radius:6px;">复制正文</button>
+    <span id="ok" style="margin-left:10px;font-size:13px;color:#15803d;"></span>
+  </div>
+
+  <div style="background:#fff;border:1px solid #d6d9e0;border-radius:10px;padding:28px 26px;">
+    <div id="a">
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">上一篇建了一个 Skill。你用了一周，发现两种情况：该用的时候它没用，不该用的时候它用了。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">手册写得再好，没被翻开等于没写。翻不翻开，只看一句话：开头那句 description。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #2563eb;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">一句话原因</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">上一篇说过，平时窗口里只有所有 Skill 的 description 列表。它拿你的话跟这张列表比，对上了才装全文。所以 description 不是"这个 Skill 是什么"的简介，是<strong style="font-weight:700;color:#1b1f27;">触发条件</strong>：出现什么任务、什么词、什么文件时该用我。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">写成简介，它对不上；写成触发条件，它才认得出来。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #2563eb;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">description 怎么写</h2>
+<section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>hx9_trigger.png</b><br>写成简介对不上，写成触发条件才认得出</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">三个部件：</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">1. 什么场景用。</strong>写用户会怎么说，不写这个 Skill 多厉害。"用户要把数据做成 PDF 报告时使用"，不是"一个强大的报告生成工具"。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">2. 哪些词算。</strong>用户不会每次都说标准词。把同义的都列上："报告""PDF""导出""汇报材料"都算。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">3. 什么时候不用。</strong>"不用于读取或解析已有 PDF"。这半句和前面一样重要，它防止错触发。错触发比漏触发常见，因为人写的时候总想写宽一点。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #2563eb;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">正文怎么写</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">正文是给<strong style="font-weight:700;color:#1b1f27;">已经决定用这个 Skill</strong> 的它看的，所以只写怎么做，四块：</p>
+<ul style="margin:0 0 14px;padding-left:22px;"><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">步骤</strong>：按顺序，每步一个动作。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">判断标准</strong>：什么情况走哪条路，什么算做完。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">输出格式</strong>：产物长什么样，叫什么名字，放哪。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">检查清单</strong>：交付前核对什么。</li></ul>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">不写的：这个领域的背景知识（它会）、为什么这么设计（它不需要）、客套话。</p>
+<section style="margin:28px 0;padding:20px 20px 6px;background:#eff6ff;border:1px dashed #2563eb;border-radius:8px;">
+<p style="margin:0 0 12px;font-size:16px;font-weight:700;color:#2563eb;">直接复制</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">一份写全的 Skill，可以照着改：</p>
+<section style="margin:0 0 14px;padding:14px 16px;background:#ffffff;border:1px solid #b6bcc6;border-radius:6px;font-family:Menlo,Consolas,monospace;font-size:13.5px;line-height:1.8;color:#1b1f27;white-space:pre-wrap;word-break:break-all;">---<br>name: pdf-report<br>description: 当用户要把数据、表格或分析结果做成 PDF 报告时使用；提到"报告""PDF""导出""汇报材料"都算。不用于读取或解析已有 PDF。<br>---<br><br>## 步骤<br>1. 确认三件事：报告给谁看、要几页、有没有指定模板。缺一项就问，不要猜。<br>2. 用 templates/report.md 起草，章节顺序：结论 → 数据 → 方法 → 附录。<br>3. 数字一律来自用户给的文件，不补、不估。找不到的写"缺数据"。<br>4. 运行 scripts/render.py 生成 PDF。不要手写 PDF。<br><br>## 完成标准<br>- 第一页能在 30 秒内看懂结论<br>- 每个图表有标题和数据来源<br>- 文件名：{主题}-{日期}.pdf<br><br>## 交付前核对<br>- [ ] 数字和源文件一致<br>- [ ] 没有"待补充"占位<br>- [ ] 配色符合 references/style-guide.md</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">第 4 步的脚本和最后那份规范文件，下一篇讲为什么要单独放。</p>
+</section>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #2563eb;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">常见坑</h2>
+<ul style="margin:0 0 14px;padding-left:22px;"><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">description 写成产品介绍。</strong>"强大""智能""一站式"，这些词对不上任何一句用户的话。写用户会说的话。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">写得太宽。</strong>"处理文档相关任务"会把一半的任务都吸进来。宽了就加"不用于"。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">正文写成教程。</strong>从"什么是 PDF"讲起。它会，删掉，只留步骤。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">步骤里藏着判断。</strong>"适当调整格式"不是步骤。什么情况调成什么样，写清楚，或者写"问用户"。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">改了 description 不测。</strong>准备五个该触发的说法、五个不该触发的，各试一遍。第 11 篇专门讲怎么测。</li></ul>
+<section style="margin:40px 0 0;padding:18px 20px 4px;background:#f6f7f9;border-radius:8px;">
+<p style="margin:0 0 10px;font-size:14px;font-weight:700;color:#6a7280;">关于这个系列</p>
+<p style="margin:0 0 14px;font-size:14px;line-height:1.85;color:#6a7280;">《动手用大模型》每篇解决一个用 AI 时的具体的烦：讲一条跨工具的原理，配一个能直接抄的模板。这篇的原理见《从零看懂大模型》第 5 课「发给 AI 的长文档，它为什么总忘了前面」；写法的完整版在仓库第 12 篇。</p>
+<p style="margin:0 0 14px;font-size:14px;line-height:1.85;color:#6a7280;">模板就在上面那个框里，长按复制。同系列其他篇在合集「动手用大模型」。</p>
+</section>
+    </div>
+  </div>
+</div>
+<script>
+function cp(el){
+  var r=document.createRange(); r.selectNodeContents(el);
+  var s=getSelection(); s.removeAllRanges(); s.addRange(r);
+  var ok=false; try{ ok=document.execCommand('copy'); }catch(e){}
+  s.removeAllRanges();
+  var n=document.getElementById('ok');
+  n.textContent = ok ? '已复制，去编辑器粘贴' : '复制失败，请手动选中';
+  setTimeout(function(){ n.textContent=''; }, 4000);
+}
+</script>
+</body></html>

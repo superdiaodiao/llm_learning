@@ -52,6 +52,8 @@
 | `h04-three-ways-to-stop-making-up.md` | 动手 · 发布第 5 篇 | 主线第 4 课 |
 | `h06-rules-too-long.md` | 动手 · 发布第 6 篇 | 主线第 5 课、仓库 12 |
 | `h07-rules-memory-or-say-it.md` | 动手 · 发布第 7 篇 | 主线第 5、12 课、仓库 07 |
+| `h08-what-is-a-skill.md` | 动手 · 发布第 8 篇 | 主线第 5、14 课、仓库 11、12 |
+| `h09-first-skill-description.md` | 动手 · 发布第 9 篇 | 主线第 5 课、仓库 12 |
 
 ## 写法约定
 

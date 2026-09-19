@@ -176,6 +176,20 @@ HANDS = {
         'motif': ('cmd', '不变的 · 会变的 · 只这一次的', None),
         'caption': '只看这句话多久变一次',
     },
+    8: {
+        'slug':  'hx8',
+        'wide':  [('AI 的 Skill 到底是什么：', INK, 46), ('|一个文件夹|', ACC, 64)],
+        'square': [('AI 的 Skill', INK, 42), ('到底是什么：', INK, 40), ('一个文件夹', ACC, 50)],
+        'motif': ('cmd', 'SKILL.md · 模板 · 脚本 · 资料', None),
+        'caption': '平时只看一句话，用到才装全文',
+    },
+    9: {
+        'slug':  'hx9',
+        'wide':  [('给 AI 写第一个 Skill，', INK, 48), ('|简介决定会不会被用|', ACC, 50)],
+        'square': [('给 AI 写', INK, 44), ('第一个 Skill，', INK, 40), ('简介决定会不会被用', ACC, 34)],
+        'motif': ('cmd', '什么场景 · 哪些词算 · 什么时候不用', None),
+        'caption': '写触发条件，不写产品介绍',
+    },
 }
 
 
