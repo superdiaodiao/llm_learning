@@ -56,6 +56,8 @@
 | `h09-first-skill-description.md` | 动手 · 发布第 9 篇 | 主线第 5 课、仓库 12 |
 | `h10-dont-let-it-guess.md` | 动手 · 发布第 10 篇 | 主线第 4、14 课、仓库 12 |
 | `h11-is-the-skill-any-good.md` | 动手 · 发布第 11 篇 | 主线第 4、14 课、仓库 11、12 |
+| `h12-mcp-what-and-which.md` | 动手 · 发布第 12 篇 | 主线第 13、14 课、仓库 08、11 |
+| `h13-hook-not-prompt.md` | 动手 · 发布第 13 篇 | 主线第 4、14 课、仓库 11 |
 
 ## 写法约定
 

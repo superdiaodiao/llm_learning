@@ -1,0 +1,64 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>写在提示里 AI 可能忘，写成 Hook 就不会 · 粘贴到公众号</title></head>
+<body style="margin:0;background:#eef0f4;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;">
+<div style="max-width:720px;margin:0 auto;padding:24px 16px 60px;">
+
+  <div style="background:#fff;border:1px solid #d6d9e0;border-radius:10px;padding:20px 22px;margin-bottom:20px;">
+    <div style="font-size:12px;letter-spacing:.1em;color:#8a9099;margin-bottom:12px;">粘贴到公众号编辑器</div>
+    <div style="font-size:14px;line-height:1.9;color:#3f3f46;">
+      <b>1.</b> 标题栏填：<span id="t" style="background:#f6f7f9;padding:2px 7px;border-radius:4px;">写在提示里 AI 可能忘，写成 Hook 就不会</span>
+      <button onclick="cp(document.getElementById('t'))" style="margin-left:6px;font-size:12px;padding:3px 9px;cursor:pointer;border:1px solid #b6bcc6;background:#fff;border-radius:5px;">复制标题</button><br>
+      <b>2.</b> 点下面的按钮复制正文，到编辑器里 Ctrl/Cmd+V<br>
+      <b>3.</b> 正文里的虚线框是图片位，删掉框、用编辑器的"图片"按钮上传对应 PNG<br>
+      <b>4.</b> 微信会重写图片地址，所以图必须在编辑器里传，不能靠外链
+    </div>
+    <button onclick="cp(document.getElementById('a'))" style="margin-top:16px;font-size:14px;font-weight:600;padding:9px 18px;cursor:pointer;border:0;background:#be123c;color:#fff;border-radius:6px;">复制正文</button>
+    <span id="ok" style="margin-left:10px;font-size:13px;color:#15803d;"></span>
+  </div>
+
+  <div style="background:#fff;border:1px solid #d6d9e0;border-radius:10px;padding:28px 26px;">
+    <div id="a">
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">规则文件里写了"不要删 migrations 里的文件"。写了三个月，它一直很听话。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">然后有一天，它删了。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">不是它变坏了。是"多半会听"从来就不等于"一定会听"。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #2563eb;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">一句话原因</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">它每个词都是抽签抽出来的（主线第 4 课）。写在提示里的规则，能把"删文件"那个选项的概率压得很低，压不到零。聊得久了、规则被挤到窗口中间、或者文档里恰好有一句话把它带偏了，那个很低的概率就发生一次。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">主线第 14 课那句话：<strong style="font-weight:700;color:#1b1f27;">提示是嘱咐，Hook 是门禁。</strong>嘱咐可能忘，门禁百分之百执行。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #2563eb;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">Hook 是什么</h2>
+<section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>hx13_gate.png</b><br>嘱咐可能忘，门禁不会</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">它每次要调工具，程序会在<strong style="font-weight:700;color:#1b1f27;">执行前</strong>和<strong style="font-weight:700;color:#1b1f27;">执行后</strong>各停一下。Hook 就是你放在这两个停顿点上的一小段代码。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">执行前的 Hook</strong>看它要调什么、参数是什么，可以放行、拦下、或者停下来问你。"要删 migrations 里的文件？拦。""要跑 rm -rf？先问我。"</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">执行后的 Hook</strong>看它拿到了什么，可以改一改再给它。"命令输出三千行？只留最后五十行。""日志里有密码？打码。""记一条：几点几分它跑了什么。"</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">关键是：<strong style="font-weight:700;color:#1b1f27;">Hook 是代码，跑在模型外面。</strong>它不知道 Hook 存在，也绕不过去。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #2563eb;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">最值得配的三个</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">不用配很多。三个就能挡住大部分事故：</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">1. 危险命令拦截。</strong>删除、强推、改生产配置、付款。碰到就停下来问你一句。这是刹车。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">2. 大段输出裁剪。</strong>命令跑完几千行，全塞进窗口就是第 6 篇讲的淹没。执行后的 Hook 把它压到几十行，原文存到文件里，需要再看。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">3. 操作日志。</strong>它每调一次工具记一行：时间、工具、参数。出了问题能追到哪一步。第 15 篇讲怎么用这份日志。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #2563eb;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">怎么做：让它自己写</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">你不用会写代码。跟它说清楚要拦什么，让它写，你看一眼再装上。</p>
+<section style="margin:0 0 14px;padding:14px 16px;background:#ffffff;border:1px solid #b6bcc6;border-radius:6px;font-family:Menlo,Consolas,monospace;font-size:13.5px;line-height:1.8;color:#1b1f27;white-space:pre-wrap;word-break:break-all;">帮我配三个 Hook：<br>1. 执行前：如果要运行的命令包含 rm -rf、git push --force，<br>   或者要修改 migrations/ 目录下的文件，停下来问我确认。<br>2. 执行后：如果工具输出超过 100 行，只保留最后 50 行，<br>   完整输出存到 .logs/ 目录，告诉我文件名。<br>3. 执行后：把每次工具调用的时间、工具名、参数追加到 .logs/tools.log。<br>写好以后告诉我放在哪、怎么验证它生效了。</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">装完验一次：故意让它删一个 migrations 里的文件，看它是不是被拦下来问你。被拦了，门禁在。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #2563eb;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">常见坑</h2>
+<ul style="margin:0 0 14px;padding-left:22px;"><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">把 Hook 当规则的替代。</strong>规则管"怎么做得好"，Hook 管"什么绝对不能发生"。两样都要，只是别拿规则当保险。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">Hook 写得太宽。</strong>什么都拦，它每一步都来问你，等于没有 AI。只拦真正不可逆的事。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">配了不验。</strong>故意触发一次，看它拦不拦。没拦，等于没配。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">裁剪后原文丢了。</strong>执行后的裁剪要把原文存下来，它有时真的需要回去看第 800 行。</li></ul>
+<section style="margin:40px 0 0;padding:18px 20px 4px;background:#f6f7f9;border-radius:8px;">
+<p style="margin:0 0 10px;font-size:14px;font-weight:700;color:#6a7280;">关于这个系列</p>
+<p style="margin:0 0 14px;font-size:14px;line-height:1.85;color:#6a7280;">《动手用大模型》每篇解决一个用 AI 时的具体的烦：讲一条跨工具的原理，配一个能直接抄的模板。这篇的原理见《从零看懂大模型》第 4 课「AI 为什么每次回答都不一样」和第 14 课「同一个 AI 模型，为什么有的助手更好用」。</p>
+<p style="margin:0 0 14px;font-size:14px;line-height:1.85;color:#6a7280;">模板就在上面那个框里，长按复制。同系列其他篇在合集「动手用大模型」。</p>
+</section>
+    </div>
+  </div>
+</div>
+<script>
+function cp(el){
+  var r=document.createRange(); r.selectNodeContents(el);
+  var s=getSelection(); s.removeAllRanges(); s.addRange(r);
+  var ok=false; try{ ok=document.execCommand('copy'); }catch(e){}
+  s.removeAllRanges();
+  var n=document.getElementById('ok');
+  n.textContent = ok ? '已复制，去编辑器粘贴' : '复制失败，请手动选中';
+  setTimeout(function(){ n.textContent=''; }, 4000);
+}
+</script>
+</body></html>

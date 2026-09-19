@@ -204,6 +204,20 @@ HANDS = {
         'motif': ('cmd', '触发测试 · 有无对比', None),
         'caption': '改了不测，等于在赌',
     },
+    12: {
+        'slug':  'hx12',
+        'wide':  [('给 AI 装手：', INK, 60), ('|MCP 是什么、怎么选|', ACC, 50)],
+        'square': [('给 AI 装手', INK, 44), ('MCP 是什么、', INK, 40), ('怎么选', ACC, 54)],
+        'motif': ('cmd', '会反复用 · 权限 · 谁做的', None),
+        'caption': '统一的插口，装一个多几行工具表',
+    },
+    13: {
+        'slug':  'hx13',
+        'wide':  [('写在提示里 AI 可能忘，', INK, 46), ('|写成 Hook 就不会|', ACC, 54)],
+        'square': [('写在提示里', INK, 42), ('AI 可能忘，', INK, 42), ('写成 Hook 就不会', ACC, 38)],
+        'motif': ('cmd', '拦危险 · 裁输出 · 记日志', None),
+        'caption': '提示是嘱咐，Hook 是门禁',
+    },
 }
 
 
