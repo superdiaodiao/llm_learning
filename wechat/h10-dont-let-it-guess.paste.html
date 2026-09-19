@@ -1,0 +1,69 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>能确定的事，别让 AI 猜 · 粘贴到公众号</title></head>
+<body style="margin:0;background:#eef0f4;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;">
+<div style="max-width:720px;margin:0 auto;padding:24px 16px 60px;">
+
+  <div style="background:#fff;border:1px solid #d6d9e0;border-radius:10px;padding:20px 22px;margin-bottom:20px;">
+    <div style="font-size:12px;letter-spacing:.1em;color:#8a9099;margin-bottom:12px;">粘贴到公众号编辑器</div>
+    <div style="font-size:14px;line-height:1.9;color:#3f3f46;">
+      <b>1.</b> 标题栏填：<span id="t" style="background:#f6f7f9;padding:2px 7px;border-radius:4px;">能确定的事，别让 AI 猜</span>
+      <button onclick="cp(document.getElementById('t'))" style="margin-left:6px;font-size:12px;padding:3px 9px;cursor:pointer;border:1px solid #b6bcc6;background:#fff;border-radius:5px;">复制标题</button><br>
+      <b>2.</b> 点下面的按钮复制正文，到编辑器里 Ctrl/Cmd+V<br>
+      <b>3.</b> 正文里的虚线框是图片位，删掉框、用编辑器的"图片"按钮上传对应 PNG<br>
+      <b>4.</b> 微信会重写图片地址，所以图必须在编辑器里传，不能靠外链
+    </div>
+    <button onclick="cp(document.getElementById('a'))" style="margin-top:16px;font-size:14px;font-weight:600;padding:9px 18px;cursor:pointer;border:0;background:#be123c;color:#fff;border-radius:6px;">复制正文</button>
+    <span id="ok" style="margin-left:10px;font-size:13px;color:#15803d;"></span>
+  </div>
+
+  <div style="background:#fff;border:1px solid #d6d9e0;border-radius:10px;padding:28px 26px;">
+    <div id="a">
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">你让它出一份报告，十次里有八次文件名格式不一样，两次日期算错，偶尔图表配色跟上次不同。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">每一次它都"差不多对"。可"差不多"这三个字，正是它擅长的，也正是你不需要的。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #2563eb;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">一句话原因</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">它每个词都是从概率表里抽的（主线第 4 课）。这让它擅长判断、擅长措辞、擅长"看情况"；但凡是<strong style="font-weight:700;color:#1b1f27;">每次都该一模一样</strong>的事，抽签就是错误的工具。抽一百次，总有几次抽偏。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">所以分工只有一条：<strong style="font-weight:700;color:#1b1f27;">模型判断，代码执行。</strong>该由代码保证的，不交给它自觉（主线第 14 课）。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #2563eb;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">哪些事该交给代码</h2>
+<section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>hx10_split.png</b><br>模型判断，代码执行</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">判断标准一句话：这件事<strong style="font-weight:700;color:#1b1f27;">有没有唯一正确做法</strong>。有，交给脚本；没有，留给模型。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">交给脚本的：</p>
+<ul style="margin:0 0 14px;padding-left:22px;"><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">格式转换。</strong>Markdown 变 PDF、表格变图、编码转换。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">命名和路径。</strong>文件叫什么、放哪、日期怎么写。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">校验。</strong>数字加起来对不对、必填项齐不齐、链接通不通。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">重复的固定操作。</strong>压缩、上传、打标签、发通知。</li></ul>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">留给模型的：</p>
+<ul style="margin:0 0 14px;padding-left:22px;"><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;">材料里哪些是重点。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;">这句话怎么说更清楚。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;">用户没说清的地方，该问什么。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;">碰到没见过的情况，走哪条路。</li></ul>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #2563eb;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">怎么做：让它自己写脚本</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">你不用会写代码。<strong style="font-weight:700;color:#1b1f27;">让它写，你放进 Skill 的文件夹里，正文里写一句"运行这个"。</strong></p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">三步：</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">1. 说清楚要固定的是什么。</strong>"文件名格式是 主题-年月日.pdf，日期用今天，主题从第一行标题取。"</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">2. 让它写成脚本。</strong>"把上面这条写成一个脚本，放到 scripts/ 下面，我以后每次都跑它。"它写完你跑一次看结果对不对。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">3. Skill 正文里改成调用。</strong>原来写"按规范命名文件"，改成"运行 scripts/name.py 命名文件，不要手动命名"。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">从此这一步不再抽签。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #2563eb;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">长材料同样搬出去</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">配色规范、写作风格指南、术语表，几十上百行。塞进 Skill 正文，每次装 Skill 都全进窗口。放到 references/ 里，正文写一行"配色见 references/style-guide.md"。它需要时自己去读，不需要时不占窗口。第 6 篇对规则文件说的那招，Skill 里一样用。</p>
+<section style="margin:28px 0;padding:20px 20px 6px;background:#eff6ff;border:1px dashed #2563eb;border-radius:8px;">
+<p style="margin:0 0 12px;font-size:16px;font-weight:700;color:#2563eb;">直接复制</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">改 Skill 正文时对照这张表：</p>
+<section style="margin:0 0 14px;padding:14px 16px;background:#ffffff;border:1px solid #b6bcc6;border-radius:6px;font-family:Menlo,Consolas,monospace;font-size:13.5px;line-height:1.8;color:#1b1f27;white-space:pre-wrap;word-break:break-all;">原来写的（让它猜）          改成（让代码做）<br>"按规范命名文件"        →  "运行 scripts/name.py 命名，不要手动命名"<br>"生成 PDF"              →  "运行 scripts/render.py，不要手写 PDF"<br>"检查数字是否一致"      →  "运行 scripts/check.py，输出有差异才报给用户"<br>"注意配色规范"          →  "配色见 references/style-guide.md"<br>"大约每周五发"          →  （这是会变的，不进 Skill，见第 7 篇）<br><br>留给模型的，保持原样：<br>"判断哪几条是本周重点"  "用户没给日期就问，不要猜"</section>
+</section>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #2563eb;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">常见坑</h2>
+<ul style="margin:0 0 14px;padding-left:22px;"><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">把判断也写成脚本。</strong>"重点"没有唯一答案，硬写成规则只会僵。有唯一做法的才交给代码。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">脚本写好了，正文没改。</strong>它照样按老话"手动命名"。正文要明确写"运行 X，不要手动做"。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">让它每次现写脚本。</strong>现写一次抽一次签。写一次，存起来，以后只运行。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">参考资料塞正文。</strong>几十行规范每次装 Skill 都全进来。搬到 references/，留一行指路。</li></ul>
+<section style="margin:40px 0 0;padding:18px 20px 4px;background:#f6f7f9;border-radius:8px;">
+<p style="margin:0 0 10px;font-size:14px;font-weight:700;color:#6a7280;">关于这个系列</p>
+<p style="margin:0 0 14px;font-size:14px;line-height:1.85;color:#6a7280;">《动手用大模型》每篇解决一个用 AI 时的具体的烦：讲一条跨工具的原理，配一个能直接抄的模板。这篇的原理见《从零看懂大模型》第 4 课「AI 为什么每次回答都不一样」和第 14 课「同一个 AI 模型，为什么有的助手更好用」；写法的完整版在仓库第 12 篇。</p>
+<p style="margin:0 0 14px;font-size:14px;line-height:1.85;color:#6a7280;">模板就在上面那个框里，长按复制。同系列其他篇在合集「动手用大模型」。</p>
+</section>
+    </div>
+  </div>
+</div>
+<script>
+function cp(el){
+  var r=document.createRange(); r.selectNodeContents(el);
+  var s=getSelection(); s.removeAllRanges(); s.addRange(r);
+  var ok=false; try{ ok=document.execCommand('copy'); }catch(e){}
+  s.removeAllRanges();
+  var n=document.getElementById('ok');
+  n.textContent = ok ? '已复制，去编辑器粘贴' : '复制失败，请手动选中';
+  setTimeout(function(){ n.textContent=''; }, 4000);
+}
+</script>
+</body></html>
