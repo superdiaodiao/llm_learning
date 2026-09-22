@@ -23,6 +23,7 @@
 | 11 | [Context Engineering and the Agent Harness](11-context-engineering-and-harness.md) | Five window-budget principles, Skills / Hooks / MCP, three-level evaluation and the iteration loop |
 | 12 | [Documents Written for Agents](12-docs-for-agents.md) | The reader is a model; what a rules file holds and omits, three layers; a skill's description vs body; trigger tests |
 | 13 | [Scale and Architecture: Scaling Laws, Data, and MoE](13-scaling-and-moe.md) | Power laws, Chinchilla and overtraining, distillation, the Mixtral MoE source and load balancing, inference-time compute |
+| 14 | [Multimodal and Diffusion](14-multimodal-and-diffusion.md) | ViT patches, CLIP contrastive learning, LLaVA inserting images into the sequence, diffusion noising and denoising, cross-attention and guidance, latent space |
 
 ## The main line in one picture
 
@@ -59,7 +60,7 @@ Every figure in `images/` is provided as both `.svg` (vector) and `.png` (bitmap
 
 ## Planned
 
-- 14 · Multimodal and diffusion models
+- Undecided: video and audio, unified multimodal generation, agent benchmarks. Open an issue if there is something you want covered.
 
 ## License
 
