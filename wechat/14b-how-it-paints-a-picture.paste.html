@@ -1,0 +1,70 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 怎么画出一张图 · 粘贴到公众号</title></head>
+<body style="margin:0;background:#eef0f4;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;">
+<div style="max-width:720px;margin:0 auto;padding:24px 16px 60px;">
+
+  <div style="background:#fff;border:1px solid #d6d9e0;border-radius:10px;padding:20px 22px;margin-bottom:20px;">
+    <div style="font-size:12px;letter-spacing:.1em;color:#8a9099;margin-bottom:12px;">粘贴到公众号编辑器</div>
+    <div style="font-size:14px;line-height:1.9;color:#3f3f46;">
+      <b>1.</b> 标题栏填：<span id="t" style="background:#f6f7f9;padding:2px 7px;border-radius:4px;">AI 怎么画出一张图</span>
+      <button onclick="cp(document.getElementById('t'))" style="margin-left:6px;font-size:12px;padding:3px 9px;cursor:pointer;border:1px solid #b6bcc6;background:#fff;border-radius:5px;">复制标题</button><br>
+      <b>2.</b> 点下面的按钮复制正文，到编辑器里 Ctrl/Cmd+V<br>
+      <b>3.</b> 正文里的虚线框是图片位，删掉框、用编辑器的"图片"按钮上传对应 PNG<br>
+      <b>4.</b> 微信会重写图片地址，所以图必须在编辑器里传，不能靠外链
+    </div>
+    <button onclick="cp(document.getElementById('a'))" style="margin-top:16px;font-size:14px;font-weight:600;padding:9px 18px;cursor:pointer;border:0;background:#be123c;color:#fff;border-radius:6px;">复制正文</button>
+    <span id="ok" style="margin-left:10px;font-size:13px;color:#15803d;"></span>
+  </div>
+
+  <div style="background:#fff;border:1px solid #d6d9e0;border-radius:10px;padding:28px 26px;">
+    <div id="a">
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">你打一行字"雪山下的木屋，黄昏"，几秒钟后一张图出来了。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">第 4 课讲过，聊天模型是一个词一个词往外吐。画图能不能也一个像素一个像素吐？一张普通的图有几十万个像素，一个一个吐太慢；而且像素之间没有"从左到右"的顺序。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">所以画图用的是另一套办法，叫<strong style="font-weight:700;color:#1b1f27;">扩散</strong>。它的思路听起来像反着来的：<strong style="font-weight:700;color:#1b1f27;">先学怎么把一张图毁掉，再学怎么把它救回来。</strong></p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">先毁：往图上撒噪点</h2>
+<section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>wx17_noise.png</b><br>毁图是固定公式，救图是练出来的</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">拿一张真实的图，往上撒一点随机噪点。再撒一点。撒一千次，图彻底看不出来了，变成一片雪花。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">这一步不用学，是固定的公式。撒到第几步是什么样，一算就知道。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">再救：练一个"去噪的"</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">现在练一个模型，给它看"撒了 500 步噪点的图"，让它猜：<strong style="font-weight:700;color:#1b1f27;">刚才撒进去的噪点是什么样的？</strong>猜对了，减掉，图就干净一点。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">这跟第 6 课的训练一模一样：猜，对答案，猜错了改数字，改几亿次。只是那时猜的是下一个词，现在猜的是噪点。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">练好以后画图就是：从一片纯雪花开始，让它猜噪点，减掉一部分，再猜，再减，走几十步，<strong style="font-weight:700;color:#1b1f27;">雪花里慢慢长出一张图。</strong>每一步减多少有讲究，早期要走一千步，现在走二十步就够，所以从几分钟变成了几秒。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">文字怎么指挥画面</h2>
+<section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>wx17_guide.png</b><br>描述里的每个词，图上每一块都去看一眼</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">上面那个模型没有文字也能画，只是画出来的是"训练时见过的随便一张"。要按你的描述画，把文字塞进去。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">你那行字先变成一串数字，用的正是上一课那个"图和话住同一个空间"的模型。然后在去噪的每一步里，<strong style="font-weight:700;color:#1b1f27;">图上的每一块都去"看"描述里的每一个词</strong>，决定这里该长出什么。这就是第 3 课的"环顾四周"，只是这次是图的方块看文字的词。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">还有一个几乎所有画图工具都在用的招。训练时故意有时候不给描述，让它同时学会"有描述怎么画"和"没描述怎么画"。画的时候两种都算一遍，取差值，<strong style="font-weight:700;color:#1b1f27;">把"因为描述而产生的那部分"放大七倍</strong>。图更贴描述、更锐利，也更容易过饱和。你在画图工具里调的那个"提示词相关性"，就是这个倍数。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">在小图上画，最后再放大</h2>
+<section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>wx17_latent.png</b><br>先压小，画完再放大</section>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">直接在几十万个像素上走几十步，太贵。做法是先练一个压缩器，把图压小 8 倍：512 像素见方的图，变成 64 见方的"草图"。撒噪点、去噪点全在这张草图上做，最后一步再把草图放大回像素。算的量少了几十倍，这是它能在普通显卡上跑的原因。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">代价是压缩有损：小字、细密的纹理、手指，这些细节容易糊。早期 AI 画不好手，一部分就是这里来的。</p>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">看图和画图，为什么是两套</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">上一课看图，是"切块的编码器加聊天模型"；这一课画图，是"扩散"。因为两件事的产出不一样：看图的产出是文字，交给已经很会写字的聊天模型最省事；画图的产出是像素，逐个吐太慢，像素也没有天然顺序，扩散并行去噪更合适。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">这两年有人在试把两套合成一个模型。还没定论。</p>
+<section style="margin:28px 0;padding:20px 20px 6px;background:#fff5f7;border:1px dashed #be123c;border-radius:8px;">
+<p style="margin:0 0 12px;font-size:16px;font-weight:700;color:#be123c;">自己试一下（2 分钟）</p>
+<ul style="margin:0 0 14px;padding-left:22px;"><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;">找一个画图工具，同一句描述，把"提示词相关性"或"引导强度"调到 2 和 15 各画一次。低的自由散漫，高的贴描述但颜色发腻。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;">让它画一张带文字的招牌，看字对不对。多半不对，那是压缩器糊掉的细节。</li></ul>
+</section>
+<h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">第二季</h2>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">从第 1 课它数不清三个 r，到第 15 课它为什么大而不贵，是文字的一季。第 16、17 课把图接了进来。后面还会有新课，看这个领域先长出什么。</p>
+<section style="margin:40px 0 0;padding:18px 20px 4px;background:#f6f7f9;border-radius:8px;">
+<p style="margin:0 0 10px;font-size:14px;font-weight:700;color:#6a7280;">关于这个系列</p>
+<p style="margin:0 0 14px;font-size:14px;line-height:1.85;color:#6a7280;">《从零看懂大模型》是一个系列：从文字怎么变成数字，一路讲到模型怎么生成、权重怎么训练出来、大模型怎么被高效服务，再到 RAG、Agent 和记忆系统。每一课都拿顶尖开源项目的真实源码当课本。</p>
+<p style="margin:0 0 14px;font-size:14px;line-height:1.85;color:#6a7280;">这是第 17 课。完整目录见合集「从零看懂大模型」。</p>
+</section>
+    </div>
+  </div>
+</div>
+<script>
+function cp(el){
+  var r=document.createRange(); r.selectNodeContents(el);
+  var s=getSelection(); s.removeAllRanges(); s.addRange(r);
+  var ok=false; try{ ok=document.execCommand('copy'); }catch(e){}
+  s.removeAllRanges();
+  var n=document.getElementById('ok');
+  n.textContent = ok ? '已复制，去编辑器粘贴' : '复制失败，请手动选中';
+  setTimeout(function(){ n.textContent=''; }, 4000);
+}
+</script>
+</body></html>

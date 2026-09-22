@@ -40,7 +40,9 @@
 | `07a-how-it-remembers-you.md` | 第 12 课 | 07（读是检索、写是抽取、记什么由提示词定、增改删留账本） |
 | `08a-how-it-gets-things-done.md` | 第 13 课 | 06 的 Agent 部分 + 08（工具调用四步、规划、多 agent） |
 | `11a-same-model-better-assistant.md` | 第 14 课 | 11（上下文组装、hooks、skills、MCP、评估） |
-| `13a-bigger-is-smarter.md` | 第 15 课 | 13（scaling law、Chinchilla、蒸馏、MoE、推理时算力），主线收尾 |
+| `13a-bigger-is-smarter.md` | 第 15 课 | 13（scaling law、Chinchilla、蒸馏、MoE、推理时算力），第一季收尾 |
+| `14a-how-it-sees-a-picture.md` | 第 16 课 | 14 前三节（ViT 切块、CLIP、LLaVA） |
+| `14b-how-it-paints-a-picture.md` | 第 17 课 | 14 后两节（扩散、文字指挥、潜空间） |
 
 合集二「动手用大模型」的文件以 `h` 开头；编号只认 `PLAN-hands-on.md` 课表里的"发布"列，文件名里的数字只用于溯源：
 
@@ -71,9 +73,9 @@
 
   | 篇 | 课 |
   |---|---|
-  | 认字篇 | 1 分词、2 词向量 |
+  | 认字篇 | 1 分词、2 词向量、16 看图 |
   | 理解篇 | 3 注意力 |
-  | 生成篇 | 4 采样与幻觉、5 上下文窗口 |
+  | 生成篇 | 4 采样与幻觉、5 上下文窗口、17 画图 |
   | 训练原理篇 | 6 预训练、7 对齐、8 推理、9 微调、15 规模 |
   | 成本篇 | 10 推理服务 |
   | 应用篇 | 11 RAG、12 记忆、13 Agent、14 Harness |
