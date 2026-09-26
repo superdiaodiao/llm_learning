@@ -19,7 +19,7 @@
 
   <div style="background:#fff;border:1px solid #d6d9e0;border-radius:10px;padding:28px 26px;">
     <div id="a">
-<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">你把一张照片发给 AI，问"图里那个人拿的是什么"，它答对了。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">你在豆包里拍一道题，它给你讲解；在 ChatGPT 里发一张菜单照片，它帮你翻译；在 Kimi 里传一张截图，问"图里那个人拿的是什么"，它答对了。</p>
 <p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">第 1 课说过，它看到的不是字，是一串数字。那它看到的也不是图？</p>
 <p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">对。<strong style="font-weight:700;color:#1b1f27;">它没有眼睛，它把图也变成了那串数字。</strong></p>
 <h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">图片切成方块，方块当字</h2>
@@ -31,7 +31,7 @@
 <h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">先让图和话住到同一个空间</h2>
 <section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>wx16_clip.png</b><br>一张图配一句话，拉近；不配的，推远</section>
 <p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">光会切方块还不够。第 2 课说"国王"和"王后"的数字挨得近，可"狗"这个词的数字和一张狗的照片的数字，离多远没人管过。它们是两套坐标。</p>
-<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">2021 年的一个方法把两套坐标对齐了。做法很朴素：从网上抓四亿张带说明文字的图，每次拿一批，比如一百张图配一百句话。<strong style="font-weight:700;color:#1b1f27;">配对的那一对，把两串数字拉近；不配对的九十九对，推远。</strong>没有人打标签，图和它旁边的说明文字就是全部的老师。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">2021 年 OpenAI 的 CLIP 把两套坐标对齐了，后来几乎所有看图和画图的模型都踩在它上面。做法很朴素：从网上抓四亿张带说明文字的图，每次拿一批，比如一百张图配一百句话。<strong style="font-weight:700;color:#1b1f27;">配对的那一对，把两串数字拉近；不配对的九十九对，推远。</strong>没有人打标签，图和它旁边的说明文字就是全部的老师。</p>
 <p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">拉了四亿次以后，"一只狗在草地上"这句话的数字，和一张狗在草地上的照片的数字，挨在一起了。于是可以用文字搜图、用图搜图，第 11 课的"找最近的"直接能用。</p>
 <h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">塞进聊天模型：它不知道哪些字来自图</h2>
 <section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>wx16_stuff.png</b><br>576 个&quot;图片字&quot;和文字混在一起，它分不出来</section>
@@ -44,7 +44,7 @@
 <ul style="margin:0 0 14px;padding-left:22px;"><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">数不清图里有几个人。</strong>方块是固定的网格，人可能横跨三个方块，也可能两个人挤在一个方块里。它看到的不是"人"，是方块。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">读不了小字。</strong>一张大图缩到 336 像素再切，小字早就糊成一块。新一点的模型把大图切成几张小图各自编码，token 数翻几倍，能读了，但更贵。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">看着图编。</strong>第 4 课的老问题，图没看清的地方，它照样挑最顺的词接下去。</li></ul>
 <section style="margin:28px 0;padding:20px 20px 6px;background:#fff5f7;border:1px dashed #be123c;border-radius:8px;">
 <p style="margin:0 0 12px;font-size:16px;font-weight:700;color:#be123c;">自己试一下（2 分钟）</p>
-<ul style="margin:0 0 14px;padding-left:22px;"><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;">发一张有很多人的合影，问它"几个人"。多试两张，看它在什么样的图上数错。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;">发一张带小字的截图，先问它字是什么，再把那块裁大发一遍。第二次准得多，那是方块变大了。</li></ul>
+<ul style="margin:0 0 14px;padding-left:22px;"><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;">在豆包、ChatGPT 或 Kimi 里发一张有很多人的合影，问它"几个人"。多试两张，看它在什么样的图上数错。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;">发一张带小字的截图，先问它字是什么，再把那块裁大发一遍。第二次准得多，那是方块变大了。</li></ul>
 </section>
 <h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">它能看图了，能画图吗</h2>
 <p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">看图是把像素变成数字。反过来呢，从一句话，变出一张图？</p>

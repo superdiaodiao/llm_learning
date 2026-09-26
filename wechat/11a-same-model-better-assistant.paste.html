@@ -19,9 +19,9 @@
 
   <div style="background:#fff;border:1px solid #d6d9e0;border-radius:10px;padding:28px 26px;">
     <div id="a">
-<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">同一个模型，你在官网聊一次，在某个编程助手里用一次，再在另一个 App 里用一次，感觉像三个不同的 AI。有的一次做对，有的绕半天还改错文件。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">同一个 Claude 模型，在 Claude Code 里能自己修完一个 bug，在某个套壳 App 里连文件都读不全。同一个 GPT，在 ChatGPT 里和在 Cursor 里，手感完全是两个东西。</p>
 <p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">模型一模一样，差在哪？</p>
-<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">差在<strong style="font-weight:700;color:#1b1f27;">外面那辆车</strong>。模型是发动机，前三课讲的查资料、记笔记、工具循环，都是车上的零件。这辆车整个叫 harness，翻译过来大概是"驾驭装置"。同一个发动机装进不同的车，开起来天差地别。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">差在<strong style="font-weight:700;color:#1b1f27;">外面那辆车</strong>。模型是发动机，前三课讲的查资料、记笔记、工具循环，都是车上的零件。这辆车整个叫 harness，翻译过来大概是"驾驭装置"，这一年 AI 圈说的"harness 工程"就是在造这辆车。同一个发动机装进不同的车，开起来天差地别，所以 Claude Code、Cursor、Codex、Copilot 接的模型差不多，用起来却各有各的脾气。</p>
 <p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">这一课讲车上最要紧的四样。</p>
 <h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">每一轮，窗口里放什么</h2>
 <section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>wx14_window.png</b><br>同一个窗口，装法不同</section>
@@ -36,8 +36,8 @@
 <p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;"><strong style="font-weight:700;color:#1b1f27;">提示是嘱咐，关卡是门禁。</strong>嘱咐可能忘，门禁百分之百执行。你觉得某个助手"稳"，多半是它门禁多。</p>
 <h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">经验做成文件，用到才装</h2>
 <p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">怎么给仓库提问题、怎么发版本、怎么写周报，这类经验以前锁在一段长提示里，或者锁在某个人脑子里。</p>
-<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">现在做成一个文件夹：一句话说明"什么时候用"，正文是一步步怎么做，旁边放模板和脚本。这个文件夹叫 skill。平时只有那一句话进窗口，当索引；任务对上了，才把全文装进来。</p>
-<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">这跟工具的分工是：<strong style="font-weight:700;color:#1b1f27;">工具给手，skill 给手册。</strong>手册里可以写"这一步调哪个工具"。工具这边还有一个统一接口叫 MCP，一个工具做一次，各家助手都能接，装之前看清它要什么权限。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">现在做成一个文件夹：一句话说明"什么时候用"，正文是一步步怎么做，旁边放模板和脚本。这个文件夹叫 Skill，Claude 和 Claude Code 里的"技能"就是它，你在 ChatGPT 里装的 GPTs、豆包里的智能体，思路是一路的。平时只有那一句话进窗口，当索引；任务对上了，才把全文装进来。</p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">这跟工具的分工是：<strong style="font-weight:700;color:#1b1f27;">工具给手，skill 给手册。</strong>手册里可以写"这一步调哪个工具"。工具这边还有一个统一接口叫 MCP，上一课提过：一个工具做一次，ChatGPT、Claude、Cursor 都能接，装之前看清它要什么权限。</p>
 <h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">改了不测，等于在赌</h2>
 <section style="margin:24px 0;padding:26px 16px;background:#f6f7f9;border:1px dashed #b6bcc6;border-radius:8px;text-align:center;font-size:14px;color:#6a7280;line-height:1.7;">在这里插入图片<br><b>wx14_eval.png</b><br>改完跑一遍，比较比打分靠谱</section>
 <p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">换了一段提示，加了一个工具，是变好了还是变坏了？感觉不靠谱，同一个问题它每次答的都不一样。</p>
@@ -46,7 +46,7 @@
 <p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">好的助手背后有一套这样的测试，每改一处跑一遍。没有的，每次更新都是在赌。</p>
 <section style="margin:28px 0;padding:20px 20px 6px;background:#fff5f7;border:1px dashed #be123c;border-radius:8px;">
 <p style="margin:0 0 12px;font-size:16px;font-weight:700;color:#be123c;">自己试一下（2 分钟）</p>
-<ul style="margin:0 0 14px;padding-left:22px;"><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;">同一个问题，同一个模型，在官网和在某个接了它的助手里各问一次。差别就是那辆车。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;">让编程助手删一个文件。它停下来问你，那是关卡；直接删了，这辆车没装刹车。</li></ul>
+<ul style="margin:0 0 14px;padding-left:22px;"><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;">同一个问题，同一个模型，在 ChatGPT 或 Claude 官网问一次，再在某个接了它的第三方 App 里问一次。差别就是那辆车。</li><li style="margin:0 0 8px;font-size:15px;line-height:1.85;color:#3f3f46;">让 Claude Code 或 Cursor 删一个文件。它停下来问你，那是关卡；直接删了，这辆车没装刹车。</li></ul>
 </section>
 <h2 style="margin:36px 0 16px;padding-left:11px;border-left:4px solid #be123c;font-size:19px;font-weight:700;line-height:1.5;color:#1b1f27;">模型越大越聪明吗</h2>
 <p style="margin:0 0 20px;font-size:16px;line-height:1.9;color:#3f3f46;">到这里，从字怎么变成数字，到怎么搭成一个能干活的产品，整条线讲完了。</p>
