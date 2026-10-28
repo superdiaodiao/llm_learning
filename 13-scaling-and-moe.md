@@ -8,7 +8,13 @@
 
 ![损失随参数、数据、算力按幂律下降](images/sc_powerlaw.png)
 
-2020 年 Kaplan 等人在 OpenAI 做了一件朴素的事：把模型从几十万参数一路训到十亿级，把数据从几百万 token 一路加到几百亿，每种配置都记下最终的损失（第 4 篇的 loss，也就是"猜下一个词猜得多差"）。画出来是三条几乎笔直的线（对数坐标下）：
+2020 年 Kaplan 等人在 OpenAI 做了一件朴素的事：把模型从几十万参数一路训到十亿级，把数据从几百万 token 一路加到几百亿，每种配置都记下最终的损失（第 4 篇的 loss，也就是"猜下一个词猜得多差"）。
+
+![loss 是什么：正确的词拿到的概率越低，loss 越大](images/sc_what_is_loss.png)
+
+先把 loss 落到数字上。它是"正确的词拿到的概率"取负对数：模型给正确的词 90% 的概率，loss = −ln 0.9 ≈ 0.1；给 10%，loss ≈ 2.3；给 1%，loss ≈ 4.6。可以把它读成"意外程度"，越意外数越大；这个比方只说明这个数怎么读，不代表模型真有"惊讶"的感觉。
+
+画出来是三条几乎笔直的线（对数坐标下）：
 
 - 损失随**参数量 N** 按幂律下降；
 - 损失随**数据量 D** 按幂律下降；
@@ -16,9 +22,15 @@
 
 跨了七个数量级都是直线。这就是 scaling law：**在这三个量都不成为瓶颈的前提下，投入翻十倍，损失就稳定地降一小截**，可以预测，不靠运气。
 
+![算力每乘以 10，loss 乘以同一个比例](images/sc_scaling_law.png)
+
+"一小截"要说准：不是每次减同样多，而是**每次乘同样的比例**。Kaplan 测得 loss 对算力的指数约 0.05，也就是算力 ×10，loss ×10^−0.05 ≈ 0.89。从一个假想的起点 4.00 算一遍：4.00 → 3.56 → 3.17 → 2.82 → 2.51，每步减掉 0.44、0.39、0.35、0.31，越来越少；横轴纵轴都取对数时，这串点才是一条直线（起点 4.00 是编的，0.89 这个比例是论文量出来的）。
+
 两个直接推论决定了后来几年的走向。第一，**大模型是可以提前算出来的**：训一个小模型，量出这条线的斜率，就能预测一百倍算力下的损失。GPT-4 技术报告里那张"用千分之一算力预测最终 loss"的图，就是这么来的。第二，**三个量必须一起长**。参数堆上去、数据不够，线就弯了（过拟合）；数据够、参数太小，线也弯（欠拟合）。瓶颈总是最短的那块板。
 
 一个常见误解要澄清：scaling law 描述的是**损失**，不是某个具体能力。损失平滑下降，某项任务的准确率却可能长期趴在零附近，然后在某个规模突然起来。这就是"涌现"。2023 年 Schaeffer 等人指出，很多涌现现象是**度量方式**造成的：用"完全答对才算分"的指标看是跳变，换成连续的指标看就是平滑上升。所以更稳妥的表述是：底层能力在平滑增长，只是有些任务的门槛是台阶状的。
+
+用一把 4 位密码锁算一下：每一位猜对的概率是 0.6，整把锁打开的概率是 0.6⁴ ≈ 0.13；每位提到 0.8，开锁概率 0.8⁴ ≈ 0.41；提到 0.9，是 0.9⁴ ≈ 0.66。每一位都在平滑变好，"开锁率"看起来却像突然跳上来。这个比方只说明"全对才算分"会把平滑的进步显示成跳变，不代表所有涌现都是假象。
 
 ## 二、Chinchilla：同样的钱，该买"大"还是买"多"
 
@@ -29,6 +41,8 @@ Kaplan 的原始结论里有一条：算力增加时，应该把大部分增量�
 2022 年 DeepMind 的 Hoffmann 等人重做了这个实验，控制变量更严格（尤其是学习率调度要随训练长度调整，Kaplan 当年没做），得出相反的结论：**算力增加时，参数和数据应该等比例增长**。经验法则是每个参数配大约 20 个 token。按这条法则，当时的大模型全都"参数过大、数据不足"。
 
 他们用同一份算力预算训了一个 700 亿参数、1.4 万亿 token 的模型（Chinchilla），对比自家 2800 亿参数、3000 亿 token 的 Gopher。**参数只有四分之一，数据多了四倍多，几乎所有基准全面超过。**而且推理时便宜四倍，因为第 5 篇讲过，推理成本主要看每个 token 要搬多少参数。
+
+"同一份预算"可以自己验算。训练花费大约是 6 × 参数量 × token 数（次浮点运算）：Gopher 是 6 × 280B × 300B ≈ 5.0×10²³，Chinchilla 是 6 × 70B × 1.4T ≈ 5.9×10²³，同一个量级。钱差不多，一个花在"大"上，一个花在"多"上。
 
 这是"越大越聪明"第一次被公开证伪：不是模型不该大，是**在固定预算下，大得过头就是浪费**。
 
@@ -70,25 +84,44 @@ Llama 3 的 8B 模型按 Chinchilla 法则"只该"喂 1600 亿 token，实际喂
 
 **MoE（Mixture of Experts，混合专家）**把这一个 FFN 换成 E 个并排的 FFN（专家），再加一个很小的**路由器**。每个 token 进来，路由器打分，只把它送给得分最高的 k 个专家，其余专家对这个 token 不算。
 
+![路由器打分、选 2 个专家、加权相加](images/moe_router_topk.png)
+
+用玩具数字走一遍（3 维向量、4 个专家、选 2 个）。token 向量 x = [1, 0, 2]；路由器就是 4 行权重，每行和 x 做一次点积，得到这个专家的分数：
+
+| 专家 | 路由器的这一行 | 点积 | softmax 后 |
+|---|---|---|---|
+| E0 | [0.5, 0, 0] | 1×0.5 + 0×0 + 2×0 = 0.5 | 0.12 |
+| E1 | [0, 1, 1] | 1×0 + 0×1 + 2×1 = 2.0 | 0.54 |
+| E2 | [1, 0, 0.25] | 1×1 + 0×0 + 2×0.25 = 1.5 | 0.33 |
+| E3 | [0, 0, −1] | 1×0 + 0×0 + 2×(−1) = −2.0 | 0.01 |
+
+top-2 选中 E1、E2，两个概率重新归一：0.54 / (0.54 + 0.33) ≈ 0.62，0.33 / 0.87 ≈ 0.38。这个 token 的输出 = 0.62 × E1(x) + 0.38 × E2(x)，E0 和 E3 这次一次乘法都不做。真实的 Mixtral 是 4096 维、8 个专家，步骤一样。
+
 以 Mixtral 8x7B 为例：8 个专家，每个 token 用 2 个。**总参数 467 亿，每个 token 实际参与计算的只有 129 亿。**训练和推理的计算量按 129 亿算，能力接近同期 700 亿的 dense 模型。DeepSeek-V3 把这个比例拉得更开：总参数 6710 亿，每个 token 激活 370 亿。
 
 ### transformers 里的实现
 
-`modeling_mixtral.py` 的 `MixtralSparseMoeBlock` 就是这几步（略去张量整形）：
+`modeling_mixtral.py` 里，MoE 层 `MixtralSparseMoeBlock` 由两个部件组成：路由器 `MixtralTopKRouter`，和装着全部专家权重的 `MixtralExperts`。下面是和上图一一对应的几行（略去形状整理和训练时的抖动噪声）：
 
 ```python
-router_logits = self.gate(hidden_states)                       # (tokens, n_experts)，一个线性层
-routing_weights = F.softmax(router_logits, dim=1, dtype=torch.float)
-routing_weights, selected_experts = torch.topk(routing_weights, self.top_k, dim=-1)
-routing_weights /= routing_weights.sum(dim=-1, keepdim=True)   # 选中的 k 个重新归一
+# MixtralTopKRouter.forward：打分 → softmax → 选 top-k → 重新归一
+router_logits = F.linear(hidden_states, self.weight)              # (tokens, n_experts)，就是上表的点积
+router_probs = torch.nn.functional.softmax(router_logits.float(), dim=-1)
+router_top_value, router_indices = torch.topk(router_probs, self.top_k, dim=-1)
+router_top_value /= router_top_value.sum(dim=-1, keepdim=True)    # 0.54、0.33 → 0.62、0.38
 
-expert_mask = F.one_hot(selected_experts, num_classes=self.num_experts).permute(2, 1, 0)
-for expert_idx in range(self.num_experts):
-    idx, top_x = torch.where(expert_mask[expert_idx])         # 哪些 token 选了这个专家
-    current_state = hidden_states[None, top_x].reshape(-1, hidden_dim)
-    current_hidden_states = self.experts[expert_idx](current_state) * routing_weights[top_x, idx, None]
-    final_hidden_states.index_add_(0, top_x, current_hidden_states)
+# MixtralExperts.forward：每个专家只算选了它的 token
+for expert_idx in expert_hit:                                      # 至少被一个 token 选中的专家
+    top_k_pos, token_idx = torch.where(expert_mask[expert_idx])   # 哪些 token 选了它
+    current_state = hidden_states[token_idx]
+    gate, up = nn.functional.linear(current_state, self.gate_up_proj[expert_idx]).chunk(2, dim=-1)
+    current_hidden_states = self.act_fn(gate) * up                 # 一个 SwiGLU 前馈网络
+    current_hidden_states = nn.functional.linear(current_hidden_states, self.down_proj[expert_idx])
+    current_hidden_states = current_hidden_states * top_k_weights[token_idx, top_k_pos, None]
+    final_hidden_states.index_add_(0, token_idx, current_hidden_states.to(final_hidden_states.dtype))
 ```
+
+8 个专家的权重不是 8 个独立的模块，而是存在两个 3D 张量里：`gate_up_proj` 的形状是 (8, 2×14336, 4096)，`down_proj` 是 (8, 4096, 14336)，`[expert_idx]` 取出其中一个专家。较早版本的 transformers 把专家写成 8 个 `nn.Module` 的列表（`self.experts[expert_idx](...)`），读老代码或老教程时会看到那种写法，逻辑相同。
 
 三件事值得盯住：
 
@@ -101,15 +134,25 @@ for expert_idx in range(self.num_experts):
 放任不管，路由器会迅速学会把所有 token 都送给最初表现稍好的一两个专家（富者愈富），其余专家没有梯度、永远学不会。所以 MoE 训练几乎都带一个**辅助损失**：
 
 ```python
-# load_balancing_loss_func 的核心
-tokens_per_expert = expert_mask.float().mean(dim=0)     # 每个专家实际接到的 token 比例
-router_prob_per_expert = routing_weights.mean(dim=0)    # 路由器给每个专家的平均概率
-loss = torch.sum(tokens_per_expert * router_prob_per_expert) * num_experts
+# load_balancing_loss_func 的核心（逐层累加，最后除以 token 数）
+routing_weights = torch.nn.functional.softmax(layer_gate, dim=-1)        # 路由器给每个专家的概率
+_, selected_experts = torch.topk(routing_weights, top_k, dim=-1)
+tokens_per_expert_sum += torch.bincount(selected_experts.reshape(-1), minlength=num_experts)  # 每个专家被选了几次
+router_prob_sum += routing_weights.sum(dim=0)
+...
+tokens_per_expert = tokens_per_expert_sum / total_rows                   # 每个专家实际接到的 token 比例
+router_prob_per_expert = router_prob_sum / total_rows                    # 路由器给每个专家的平均概率
+overall_loss = torch.sum(tokens_per_expert * router_prob_per_expert.unsqueeze(0))
+return overall_loss * num_experts
 ```
 
-两个向量都均匀时这个乘积最小。它把"分配要均匀"这件事直接写进了损失函数。DeepSeek-V3 换了一种做法：不加损失，给每个专家一个可调偏置，谁接的少就把谁的偏置调高，避免辅助损失干扰主目标。方法在变，要解决的问题没变。
+两个向量都均匀时这个乘积最小。算一下（4 个专家，为了好算设每个 token 只选 1 个）：分配完全均匀时，两个向量都是 [0.25, 0.25, 0.25, 0.25]，loss = 4 × (4 × 0.25 × 0.25) = 1.0；所有 token 都挤到 E1、路由概率是 [0.1, 0.7, 0.1, 0.1] 时，loss = 4 × (1 × 0.7) = 2.8。挤得越狠，罚得越多。它把"分配要均匀"这件事直接写进了损失函数。DeepSeek-V3 换了一种做法：不加损失，给每个专家一个可调偏置，谁接的少就把谁的偏置调高，避免辅助损失干扰主目标。方法在变，要解决的问题没变。
 
 ### MoE 省的是算，不是搬
+
+![显存按总参数付，算力按激活参数付](images/moe_total_vs_active.png)
+
+先说清"省"是**跟谁比**：跟一个同样大、8 个专家每次全算的层比。Mixtral 一个专家是 3 个 4096×14336 的矩阵，一个 token 过一个专家约 3 × 4096 × 14336 ≈ 1.76 亿次乘法；8 个全算是 14.1 亿次，只算 2 个是 3.5 亿次，省到四分之一。跟一个 13B 的稠密模型比，MoE 并不更省算力，它换来的是"花 13B 的算力，用上 47B 的参数"。
 
 第 5 篇的结论在这里要再用一次。MoE 每个 token 只算 k 个专家，但**所有专家的参数都得在显存里**，因为下一个 token 可能选任何一个。Mixtral 8x7B 推理时要装 467 亿参数，占的显存和一个 470 亿 dense 模型一样，只是算得像 130 亿。
 
@@ -148,4 +191,4 @@ Mixtral 8x7B 的总参数是 467 亿而不是 8 × 70 = 560 亿，少的那部�
 
 ---
 
-*相关代码：`src/transformers/models/mixtral/modeling_mixtral.py`（`MixtralSparseMoeBlock`、`load_balancing_loss_func`）。文中的模型参数与训练数据量取自各自的技术报告，具体数字随版本更新，比例关系是要点。*
+*相关代码：`src/transformers/models/mixtral/modeling_mixtral.py`（`MixtralSparseMoeBlock`、`MixtralTopKRouter`、`MixtralExperts`、`load_balancing_loss_func`；对照 2026-10 的 main 分支）。文中的模型参数与训练数据量取自各自的技术报告，具体数字随版本更新，比例关系是要点。*

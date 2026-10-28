@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" width="1800" height="860">
+<rect width="900" height="430" fill="#ffffff"/>
+<text x="450" y="34" font-family="Noto Sans CJK SC" font-size="18" fill="#1f2937" text-anchor="middle" font-weight="600">显存按「总参数」付，算力按「激活参数」付</text>
+<text x="40" y="80" font-family="Noto Sans CJK SC" font-size="15" fill="#1f2937" text-anchor="start" font-weight="600">Mixtral 8x7B（8 专家选 2）</text>
+<rect x="40" y="94" width="620" height="34" rx="4" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+<rect x="40" y="94" width="171.26338329764454" height="34" rx="4" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="674" y="117" font-family="Noto Sans CJK SC" font-size="14" fill="#1f2937" text-anchor="start" font-weight="600">总 46.7B</text>
+<text x="219.26338329764454" y="117" font-family="Noto Sans CJK SC" font-size="13" fill="#2563eb" text-anchor="start" font-weight="600">每个 token 只用 12.9B</text>
+<text x="40" y="152" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="start">显存：46.7B × 2 字节(bf16) ≈ 93 GB，8 个专家全得装进显存</text>
+<text x="40" y="172" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="start">算力：每 token ≈ 2 × 12.9B ≈ 26 GFLOPs，跟 13B 稠密模型一个量级</text>
+<text x="40" y="230" font-family="Noto Sans CJK SC" font-size="15" fill="#1f2937" text-anchor="start" font-weight="600">DeepSeek-V3（256 路由专家选 8 + 1 共享专家）</text>
+<rect x="40" y="244" width="620" height="34" rx="4" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+<rect x="40" y="244" width="34.18777943368107" height="34" rx="4" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="674" y="267" font-family="Noto Sans CJK SC" font-size="14" fill="#1f2937" text-anchor="start" font-weight="600">总 671B</text>
+<text x="82.18777943368107" y="267" font-family="Noto Sans CJK SC" font-size="13" fill="#2563eb" text-anchor="start" font-weight="600">每个 token 只用 37B</text>
+<text x="40" y="302" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="start">显存：671B × 1 字节(FP8) ≈ 671 GB，一台 8×80GB 机器(640GB)都装不下权重</text>
+<text x="40" y="322" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="start">算力：每 token ≈ 2 × 37B ≈ 74 GFLOPs，跟 37B 稠密模型一个量级</text>
+<rect x="40" y="360" width="820" height="50" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="450" y="391" font-family="Noto Sans CJK SC" font-size="13" fill="#dc2626" text-anchor="middle" font-weight="600">MoE 省的是「每个 token 的计算」，不省「要装下的权重」——参数多≠跑得慢，参数少≠装得下</text>
+</svg>

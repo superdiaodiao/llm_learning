@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 440" width="2040" height="880">
+<rect width="1020" height="440" fill="#ffffff"/>
+<text x="30" y="36" font-family="Noto Sans CJK SC" font-size="14" fill="#2563eb" text-anchor="start" font-weight="600">① 算力每乘以 10，loss 乘以同一个比例 ≈0.89</text>
+<line x1="100" y1="72" x2="100" y2="302" stroke="#4b5563" stroke-width="1.6"/>
+<line x1="100" y1="302" x2="450" y2="302" stroke="#4b5563" stroke-width="1.6"/>
+<line x1="130" y1="109.6" x2="196" y2="148.3" stroke="#2563eb" stroke-width="2.4"/>
+<line x1="196" y1="148.3" x2="262" y2="182.8" stroke="#2563eb" stroke-width="2.4"/>
+<line x1="262" y1="182.8" x2="328" y2="213.5" stroke="#2563eb" stroke-width="2.4"/>
+<line x1="328" y1="213.5" x2="394" y2="240.7" stroke="#dc2626" stroke-width="2.4" stroke-dasharray="6 4"/>
+<circle cx="130" cy="109.6" r="5" fill="#2563eb" stroke="#2563eb" stroke-width="1.5"/>
+<text x="130" y="95.6" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="middle" font-weight="600">4.00</text>
+<text x="130" y="322" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="middle">1 份</text>
+<circle cx="196" cy="148.3" r="5" fill="#2563eb" stroke="#2563eb" stroke-width="1.5"/>
+<text x="196" y="134.3" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="middle" font-weight="600">3.56</text>
+<text x="196" y="322" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="middle">10 份</text>
+<circle cx="262" cy="182.8" r="5" fill="#2563eb" stroke="#2563eb" stroke-width="1.5"/>
+<text x="262" y="168.8" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="middle" font-weight="600">3.17</text>
+<text x="262" y="322" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="middle">100 份</text>
+<circle cx="328" cy="213.5" r="5" fill="#2563eb" stroke="#2563eb" stroke-width="1.5"/>
+<text x="328" y="199.5" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="middle" font-weight="600">2.82</text>
+<text x="328" y="322" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="middle">1000 份</text>
+<circle cx="394" cy="240.7" r="5" fill="#dc2626" stroke="#dc2626" stroke-width="1.5"/>
+<text x="394" y="226.7" font-family="Noto Sans CJK SC" font-size="11" fill="#dc2626" text-anchor="middle" font-weight="600">2.51</text>
+<text x="394" y="322" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="middle">1 万份</text>
+<text x="159" y="151.0" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="end">−0.44</text>
+<text x="225" y="187.6" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="end">−0.39</text>
+<text x="291" y="220.1" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="end">−0.35</text>
+<text x="357" y="249.1" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="end">−0.31</text>
+<text x="88" y="88" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="end">loss</text>
+<text x="285.0" y="344" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="middle">算力（每格 = ×10，这就是所谓 log 轴）</text>
+<text x="394" y="264.7" font-family="Noto Sans CJK SC" font-size="10" fill="#dc2626" text-anchor="middle">还没训，但能算出来</text>
+<rect x="60" y="366" width="400" height="58" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="74" y="388" font-family="Noto Sans CJK SC" font-size="11" fill="#1f2937" text-anchor="start">每步 ×0.89，减得越来越少；两轴取 log 是直线，可往右延伸</text>
+<text x="74" y="408" font-family="Noto Sans CJK SC" font-size="11" fill="#1f2937" text-anchor="start" font-weight="600">花几千万之前，先花几十万把线画出来。这是它值钱的原因。</text>
+<line x1="490" y1="60" x2="490" y2="424" stroke="#e5e7eb" stroke-width="1.2"/>
+<text x="520" y="36" font-family="Noto Sans CJK SC" font-size="14" fill="#2563eb" text-anchor="start" font-weight="600">② 同一笔预算：胖而短，还是瘦而长</text>
+<text x="520" y="58" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="start">花费 ≈ 参数量 × 读过的 token 数，预算固定 → 这是一道分配题</text>
+<text x="520" y="96" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="start" font-weight="600">Gopher 280B（2021）</text>
+<text x="520" y="120" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">参数</text>
+<rect x="560" y="108" width="146.82948188053317" height="15" rx="3" fill="#fee2e2" stroke="#dc2626" stroke-width="1.3"/>
+<text x="730" y="120" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">280B</text>
+<text x="520" y="142" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">数据</text>
+<rect x="560" y="130" width="88.46861623998795" height="15" rx="3" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.3"/>
+<text x="730" y="142" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">300B token</text>
+<text x="800" y="120" font-family="Noto Sans CJK SC" font-size="11" fill="#dc2626" text-anchor="start" font-weight="600">1.1 token/参数</text>
+<text x="800" y="142" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">天才只读了一百本书：脑容量空着</text>
+<text x="520" y="184" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="start" font-weight="600">Chinchilla 70B（2022）</text>
+<text x="520" y="208" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">参数</text>
+<rect x="560" y="196" width="110.70588240085542" height="15" rx="3" fill="#dcfce7" stroke="#16a34a" stroke-width="1.3"/>
+<text x="730" y="208" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">70B</text>
+<text x="520" y="230" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">数据</text>
+<rect x="560" y="218" width="112.36171555993708" height="15" rx="3" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.3"/>
+<text x="730" y="230" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">1.4T token</text>
+<text x="800" y="208" font-family="Noto Sans CJK SC" font-size="11" fill="#16a34a" text-anchor="start" font-weight="600">20 token/参数</text>
+<text x="800" y="230" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">同样的算力，把 280B 全面打败</text>
+<text x="520" y="272" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="start" font-weight="600">Llama 3 8B（2024）</text>
+<text x="520" y="296" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">参数</text>
+<rect x="560" y="284" width="54.18539921951661" height="15" rx="3" fill="#dbeafe" stroke="#2563eb" stroke-width="1.3"/>
+<text x="730" y="296" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">8B</text>
+<text x="520" y="318" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">数据</text>
+<rect x="560" y="306" width="149.14611639484576" height="15" rx="3" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.3"/>
+<text x="730" y="318" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">15.0T token</text>
+<text x="800" y="296" font-family="Noto Sans CJK SC" font-size="11" fill="#2563eb" text-anchor="start" font-weight="600">1875 token/参数</text>
+<text x="800" y="318" font-family="Noto Sans CJK SC" font-size="10" fill="#4b5563" text-anchor="start">故意远超最优 —— 为了推理便宜</text>
+<rect x="520" y="352" width="470" height="72" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="534" y="374" font-family="Noto Sans CJK SC" font-size="11" fill="#1f2937" text-anchor="start">Chinchilla 只算了「训练那一次」的钱。</text>
+<text x="534" y="394" font-family="Noto Sans CJK SC" font-size="11" fill="#1f2937" text-anchor="start">但模型训一次、要被调用上万亿次，推理才是大头。</text>
+<text x="534" y="414" font-family="Noto Sans CJK SC" font-size="11" fill="#1f2937" text-anchor="start" font-weight="600">所以现在流行：参数压小，数据喂到撑。</text>
+</svg>

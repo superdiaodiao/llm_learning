@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 330" width="1720" height="660">
+<rect width="860" height="330" fill="#ffffff"/>
+<text x="30" y="38" font-family="Noto Sans CJK SC" font-size="15" fill="#2563eb" text-anchor="start" font-weight="600">loss = 平均每个词「猜得多离谱」</text>
+<rect x="30" y="56" width="300" height="46" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="46" y="85" font-family="Noto Sans CJK SC" font-size="15" fill="#1f2937" text-anchor="start" font-weight="600">今天天气很 ___</text>
+<text x="346" y="85" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="start">正确答案是「好」</text>
+<text x="30" y="152" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="start">模型给「好」90% 的概率</text>
+<rect x="250" y="136" width="200" height="24" rx="4" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.2"/>
+<rect x="250" y="136" width="180.0" height="24" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1.4"/>
+<text x="466" y="154" font-family="Noto Sans CJK SC" font-size="13" fill="#16a34a" text-anchor="start" font-weight="600">loss = 0.1</text>
+<text x="580" y="154" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="start">几乎没猜错</text>
+<text x="30" y="200" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="start">模型给「好」10% 的概率</text>
+<rect x="250" y="184" width="200" height="24" rx="4" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.2"/>
+<rect x="250" y="184" width="20.0" height="24" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.4"/>
+<text x="466" y="202" font-family="Noto Sans CJK SC" font-size="13" fill="#2563eb" text-anchor="start" font-weight="600">loss = 2.3</text>
+<text x="580" y="202" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="start">有点意外</text>
+<text x="30" y="248" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="start">模型给「好」1% 的概率</text>
+<rect x="250" y="232" width="200" height="24" rx="4" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.2"/>
+<rect x="250" y="232" width="4" height="24" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.4"/>
+<text x="466" y="250" font-family="Noto Sans CJK SC" font-size="13" fill="#dc2626" text-anchor="start" font-weight="600">loss = 4.6</text>
+<text x="580" y="250" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="start">非常意外</text>
+<rect x="30" y="282" width="800" height="36" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="46" y="305" font-family="Noto Sans CJK SC" font-size="12" fill="#1f2937" text-anchor="start">训练就是把这个数往下压。它每一步都能算出来、而且是连续的，所以能画成曲线、拿来预测。</text>
+</svg>

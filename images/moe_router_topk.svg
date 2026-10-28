@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" width="1800" height="940">
+<rect width="900" height="470" fill="#ffffff"/>
+<text x="450" y="34" font-family="Noto Sans CJK SC" font-size="18" fill="#1f2937" text-anchor="middle" font-weight="600">一个 token 进 MoE 层：路由器打分 → 挑 2 个专家 → 加权相加</text>
+<rect x="30" y="190" width="120" height="70" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="90" y="220" font-family="Noto Sans CJK SC" font-size="14" fill="#1f2937" text-anchor="middle" font-weight="600">token 向量</text>
+<text x="90" y="242" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="middle">4096 维</text>
+<line x1="150" y1="225" x2="190" y2="225" stroke="#2563eb" stroke-width="1.6"/>
+<polygon points="190,225 182.0,221.0 182.0,229.0" fill="#2563eb"/>
+<rect x="190" y="175" width="130" height="100" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="255" y="205" font-family="Noto Sans CJK SC" font-size="14" fill="#1f2937" text-anchor="middle" font-weight="600">路由器 gate</text>
+<text x="255" y="227" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="middle">Linear 4096→8</text>
+<text x="255" y="247" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="middle">+ softmax</text>
+<line x1="320" y1="225" x2="360" y2="225" stroke="#2563eb" stroke-width="1.6"/>
+<polygon points="360,225 352.0,221.0 352.0,229.0" fill="#2563eb"/>
+<text x="470" y="95" font-family="Noto Sans CJK SC" font-size="13" fill="#4b5563" text-anchor="middle">8 个专家的概率（和=1）</text>
+<text x="372" y="126" font-family="Noto Sans CJK SC" font-size="13" fill="#4b5563" text-anchor="start">E0</text>
+<rect x="400" y="110" width="20.0" height="22" rx="3" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="428.0" y="126" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="start">0.05</text>
+<text x="372" y="158" font-family="Noto Sans CJK SC" font-size="13" fill="#2563eb" text-anchor="start" font-weight="600">E1</text>
+<rect x="400" y="142" width="164.0" height="22" rx="3" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="572.0" y="158" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="start" font-weight="600">0.41</text>
+<text x="372" y="190" font-family="Noto Sans CJK SC" font-size="13" fill="#4b5563" text-anchor="start">E2</text>
+<rect x="400" y="174" width="32.0" height="22" rx="3" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="440.0" y="190" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="start">0.08</text>
+<text x="372" y="222" font-family="Noto Sans CJK SC" font-size="13" fill="#4b5563" text-anchor="start">E3</text>
+<rect x="400" y="206" width="24.0" height="22" rx="3" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="432.0" y="222" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="start">0.06</text>
+<text x="372" y="254" font-family="Noto Sans CJK SC" font-size="13" fill="#2563eb" text-anchor="start" font-weight="600">E4</text>
+<rect x="400" y="238" width="92.0" height="22" rx="3" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="500.0" y="254" font-family="Noto Sans CJK SC" font-size="12" fill="#2563eb" text-anchor="start" font-weight="600">0.23</text>
+<text x="372" y="286" font-family="Noto Sans CJK SC" font-size="13" fill="#4b5563" text-anchor="start">E5</text>
+<rect x="400" y="270" width="28.000000000000004" height="22" rx="3" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="436.0" y="286" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="start">0.07</text>
+<text x="372" y="318" font-family="Noto Sans CJK SC" font-size="13" fill="#4b5563" text-anchor="start">E6</text>
+<rect x="400" y="302" width="16.0" height="22" rx="3" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="424.0" y="318" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="start">0.04</text>
+<text x="372" y="350" font-family="Noto Sans CJK SC" font-size="13" fill="#4b5563" text-anchor="start">E7</text>
+<rect x="400" y="334" width="24.0" height="22" rx="3" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+<text x="432.0" y="350" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="start">0.06</text>
+<text x="470" y="385" font-family="Noto Sans CJK SC" font-size="13" fill="#2563eb" text-anchor="middle" font-weight="600">topk(k=2) → 选中 E1、E4</text>
+<text x="470" y="405" font-family="Noto Sans CJK SC" font-size="12" fill="#4b5563" text-anchor="middle">再归一化：0.41/0.64=0.64，0.23/0.64=0.36</text>
+<text x="470" y="425" font-family="Noto Sans CJK SC" font-size="12" fill="#dc2626" text-anchor="middle">其余 6 个专家这次一次乘法都不做</text>
+<rect x="640" y="110" width="110" height="60" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="695" y="137" font-family="Noto Sans CJK SC" font-size="14" fill="#1f2937" text-anchor="middle" font-weight="600">专家 E1</text>
+<text x="695" y="157" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="middle">一个完整 FFN</text>
+<rect x="640" y="280" width="110" height="60" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="695" y="307" font-family="Noto Sans CJK SC" font-size="14" fill="#1f2937" text-anchor="middle" font-weight="600">专家 E4</text>
+<text x="695" y="327" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="middle">一个完整 FFN</text>
+<line x1="560" y1="121" x2="640" y2="140" stroke="#2563eb" stroke-width="1.6"/>
+<polygon points="640,140 633.1,134.3 631.3,142.0" fill="#2563eb"/>
+<line x1="560" y1="249" x2="640" y2="305" stroke="#2563eb" stroke-width="1.6"/>
+<polygon points="640,305 635.7,297.1 631.2,303.7" fill="#2563eb"/>
+<circle cx="810" cy="225" r="26" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="810" y="231" font-family="Noto Sans CJK SC" font-size="18" fill="#16a34a" text-anchor="middle" font-weight="600">Σ</text>
+<line x1="750" y1="140" x2="790" y2="205" stroke="#16a34a" stroke-width="1.6"/>
+<polygon points="790,205 789.2,196.1 782.4,200.3" fill="#16a34a"/>
+<line x1="750" y1="310" x2="790" y2="245" stroke="#16a34a" stroke-width="1.6"/>
+<polygon points="790,245 782.4,249.7 789.2,253.9" fill="#16a34a"/>
+<text x="772" y="160" font-family="Noto Sans CJK SC" font-size="12" fill="#16a34a" text-anchor="start" font-weight="600">×0.64</text>
+<text x="762" y="276" font-family="Noto Sans CJK SC" font-size="12" fill="#16a34a" text-anchor="end" font-weight="600">×0.36</text>
+<text x="810" y="280" font-family="Noto Sans CJK SC" font-size="13" fill="#1f2937" text-anchor="middle">输出</text>
+<text x="810" y="298" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="middle">4096 维</text>
+<text x="450" y="458" font-family="Noto Sans CJK SC" font-size="11" fill="#4b5563" text-anchor="middle">源码：transformers  modeling_mixtral.py  MixtralTopKRouter.forward / MixtralExperts.forward</text>
+</svg>
